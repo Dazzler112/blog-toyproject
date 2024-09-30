@@ -13,6 +13,13 @@ public class SpringSecurityBasicAuthConfiguration {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		
+		//추후에 사용
+//		http.formLogin()
+//				.loginPage("").defaultSuccessUrl(null);
+//		http.logout()
+//				.logoutUrl("").logoutSuccessUrl(null);
+		
 		return http
 				.authorizeHttpRequests(
 						auth -> 
