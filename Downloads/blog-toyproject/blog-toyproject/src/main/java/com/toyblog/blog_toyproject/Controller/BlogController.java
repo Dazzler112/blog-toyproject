@@ -1,11 +1,12 @@
 package com.toyblog.blog_toyproject.Controller;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.toyblog.blog_toyproject.service.*;
 
-@RestController
+@Controller
 public class BlogController {
 	
 	@Autowired
