@@ -5,7 +5,6 @@ import org.springframework.http.*;
 import org.springframework.security.config.*;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.http.*;
-import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.web.*;
 
 @Configuration
@@ -35,8 +34,8 @@ public class SpringSecurityBasicAuthConfiguration {
 				.build();
 	}
 	
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+//	@Bean
+//	public BCryptPasswordEncoder passwordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	}
 }
