@@ -1,6 +1,6 @@
 <style>
 nav{
-	margin: 10px 40px;
+	margin: 20px 55px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -11,8 +11,9 @@ nav{
 	display: flex;
 	list-style: none;
 }
-.ul-nav-style:first-child li{
-	margin-right: 5px;
+
+.ul-nav-style li a{
+	margin: 0px 10px;
 }
 </style>
 
@@ -23,8 +24,8 @@ nav{
 		</a>
 	</div>
 	<ul class="ul-nav-style">
-		<li><a href="#"></a>Home</li>
-		<li><a href="#"></a>About</li>
-		<li><a href="#"></a>Logout</li>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Logout</a></li>
 	</ul>
 </nav>
