@@ -17,4 +17,10 @@ public class BlogController {
 		
 		return "main/main-view";
 	}
+	
+	@GetMapping("about")
+	public String aboutPage() {
+		
+		return "about/about";
+	}
 }
