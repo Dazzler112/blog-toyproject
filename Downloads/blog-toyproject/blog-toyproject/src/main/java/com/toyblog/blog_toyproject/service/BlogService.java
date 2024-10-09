@@ -27,4 +27,12 @@ public class BlogService {
 		
 		return about;
 	}
+
+	
+	public List<About> viewAboutPost(String member_id, Integer board_id) {
+		
+		List<About> aboutList = blogBoardMapper.findByMembeId(member_id, board_id);	
+		
+		return aboutList;
+	}
 }
