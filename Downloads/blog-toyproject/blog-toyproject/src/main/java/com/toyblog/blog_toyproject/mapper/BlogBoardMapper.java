@@ -28,6 +28,6 @@ public interface BlogBoardMapper {
 				  , #{about_date}
 				 )
 			""")
-	About addAboutBody(About about);
+	int addAboutBody(About about);
 
 }

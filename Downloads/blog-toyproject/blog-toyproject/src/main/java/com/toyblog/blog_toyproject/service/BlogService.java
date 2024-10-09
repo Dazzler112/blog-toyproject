@@ -22,7 +22,7 @@ public class BlogService {
 
 		
 		About about = new About(about_id, title, member_id, writer, body, about_date);
-		about = blogBoardMapper.addAboutBody(about);
+		int addAboutBody = blogBoardMapper.addAboutBody(about);
 		aboutit.add(about);
 		
 		return about;

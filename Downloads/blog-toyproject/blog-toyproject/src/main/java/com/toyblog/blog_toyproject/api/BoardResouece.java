@@ -1,6 +1,9 @@
 package com.toyblog.blog_toyproject.api;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.access.prepost.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.toyblog.blog_toyproject.dto.*;
@@ -12,17 +15,25 @@ public class BoardResouece {
 	@Autowired
 	private BlogService blogService;
 	
-	@PostMapping("/about/{writer}/post")
-	public About writeAboutBody(@PathVariable String writer,
+	@GetMapping("/about")
+	public List<About> retrieveAboutPost() {
+		
+		
+		return blogService.viewAboutPost();
+	}
+	
+	@PostMapping("/about/{member_id}/post")
+	@PreAuthorize("hasAuthority('admin')")
+	public About writeAboutBody(@PathVariable String member_id,
 				@RequestBody About about) {
 		
-		About writeAboutPost = blogService.addAbout(writer, about.getAbout_id(),
-					about.getBody(), about.getMember_id(), about.getTitle(),
+		About writeAboutPost = blogService.addAbout(about.getWriter(), about.getAbout_id(),
+					about.getBody(), member_id, about.getTitle(),
 					about.getAbout_date());
 		
-		about.setBody(writer);
-		about.setMember_id(writer);
-		about.setWriter(writer);
+		about.setBody(member_id);
+		about.setMember_id(member_id);
+		about.setWriter(member_id);
 		
 		return writeAboutPost;
 	}
