@@ -15,11 +15,11 @@ public class BoardResouece {
 	@Autowired
 	private BlogService blogService;
 	
-	@GetMapping("/about")
-	public List<About> retrieveAboutPost() {
+	@GetMapping("/about/{member_id}/post/{board_id}")
+	public List<About> retrieveAboutPost(@PathVariable String member_id,
+										@PathVariable Integer board_id) {
 		
-		
-		return blogService.viewAboutPost();
+		return blogService.viewAboutPost(member_id, board_id);
 	}
 	
 	@PostMapping("/about/{member_id}/post")
