@@ -3,6 +3,7 @@ package com.toyblog.blog_toyproject.api;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,11 +16,42 @@ public class AboutResouece {
 	@Autowired
 	private BlogAboutService blogAboutService;
 	
+	public AboutResouece(BlogAboutService blogAboutService) {
+		this.blogAboutService = blogAboutService;
+	}
+	
+	@GetMapping("/about/{member_id}/post")
+	public ResponseEntity<About> retrieveAboutPosts(@PathVariable String member_id) {
+
+		About about = blogAboutService.findByMemberId(member_id);
+		
+		if(about != null) {
+			return ResponseEntity.ok(about);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+	
+//	@GetMapping("/about/{member_id}/post/{about_id}")
+//	public ResponseEntity<About> retrieveAboutPost(@PathVariable String member_id,
+//									@PathVariable Integer about_id) {
+//		
+//		About about = blogAboutService.viewAboutPost(about_id);
+//		
+//		if(about != null) {
+//			return ResponseEntity.ok(about);
+//		} else {
+//			return ResponseEntity.notFound().build();
+//		}
+//	}
+	
 	@GetMapping("/about/{member_id}/post/{about_id}")
 	public List<About> retrieveAboutPost(@PathVariable String member_id,
-										@PathVariable Integer about_id) {
+									@PathVariable Integer about_id) {
 		
-		return blogAboutService.viewAboutPost(about_id);
+		List<About> list = blogAboutService.viewAboutPost(about_id);
+		
+		return list;
 	}
 	
 	@PostMapping("/about/{member_id}/post")
