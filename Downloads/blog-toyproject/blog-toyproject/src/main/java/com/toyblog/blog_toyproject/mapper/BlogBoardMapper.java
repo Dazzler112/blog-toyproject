@@ -10,6 +10,17 @@ import com.toyblog.blog_toyproject.dto.*;
 @Mapper
 public interface BlogBoardMapper {
 
+	@GetMapping("""
+			SELECT
+			*
+			FROM
+			ABOUT
+			WHERE
+			about_id = #{about_id}
+			""")
+	List<About> findByMemberId(Integer about_id);
+	
+	
 	@Insert("""
 			INSERT INTO 
 			ABOUT
@@ -32,21 +43,5 @@ public interface BlogBoardMapper {
 				 )
 			""")
 	int addAboutBody(About about);
-
-	
-	@GetMapping("""
-			SELECT
-				  about_id
-				, title
-				, member_id
-				, writer
-				, body
-				, about_date
-			FROM
-			ABOUT
-			WHRER board_id = #{board_id}
-		
-			""")
-	List<About> findByMembeId(String member_id, Integer board_id);
 
 }
