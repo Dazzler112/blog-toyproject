@@ -2,7 +2,6 @@ package com.toyblog.blog_toyproject.service;
 
 import java.time.*;
 import java.util.*;
-import java.util.function.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
@@ -14,17 +13,29 @@ import com.toyblog.blog_toyproject.mapper.*;
 public class BlogAboutService {
 
 	@Autowired
-	private BlogBoardMapper blogBoardMapper;
+	private BlogAboutMapper blogAboutMapper;
 	
 	private static List<About> aboutit = new ArrayList<>();
 
+	public BlogAboutService(BlogAboutMapper blogAboutMapper) {
+		this.blogAboutMapper = blogAboutMapper;
+	}
+	
+	public About findByMemberId(String member_id) {
+		
+		return blogAboutMapper.findByMemberId(member_id);
+	}
+	
+//	public About viewAboutPost(Integer about_id) {
+//		
+//		return blogAboutMapper.findByAboutId(about_id);		
+//	}
+	
 	public List<About> viewAboutPost(Integer about_id) {
 		
-		blogBoardMapper.findByMemberId(about_id);	
-		Predicate<? super About> predicate = 
-				about -> about.getAbout_id() == about_id;
-				
-				return aboutit.stream().filter(predicate).toList();
+		List<About> list = blogAboutMapper.findByAboutId(about_id);
+		
+		return list;
 	}
 	
 	
@@ -33,10 +44,10 @@ public class BlogAboutService {
 
 		
 		About about = new About(about_id, title, member_id, writer, body, about_date);
-		blogBoardMapper.addAboutBody(about);
+		blogAboutMapper.addAboutBody(about);
 		aboutit.add(about);
 		
 		return about;
 	}
-	
+
 }
