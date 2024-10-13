@@ -32,19 +32,6 @@ public class AboutResouece {
 		}
 	}
 	
-//	@GetMapping("/about/{member_id}/post/{about_id}")
-//	public ResponseEntity<About> retrieveAboutPost(@PathVariable String member_id,
-//									@PathVariable Integer about_id) {
-//		
-//		About about = blogAboutService.viewAboutPost(about_id);
-//		
-//		if(about != null) {
-//			return ResponseEntity.ok(about);
-//		} else {
-//			return ResponseEntity.notFound().build();
-//		}
-//	}
-	
 	@GetMapping("/about/{member_id}/post/{about_id}")
 	public List<About> retrieveAboutPost(@PathVariable String member_id,
 									@PathVariable Integer about_id) {
