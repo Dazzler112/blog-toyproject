@@ -69,4 +69,13 @@ public class AboutResouece {
 		
 		return writeAboutPost;
 	}
+	
+	@PutMapping("/about/{member_id}/post/{about_id}")
+	public About updateAboutBody(@PathVariable String member_id,
+							@PathVariable Integer about_id, @RequestBody About about) {
+		
+		blogAboutService.updateAbout(about);
+		return about;
+	}
+	
 }

@@ -50,4 +50,11 @@ public class BlogAboutService {
 		return about;
 	}
 
+	public void updateAbout(About about) {
+		
+		blogAboutMapper.deleteAboutBody(about.getAbout_id());
+		
+		aboutit.add(about);
+	}
+
 }
