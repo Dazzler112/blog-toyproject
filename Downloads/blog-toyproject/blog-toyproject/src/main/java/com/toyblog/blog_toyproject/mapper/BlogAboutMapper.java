@@ -3,14 +3,13 @@ package com.toyblog.blog_toyproject.mapper;
 import java.util.*;
 
 import org.apache.ibatis.annotations.*;
-import org.springframework.web.bind.annotation.*;
 
 import com.toyblog.blog_toyproject.dto.*;
 
 @Mapper
 public interface BlogAboutMapper {
 
-	@GetMapping("""
+	@Select("""
 			SELECT
 				  about_id
 				, title
@@ -41,7 +40,7 @@ public interface BlogAboutMapper {
 //			""")
 //	About findByAboutId(Integer about_id);
 	
-	@GetMapping("""
+	@Select("""
 			SELECT
 				  about_id
 				, title
@@ -78,6 +77,16 @@ public interface BlogAboutMapper {
 				 )
 			""")
 	int addAboutBody(About about);
+
+
+	@Delete("""
+			DELETE 
+			FROM 
+			ABOUT
+			WHERE 
+			about_id = #{about_id}
+			""")
+	void deleteAboutBody(Integer about_id);
 
 
 
