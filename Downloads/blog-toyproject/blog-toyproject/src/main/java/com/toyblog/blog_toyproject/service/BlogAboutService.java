@@ -52,7 +52,10 @@ public class BlogAboutService {
 
 	public void updateAbout(About about) {
 		
-		blogAboutMapper.deleteAboutBody(about.getAbout_id());
+		// 업데이트 수정중 삭제로직인데 추후 사이트 만들어보고 확인
+//		blogAboutMapper.deleteAboutBody(about.getAbout_id());
+		
+		blogAboutMapper.insertAboutBody(about.getAbout_id());
 		
 		aboutit.add(about);
 	}

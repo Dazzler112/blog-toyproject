@@ -25,21 +25,6 @@ public interface BlogAboutMapper {
 	About findByMemberId(String member_id);
 	
 	
-//	@GetMapping("""
-//			SELECT
-//				  about_id
-//				, title
-//				, member_id
-//				, writer
-//				, body
-//				, about_date
-//			FROM
-//				ABOUT
-//			WHERE
-//				about_id = #{about_id}
-//			""")
-//	About findByAboutId(Integer about_id);
-	
 	@Select("""
 			SELECT
 				  about_id
@@ -79,14 +64,27 @@ public interface BlogAboutMapper {
 	int addAboutBody(About about);
 
 
-	@Delete("""
-			DELETE 
-			FROM 
+	// 업데이트 수정중 삭제로직인데 추후 사이트 만들어보고 확인
+//	@Delete("""
+//			DELETE 
+//			FROM 
+//			ABOUT
+//			WHERE 
+//			about_id = #{about_id}
+//			""")
+//	void deleteAboutBody(Integer about_id);
+
+
+	@Update("""
+			UPDATE 
 			ABOUT
-			WHERE 
+			SET
+				   body = #{body}
+			     , about_date = #{about_date}
+			WHERE
 			about_id = #{about_id}
 			""")
-	void deleteAboutBody(Integer about_id);
+	void insertAboutBody(Integer about_id);
 
 
 
