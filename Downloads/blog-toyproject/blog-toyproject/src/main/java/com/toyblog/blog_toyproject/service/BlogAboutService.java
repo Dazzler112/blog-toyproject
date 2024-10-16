@@ -31,9 +31,9 @@ public class BlogAboutService {
 //		return blogAboutMapper.findByAboutId(about_id);		
 //	}
 	
-	public List<About> viewAboutPost(Integer about_id) {
+	public About viewAboutPost(Integer about_id) {
 		
-		List<About> list = blogAboutMapper.findByAboutId(about_id);
+		About list = blogAboutMapper.findByAboutId(about_id);
 		
 		return list;
 	}

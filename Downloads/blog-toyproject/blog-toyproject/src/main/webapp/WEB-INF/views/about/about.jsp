@@ -9,7 +9,7 @@ body {
 	display: flex;
 	justify-content: center;
 }
-.about-body{
+#about-body{
 	display: flex;
 	justify-content: center;
 	padding: 0px 200px;
@@ -19,6 +19,8 @@ body {
 <html>
 	<head>
 		<title>Review Pages</title>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
 	<my:navigation></my:navigation>
@@ -26,8 +28,13 @@ body {
 			<H1>About The Blog</H1>
 		</div>
 		<br>
-		<div class="about-body">
-			<span>I am PASSIONATE about food, and can't wait to share that passion with the world.  I've been eating a new restaurant every 2 weeks for about 10 years.  Some of those restaurants were not great.  Some were just ok.  But some... some were the best.  On this blog I'll share my favorite dishes and restaurants throughout Orange County.  Welcome to Brode's Best!</span>
+		<div>
+			<div style="display:none;"><span id="about-id_text"></span></div>
+			<div id="about-body">
+				<!-- <span id="about-body_text"></span> -->
+			</div>
 		</div>
+   		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		
+		<script src="/js/about/aboutget.js"></script>
 	</body>
 </html>
