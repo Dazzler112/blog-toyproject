@@ -1,7 +1,5 @@
 package com.toyblog.blog_toyproject.mapper;
 
-import java.util.*;
-
 import org.apache.ibatis.annotations.*;
 
 import com.toyblog.blog_toyproject.dto.*;
@@ -38,7 +36,7 @@ public interface BlogAboutMapper {
 			WHERE
 				about_id = #{about_id}
 			""")
-	List<About> findByAboutId(Integer about_id);
+	About findByAboutId(Integer about_id);
 	
 	@Insert("""
 			INSERT INTO 

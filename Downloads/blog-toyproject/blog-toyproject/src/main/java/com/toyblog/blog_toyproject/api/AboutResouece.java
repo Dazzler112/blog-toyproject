@@ -1,10 +1,9 @@
 package com.toyblog.blog_toyproject.api;
 
-import java.util.*;
-
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
+import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.toyblog.blog_toyproject.dto.*;
@@ -33,10 +32,12 @@ public class AboutResouece {
 	}
 	
 	@GetMapping("/about/{member_id}/post/{about_id}")
-	public List<About> retrieveAboutPost(@PathVariable String member_id,
-									@PathVariable Integer about_id) {
+	public About retrieveAboutPost(@PathVariable String member_id,
+									@PathVariable Integer about_id, Model model) {
 		
-		List<About> list = blogAboutService.viewAboutPost(about_id);
+		About list = blogAboutService.viewAboutPost(about_id);
+		
+		model.addAttribute("getAbout", list);
 		
 		return list;
 	}
