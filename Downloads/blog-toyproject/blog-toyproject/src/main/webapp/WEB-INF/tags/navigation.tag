@@ -1,7 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <style>
 nav{
-	margin: 20px 0px;
+	margin: 30px 0px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -28,8 +28,8 @@ nav a {
 
 <nav>
 	<div>
-		<a href="#">
-		사진<img alt="#" src="#">
+		<a href="/post">
+			<img src="/img/signature.jpg" style="width: 60px;  height: 60px; ">
 		</a>
 	</div>
 	<ul class="ul-nav-style">
