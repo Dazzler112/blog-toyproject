@@ -32,7 +32,6 @@ body {
 			<div style="display:none;"><span id="about-id_text"></span></div>
 			<div id="about-body">
 				<!-- <span id="about-body_text"></span> -->
-				여기
 			</div>
 		</div>
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		

@@ -34,10 +34,8 @@ public class AboutResouece {
 	@GetMapping("/about/{member_id}/post/{about_id}")
 	public About retrieveAboutPost(@PathVariable String member_id,
 									@PathVariable Integer about_id, Model model) {
-		System.out.println("test");
+//		System.out.println("test");
 		About list = blogAboutService.viewAboutPost(about_id);
-		
-		model.addAttribute("getAbout", list);
 		
 		return list;
 	}
