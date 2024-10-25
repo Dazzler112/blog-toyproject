@@ -38,28 +38,44 @@ public interface BlogAboutMapper {
 			""")
 	About findByAboutId(Integer about_id);
 	
+//	@Insert("""
+//			INSERT INTO 
+//			ABOUT
+//				(
+//				  about_id
+//				, title
+//				, member_id
+//				, writer
+//				, body
+//				, about_date
+//				)
+//			VALUES
+//				(
+//				    #{about_id}
+//				  , #{title}
+//				  , #{member_id}
+//				  , #{writer}
+//				  , #{body}
+//				  , #{about_date}
+//				)
+//			""")
+//	int addAboutBody(About about);
+	
 	@Insert("""
 			INSERT INTO 
 			ABOUT
 				(
-				  about_id
-				, title
-				, member_id
-				, writer
-				, body
-				, about_date
+				  body
 				)
 			VALUES
 				(
-				    #{about_id}
-				  , #{title}
-				  , #{member_id}
-				  , #{writer}
-				  , #{body}
-				  , #{about_date}
-				 )
+				    #{body}
+				)
 			""")
+	@Options(useGeneratedKeys = true, keyProperty = "about_id")	
 	int addAboutBody(About about);
+	
+	
 
 
 	// 업데이트 수정중 삭제로직인데 추후 사이트 만들어보고 확인

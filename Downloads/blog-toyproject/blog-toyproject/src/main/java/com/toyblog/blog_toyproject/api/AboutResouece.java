@@ -45,6 +45,8 @@ public class AboutResouece {
 	public About writeAboutBody(@PathVariable String member_id,
 				@RequestBody About about) {
 		
+		System.out.println("test");
+		
 		About writeAboutPost = blogAboutService.addAbout(about.getWriter(), about.getAbout_id(),
 					about.getBody(), member_id, about.getTitle(),
 					about.getAbout_date());
