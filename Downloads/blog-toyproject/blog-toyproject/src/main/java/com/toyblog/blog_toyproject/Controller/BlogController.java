@@ -23,4 +23,10 @@ public class BlogController {
 		
 		return "about/about";
 	}
+	
+	@GetMapping("about/post")
+	public String aboutBodyInputPage() {
+		
+		return "about/post";
+	}
 }
