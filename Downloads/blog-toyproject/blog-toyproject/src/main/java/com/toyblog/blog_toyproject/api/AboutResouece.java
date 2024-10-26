@@ -1,7 +1,6 @@
 package com.toyblog.blog_toyproject.api;
 
 import org.springframework.beans.factory.annotation.*;
-import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
@@ -18,18 +17,19 @@ public class AboutResouece {
 	public AboutResouece(BlogAboutService blogAboutService) {
 		this.blogAboutService = blogAboutService;
 	}
-	
-	@GetMapping("/about/{member_id}/post")
-	public ResponseEntity<About> retrieveAboutPosts(@PathVariable String member_id) {
 
-		About about = blogAboutService.findByMemberId(member_id);
-		
-		if(about != null) {
-			return ResponseEntity.ok(about);
-		} else {
-			return ResponseEntity.notFound().build();
-		}
-	}
+// 나중에 Board의 Post에 사용		
+//	@GetMapping("/about/{member_id}/post")
+//	public ResponseEntity<About> retrieveAboutPosts(@PathVariable String member_id) {
+//
+//		About about = blogAboutService.findByMemberId(member_id);
+//		
+//		if(about != null) {
+//			return ResponseEntity.ok(about);
+//		} else {
+//			return ResponseEntity.notFound().build();
+//		}
+//	}
 	
 	@GetMapping("/about/{member_id}/post/{about_id}")
 	public About retrieveAboutPost(@PathVariable String member_id,
@@ -47,13 +47,11 @@ public class AboutResouece {
 		
 		System.out.println("test");
 		
-		About writeAboutPost = blogAboutService.addAbout(about.getWriter(), about.getAbout_id(),
-					about.getBody(), member_id, about.getTitle(),
-					about.getAbout_date());
+		About writeAboutPost = blogAboutService.addAbout(about.getAbout_id(),
+					about.getBody(), member_id);
 		
 		about.setBody(member_id);
 		about.setMember_id(member_id);
-		about.setWriter(member_id);
 		
 		return writeAboutPost;
 	}

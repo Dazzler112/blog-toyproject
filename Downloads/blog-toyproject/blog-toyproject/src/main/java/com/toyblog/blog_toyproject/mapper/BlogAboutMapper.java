@@ -7,30 +7,28 @@ import com.toyblog.blog_toyproject.dto.*;
 @Mapper
 public interface BlogAboutMapper {
 
-	@Select("""
-			SELECT
-				  about_id
-				, title
-				, member_id
-				, writer
-				, body
-				, about_date
-			FROM
-				ABOUT
-			WHERE
-				member_id = #{member_id}			
-			""")
-	About findByMemberId(String member_id);
+// 나중에 Board의 Post에 사용		
+//	@Select("""
+//			SELECT
+//				  about_id
+//				, title
+//				, member_id
+//				, writer
+//				, body
+//				, about_date
+//			FROM
+//				ABOUT
+//			WHERE
+//				member_id = #{member_id}			
+//			""")
+//	About findByMemberId(String member_id);
 	
 	
 	@Select("""
 			SELECT
 				  about_id
-				, title
 				, member_id
-				, writer
 				, body
-				, about_date
 			FROM
 				ABOUT
 			WHERE
@@ -65,11 +63,13 @@ public interface BlogAboutMapper {
 			INSERT INTO 
 			ABOUT
 				(
-				  body
+				  member_id
+				, body
 				)
 			VALUES
 				(
-				    #{body}
+				  #{member_id}
+				, #{body}
 				)
 			""")
 	@Options(useGeneratedKeys = true, keyProperty = "about_id")	
