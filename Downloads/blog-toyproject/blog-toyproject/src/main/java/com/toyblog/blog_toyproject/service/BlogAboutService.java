@@ -1,6 +1,5 @@
 package com.toyblog.blog_toyproject.service;
 
-import java.time.*;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
@@ -21,15 +20,12 @@ public class BlogAboutService {
 		this.blogAboutMapper = blogAboutMapper;
 	}
 	
-	public About findByMemberId(String member_id) {
-		
-		return blogAboutMapper.findByMemberId(member_id);
-	}
-	
-//	public About viewAboutPost(Integer about_id) {
+// 나중에 Board의 Post에 사용	
+//	public About findByMemberId(String member_id) {
 //		
-//		return blogAboutMapper.findByAboutId(about_id);		
+//		return blogAboutMapper.findByMemberId(member_id);
 //	}
+	
 	
 	public About viewAboutPost(Integer about_id) {
 		
@@ -39,11 +35,8 @@ public class BlogAboutService {
 	}
 	
 	
-	public About addAbout(String writer, Integer about_id, String body, String member_id, String title,
-			LocalDate about_date) {
-
-		
-		About about = new About(about_id, title, member_id, writer, body, about_date);
+	public About addAbout(Integer about_id, String body, String member_id) {
+		About about = new About(about_id, member_id, body);
 		blogAboutMapper.addAboutBody(about);
 		aboutit.add(about);
 		
