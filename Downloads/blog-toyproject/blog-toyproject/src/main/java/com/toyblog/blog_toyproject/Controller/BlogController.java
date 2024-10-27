@@ -29,4 +29,10 @@ public class BlogController {
 		
 		return "about/post";
 	}
+	
+	@GetMapping("/about/post/-1")
+	public String aboutBodyUpdatePage() {
+		
+		return "about/update";
+	}
 }

@@ -79,28 +79,25 @@ public interface BlogAboutMapper {
 
 
 	// 업데이트 수정중 삭제로직인데 추후 사이트 만들어보고 확인
-//	@Delete("""
-//			DELETE 
-//			FROM 
-//			ABOUT
-//			WHERE 
-//			about_id = #{about_id}
-//			""")
-//	void deleteAboutBody(Integer about_id);
-
+	@Delete("""
+			DELETE 
+			FROM 
+			ABOUT
+			WHERE 
+			about_id = #{about_id}
+			""")
+	void deleteAboutBody(Integer about_id);
 
 	@Update("""
 			UPDATE 
 			ABOUT
 			SET
 				   body = #{body}
-			     , about_date = #{about_date}
 			WHERE
+			member_id = #{member_id}
+			AND
 			about_id = #{about_id}
 			""")
-	void insertAboutBody(Integer about_id);
-
-
-
+	void insertAboutBody(About about);
 
 }

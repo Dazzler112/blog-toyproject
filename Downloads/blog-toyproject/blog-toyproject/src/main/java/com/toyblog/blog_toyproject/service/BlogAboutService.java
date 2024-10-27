@@ -1,6 +1,7 @@
 package com.toyblog.blog_toyproject.service;
 
 import java.util.*;
+import java.util.function.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
@@ -43,13 +44,20 @@ public class BlogAboutService {
 		return about;
 	}
 
+	public void deleteByAboutId(Integer about_id) {
+		// TODO Auto-generated method stub
+		blogAboutMapper.deleteAboutBody(about_id);
+		Predicate<? super About> predicate = about -> about.getAbout_id() == about_id; 
+		aboutit.removeIf(predicate);
+	}
+	
 	public void updateAbout(About about) {
 		
 		// 업데이트 수정중 삭제로직인데 추후 사이트 만들어보고 확인
 //		blogAboutMapper.deleteAboutBody(about.getAbout_id());
-		
-		blogAboutMapper.insertAboutBody(about.getAbout_id());
-		
+//		deleteByAboutId(about.getAbout_id());
+		blogAboutMapper.insertAboutBody(about);
+
 		aboutit.add(about);
 	}
 
