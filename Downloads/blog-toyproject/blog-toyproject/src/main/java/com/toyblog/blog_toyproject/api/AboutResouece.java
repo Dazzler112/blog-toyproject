@@ -1,6 +1,7 @@
 package com.toyblog.blog_toyproject.api;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +46,6 @@ public class AboutResouece {
 	public About writeAboutBody(@PathVariable String member_id,
 				@RequestBody About about) {
 		
-		System.out.println("test");
 		
 		About writeAboutPost = blogAboutService.addAbout(about.getAbout_id(),
 					about.getBody(), member_id);
@@ -56,11 +56,23 @@ public class AboutResouece {
 		return writeAboutPost;
 	}
 	
+	//삭제를 사용하지 않고 삭제 서비스를 수정 서비스에서 호출후 넣는 방식으로
+	@DeleteMapping("/about/{member_id}/post/{about_id}")
+	public ResponseEntity<Void> deleteAboutBody(@PathVariable String member_id,
+									@PathVariable Integer about_id){
+		blogAboutService.deleteByAboutId(about_id);
+		return ResponseEntity.noContent().build();
+	}
+	
 	@PutMapping("/about/{member_id}/post/{about_id}")
 	public About updateAboutBody(@PathVariable String member_id,
 							@PathVariable Integer about_id, @RequestBody About about) {
 		
+		System.out.println("test");
 		blogAboutService.updateAbout(about);
+		about.getAbout_id();
+		about.getMember_id();
+		
 		return about;
 	}
 	
