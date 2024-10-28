@@ -44,6 +44,7 @@ public class BlogAboutService {
 		return about;
 	}
 
+	//해당 로직 무 쓸모 그냥 삭제만 실행되고 update에 넣었을 때 update는 진행이 안됨
 	public void deleteByAboutId(Integer about_id) {
 		// TODO Auto-generated method stub
 		blogAboutMapper.deleteAboutBody(about_id);
@@ -53,9 +54,7 @@ public class BlogAboutService {
 	
 	public void updateAbout(About about) {
 		
-		// 업데이트 수정중 삭제로직인데 추후 사이트 만들어보고 확인
-//		blogAboutMapper.deleteAboutBody(about.getAbout_id());
-//		deleteByAboutId(about.getAbout_id());
+//		deleteByAboutId(about.getAbout_id());   <= 이 로직이 있으니 수정으로 안가고 바로 삭제하고 끝남 (DB가 삭제가 됨)
 		blogAboutMapper.insertAboutBody(about);
 
 		aboutit.add(about);
