@@ -5,10 +5,18 @@ import org.springframework.http.*;
 import org.springframework.security.config.*;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.http.*;
+import org.springframework.security.crypto.bcrypt.*;
+import org.springframework.security.crypto.password.*;
 import org.springframework.security.web.*;
 
 @Configuration
 public class SpringSecurityBasicAuthConfiguration {
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -23,7 +31,7 @@ public class SpringSecurityBasicAuthConfiguration {
 				.authorizeHttpRequests(
 						auth -> 
 							auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-							.anyRequest().authenticated()
+							.anyRequest().permitAll()
 						)
 				.httpBasic(Customizer.withDefaults())
 				.sessionManagement(
@@ -34,8 +42,4 @@ public class SpringSecurityBasicAuthConfiguration {
 				.build();
 	}
 	
-//	@Bean
-//	public BCryptPasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
 }
