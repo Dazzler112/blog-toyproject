@@ -3,10 +3,9 @@ let aboutValue = "all";
 listAbout(aboutValue);
 
 function listAbout() {
-	const memberId = "dummy";
 	const aboutId = 1;
 
-	$.ajax(`/about/${memberId}/post/${aboutId}`, {
+	$.ajax(`/about/post/${aboutId}`, {
 		method: "get",
 		contentType: "application/json",
 		success: function(result) { // 결과 성공 콜백함수
