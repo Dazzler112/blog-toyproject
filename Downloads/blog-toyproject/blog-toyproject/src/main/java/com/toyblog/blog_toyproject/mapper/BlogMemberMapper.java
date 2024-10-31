@@ -8,7 +8,8 @@ import com.toyblog.blog_toyproject.dto.*;
 public interface BlogMemberMapper {
 
 	@Insert("""
-			INSERT INTO
+			INSERT 
+			INTO
 			MEMBERS
 				   (
 				      member_id
@@ -29,7 +30,19 @@ public interface BlogMemberMapper {
 				   )
 			""")
 	Integer SignUp(Members member);
-
+	
+	@Insert("""
+			INSERT 
+			INTO
+			MEMBERAUTHORITY
+			VALUES
+				  (
+				    #{member_id}
+				  , #{authority}  
+				  )
+			""")
+	void insertAuthority(Members member);
+	
 	@Select("""
 			SELECT
 			*
@@ -43,5 +56,17 @@ public interface BlogMemberMapper {
 			""")
 //	@ResultMap("memberResult")
 	Members slectById(String member_id);
+
+	@Select("""
+			SELECT 
+			*
+			FROM
+			MEMBERS
+			WHERE 
+			member_id = #{member_id}
+			""")
+//	@ResultMap("memberResult")
+	Members selectByMemberId(String member_id);
+
 
 }

@@ -1,5 +1,7 @@
 package com.toyblog.blog_toyproject.service;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.stereotype.*;
@@ -27,8 +29,17 @@ public class BlogMemberService {
 		member.setPassword(encryptedPassword);
 		
 		int cnt = blogMemberMapper.SignUp(member);
+		blogMemberMapper.insertAuthority(member);
 		System.out.println("문제가 발생");
 		return cnt ==1;
+	}
+
+	public Map<String, Object> checkId(String member_id) {
+
+		Members member = blogMemberMapper.selectByMemberId(member_id);
+		
+		boolean available = (member == null);
+		return Map.of("available", member == null);
 	}
 	
 }

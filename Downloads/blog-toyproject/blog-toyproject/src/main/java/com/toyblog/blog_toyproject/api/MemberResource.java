@@ -1,5 +1,7 @@
 package com.toyblog.blog_toyproject.api;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,7 @@ public class MemberResource {
 		this.blogMemberService = blogMemberService;
 	}
 	
+	//회원 가입
 	@PostMapping("/members/signup")
 	public void signUpMember(@RequestBody Members member) {
 		
@@ -23,5 +26,12 @@ public class MemberResource {
 		
 		System.out.println("testController");
 		
+	}
+	
+	//id validation
+	@GetMapping("/checkid/{member_id}")
+	public Map<String, Object> CheckMemberId(@PathVariable String member_id) {
+		
+		return blogMemberService.checkId(member_id);
 	}
 }
