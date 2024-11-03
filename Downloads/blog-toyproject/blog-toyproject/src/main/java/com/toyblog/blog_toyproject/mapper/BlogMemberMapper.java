@@ -42,30 +42,19 @@ public interface BlogMemberMapper {
 				  )
 			""")
 	void insertAuthority(Members member);
-	
-	@Select("""
-			SELECT
-			*
-			FROM
-			MEMBERS m
-			LEFT JOIN 
-			MEMBERAUTHORITY ma
-			ON
-			m.member_id = ma.member_id
-			WHERE member_id = #{member_id}
-			""")
-//	@ResultMap("memberResult")
-	Members slectById(String member_id);
 
 	@Select("""
 			SELECT 
 			*
 			FROM
-			MEMBERS
+			MEMBERS m
+			LEFT JOIN
+			MEMBERAUTHORITY ma
+			ON m.member_id = ma.member_id
 			WHERE 
 			member_id = #{member_id}
 			""")
-//	@ResultMap("memberResult")
+//	@ResultMap("memberMap")
 	Members selectByMemberId(String member_id);
 
 
