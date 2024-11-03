@@ -31,8 +31,9 @@ public class SpringSecurityBasicAuthConfiguration {
 				.authorizeHttpRequests(
 						auth -> 
 							auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//							.anyRequest().authenticated()						
 							.anyRequest().permitAll()
-						)
+							)
 				.httpBasic(Customizer.withDefaults())
 				.sessionManagement(
 						session -> session.sessionCreationPolicy

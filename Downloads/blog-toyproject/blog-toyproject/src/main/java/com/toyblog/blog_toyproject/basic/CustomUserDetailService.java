@@ -17,12 +17,12 @@ public class CustomUserDetailService implements UserDetailsService{
 	private BlogMemberMapper blogMemberMapper;
 	
 	@Override
-	public UserDetails loadUserByUsername(String member_id) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Members member = blogMemberMapper.slectById(member_id);
+		Members member = blogMemberMapper.selectByMemberId(username);
 		
 		if (member == null) {
-			throw new UsernameNotFoundException(member_id + "회원이 없습니다.");
+			throw new UsernameNotFoundException(username + "회원이 없습니다.");
 		}
 		
 		UserDetails user = User.builder()

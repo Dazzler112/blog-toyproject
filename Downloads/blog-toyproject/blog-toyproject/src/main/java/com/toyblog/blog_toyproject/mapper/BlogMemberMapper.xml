@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.toyblog.blog_toyproject.mapper.BlogMemberMapper">
+
+	<resultMap type="com.toyblog.blog_toyproject.dto.Members" id="memberMap">
+		<id column="member_id" property="member_id"></id>
+		<result column="password" property="password"></result>
+		<result column="name" property="name"></result>
+		<result column="phone_number" property="phone_number"></result>
+		<result column="email" property="email"></result>
+		<result column="member_type" property="member_type"></result>
+		<collection property="authority" ofType="string">
+			<result column="authority"></result>
+		</collection>
+	</resultMap>
+	
+</mapper>        
