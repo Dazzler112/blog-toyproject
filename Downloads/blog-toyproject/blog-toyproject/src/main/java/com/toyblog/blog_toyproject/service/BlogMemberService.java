@@ -3,6 +3,7 @@ package com.toyblog.blog_toyproject.service;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.core.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.stereotype.*;
 
@@ -38,8 +39,21 @@ public class BlogMemberService {
 
 		Members member = blogMemberMapper.selectByMemberId(member_id);
 		
-		boolean available = (member == null);
+//		boolean available = (member == null);
 		return Map.of("available", member == null);
+	}
+
+	public Map<String, Object> CheckPhoneNum(String phone_number, Authentication authentication) {
+		
+		Members member = blogMemberMapper.selectByPhoneNumber(phone_number);
+		
+		if(authentication != null) {
+			Members ordinaryMember = blogMemberMapper.selectByMemberId(authentication.getName());
+			
+			return Map.of("available", member == null || ordinaryMember.getPhone_number().equals(phone_number));
+		} else {
+			return Map.of("available", member == null);
+		}
 	}
 	
 }

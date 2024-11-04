@@ -50,12 +50,22 @@ public interface BlogMemberMapper {
 			MEMBERS m
 			LEFT JOIN
 			MEMBERAUTHORITY ma
-			ON m.member_id = ma.member_id
+			ON 
+			m.member_id = ma.member_id
 			WHERE 
 			m.member_id = #{member_id}
 			""")
-//	@ResultMap("memberMap")
+	@ResultMap("memberMap")
 	Members selectByMemberId(String member_id);
 
+	@Select("""
+			SELECT
+			*
+			FROM
+			MEMBERS
+			WHERE 
+			phone_number = #{phone_number}
+			""")
+	Members selectByPhoneNumber(String phone_number);
 
 }
