@@ -3,6 +3,7 @@ package com.toyblog.blog_toyproject.api;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.core.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.toyblog.blog_toyproject.dto.*;
@@ -33,5 +34,13 @@ public class MemberResource {
 	public Map<String, Object> CheckMemberId(@PathVariable String member_id) {
 		
 		return blogMemberService.checkId(member_id);
+	}
+	
+	//phone validation
+	@GetMapping("/checkphone/{phone_number}")
+	public Map<String, Object> CheckPhoneNumber(@PathVariable String phone_number
+										, Authentication authentication) {
+		
+		return blogMemberService.CheckPhoneNum(phone_number, authentication);
 	}
 }
