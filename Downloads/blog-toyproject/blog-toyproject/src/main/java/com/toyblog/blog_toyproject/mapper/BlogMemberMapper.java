@@ -52,7 +52,7 @@ public interface BlogMemberMapper {
 			MEMBERAUTHORITY ma
 			ON m.member_id = ma.member_id
 			WHERE 
-			member_id = #{member_id}
+			m.member_id = #{member_id}
 			""")
 //	@ResultMap("memberMap")
 	Members selectByMemberId(String member_id);
