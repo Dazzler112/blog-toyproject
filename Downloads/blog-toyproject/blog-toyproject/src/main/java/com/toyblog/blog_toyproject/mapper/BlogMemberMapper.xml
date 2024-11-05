@@ -11,9 +11,14 @@
 		<result column="phone_number" property="phone_number"></result>
 		<result column="email" property="email"></result>
 		<result column="member_type" property="member_type"></result>
-		<collection property="authority" ofType="string">
+		<collection property="authority" ofType="string" jdbcType="VARCHAR">
 			<result column="authority"></result>
 		</collection>
 	</resultMap>
 	
-</mapper>        
+	<select id="getAuth">
+		SELECT authority FROM MEMBERS m LEFT JOIN MEMBERAUTHORITY ma 
+		ON m.member_id = ma.member_id WHERE m.member_id = #{member_id}
+	</select>
+
+</mapper>     

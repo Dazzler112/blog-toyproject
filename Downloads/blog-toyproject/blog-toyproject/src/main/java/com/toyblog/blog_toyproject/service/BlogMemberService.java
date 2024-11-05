@@ -54,6 +54,7 @@ public class BlogMemberService {
 		} else {
 			return Map.of("available", member == null);
 		}
+		
 	}
 	
 }
