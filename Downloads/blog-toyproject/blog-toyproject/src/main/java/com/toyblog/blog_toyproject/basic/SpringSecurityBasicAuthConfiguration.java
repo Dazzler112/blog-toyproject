@@ -1,5 +1,9 @@
 package com.toyblog.blog_toyproject.basic;
 
+import java.util.*;
+
+import org.apache.ibatis.type.*;
+import org.mybatis.spring.annotation.*;
 import org.springframework.context.annotation.*;
 import org.springframework.http.*;
 import org.springframework.security.config.*;
@@ -10,7 +14,13 @@ import org.springframework.security.crypto.password.*;
 import org.springframework.security.web.*;
 
 @Configuration
+@MapperScan("com.toyblog.blog_toyproject.mapper")
 public class SpringSecurityBasicAuthConfiguration {
+	
+    @Bean
+    public TypeHandler<List<String>> stringListTypeHandler() {
+        return new StringListTypeHandler();
+    }
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
