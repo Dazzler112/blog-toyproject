@@ -16,9 +16,4 @@
 		</collection>
 	</resultMap>
 	
-	<select id="getAuth">
-		SELECT authority FROM MEMBERS m LEFT JOIN MEMBERAUTHORITY ma 
-		ON m.member_id = ma.member_id WHERE m.member_id = #{member_id}
-	</select>
-
 </mapper>     
