@@ -1,12 +1,9 @@
 package com.toyblog.blog_toyproject.basic;
 
-import java.util.*;
-
-import org.apache.ibatis.type.*;
-import org.mybatis.spring.annotation.*;
 import org.springframework.context.annotation.*;
 import org.springframework.http.*;
 import org.springframework.security.config.*;
+import org.springframework.security.config.annotation.method.configuration.*;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.http.*;
 import org.springframework.security.crypto.bcrypt.*;
@@ -14,13 +11,15 @@ import org.springframework.security.crypto.password.*;
 import org.springframework.security.web.*;
 
 @Configuration
-@MapperScan("com.toyblog.blog_toyproject.mapper")
+@EnableMethodSecurity
+//@MapperScan("com.toyblog.blog_toyproject.mapper")
 public class SpringSecurityBasicAuthConfiguration {
 	
-    @Bean
-    public TypeHandler<List<String>> stringListTypeHandler() {
-        return new StringListTypeHandler();
-    }
+	//TypeHandler 사용해야 할 시 필요 authority를 List로 넣어줘야할 이유를 찾지 못했기 때문에 주석처리
+	/*
+	 * @Bean public TypeHandler<List<String>> stringListTypeHandler() { return new
+	 * StringListTypeHandler(); }
+	 */
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {

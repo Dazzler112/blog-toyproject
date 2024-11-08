@@ -11,8 +11,8 @@
 		<result column="phone_number" property="phone_number"></result>
 		<result column="email" property="email"></result>
 		<result column="member_type" property="member_type"></result>
-		<collection property="authority" ofType="string" jdbcType="VARCHAR">
-			<result column="authority"></result>
+		<collection property="authority" ofType="string">
+			<result column="authority" property="authority"></result>
 		</collection>
 	</resultMap>
 	
