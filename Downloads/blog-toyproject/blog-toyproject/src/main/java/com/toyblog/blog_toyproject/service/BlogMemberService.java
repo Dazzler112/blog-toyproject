@@ -49,17 +49,10 @@ public class BlogMemberService {
 		
 		if (authentication != null) {
 		    Members ordinaryMember = blogMemberMapper.selectByMemberId(authentication.getName());
-
-		    if (ordinaryMember != null) {
-		        return Map.of("available", member == null || ordinaryMember.getPhone_number().equals(phone_number));
-		    } else {
-		        // authentication이 있지만 DB에 없는 경우 처리
-		        return Map.of("available", false);
-		    }
-		} else {
-		    return Map.of("available", member == null);
+		    return Map.of("available", ordinaryMember == null || ordinaryMember.getPhone_number().equals(phone_number));
+		}else {
+		        return Map.of("available", member == null);
 		}
-		
 	}
 	
 }

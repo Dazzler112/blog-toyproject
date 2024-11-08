@@ -25,17 +25,18 @@ public class CustomUserDetailService implements UserDetailsService{
 			throw new UsernameNotFoundException(username + "회원이 없습니다.");
 		}
 		
-		List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
-		
-		for (String auth : member.getAuthority()) {
-			authorityList.add(new SimpleGrantedAuthority(auth));
-		}
+		//해당 로직은 authority를 List로 넣을시 필요
+//		List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
+//		
+//		for (String auth : member.getAuthority()) {
+//			authorityList.add(new SimpleGrantedAuthority(auth));
+//		}
 		
 		UserDetails user = User.builder()
 					.username(member.getMember_id())
 					.password(member.getPassword())
-					.authorities(authorityList)
-//					.authorities(Collections.singleton(new SimpleGrantedAuthority(member.getAuthority())))
+//					.authorities(authorityList) //해당 로직 authority를 List로 넣을시 필요
+					.authorities(Collections.singleton(new SimpleGrantedAuthority(member.getAuthority())))
 					.build();
 		
 		return user;

@@ -66,6 +66,7 @@ public interface BlogMemberMapper {
 			WHERE 
 			phone_number = #{phone_number}
 			""")
+//	@ResultMap("simpleMemberMap")
 	Members selectByPhoneNumber(String phone_number);
 
 }
