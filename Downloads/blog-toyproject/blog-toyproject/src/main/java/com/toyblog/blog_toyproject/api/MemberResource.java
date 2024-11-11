@@ -21,7 +21,7 @@ public class MemberResource {
 	
 	//회원 가입
 	@PostMapping("/members/signup")
-	public void signUpMember(@RequestBody Members member) {
+	public void SignUpMember(@RequestBody Members member) {
 		
 		boolean signUpMember = blogMemberService.addMembers(member);
 		
@@ -30,17 +30,18 @@ public class MemberResource {
 	}
 	
 	//id validation
-	@GetMapping("/checkid/{member_id}")
+	@GetMapping("/members/checkid/{member_id}")
 	public Map<String, Object> CheckMemberId(@PathVariable String member_id) {
 		
 		return blogMemberService.checkId(member_id);
 	}
 	
 	//phone validation
-	@GetMapping("/checkphone/{phone_number}")
+	@GetMapping("/members/checkphone/{phone_number}")
 	public Map<String, Object> CheckPhoneNumber(@PathVariable String phone_number
 										, Authentication authentication) {
 		
 		return blogMemberService.CheckPhoneNum(phone_number, authentication);
 	}
+	
 }
