@@ -54,5 +54,16 @@ public class BlogMemberService {
 		        return Map.of("available", member == null);
 		}
 	}
+
+	public Map<String, Object> checkMailId(String email, Authentication authentication) {
+		Members member = blogMemberMapper.selectByPhoneNumber(email);
+
+		if (authentication != null) {
+		    Members ordinaryMember = blogMemberMapper.selectByMemberId(authentication.getName());
+		    return Map.of("available", ordinaryMember == null || ordinaryMember.getEmail().equals(email));
+		}else {
+		        return Map.of("available", member == null);
+		}
+	}
 	
 }

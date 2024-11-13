@@ -17,6 +17,10 @@ public class MailSendService {
 	
 	public void SendMail(String email, HttpSession http) {
 		
+//	    if (email == null || email.isEmpty()) {
+//	        throw new IllegalArgumentException("Email address cannot be null or empty.");
+//	    }
+		
 		ArrayList<String> toUserList = new ArrayList<>();
 		
 		toUserList.add(email);
