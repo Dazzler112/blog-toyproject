@@ -69,4 +69,14 @@ public interface BlogMemberMapper {
 //	@ResultMap("simpleMemberMap")
 	Members selectByPhoneNumber(String phone_number);
 
+	@Select("""
+			SELECT
+			*
+			FROM
+			MEMBERS
+			WHERE
+			email = #{email}
+			""")
+	Members selectByCheckEmailId(String email);
+
 }
