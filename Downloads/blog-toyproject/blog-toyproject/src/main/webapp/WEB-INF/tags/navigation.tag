@@ -35,6 +35,6 @@ nav a {
 	<ul class="ul-nav-style">
 		<li><a href="/post">Home</a></li>
 		<li><a href="/about">About</a></li>
-		<li><a href="#">Login/Logout</a></li>
+		<li><a href="/0">Login/Logout</a></li>
 	</ul>
 </nav>

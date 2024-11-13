@@ -32,8 +32,8 @@ public class MailSendResource {
 		return Map.of("authentication", ok);
 	}
 	
-	@PostMapping("/searchmail")
-	public Map<String, Object> checkMailId(@RequestBody String email, Authentication authentication) {
+	@GetMapping("/searchmail/{email}")
+	public Map<String, Object> checkMailId(@PathVariable String email, Authentication authentication) {
 		
 		return blogMemberService.checkMailId(email, authentication);
 	}

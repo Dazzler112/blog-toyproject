@@ -56,7 +56,7 @@ public class BlogMemberService {
 	}
 
 	public Map<String, Object> checkMailId(String email, Authentication authentication) {
-		Members member = blogMemberMapper.selectByPhoneNumber(email);
+		Members member = blogMemberMapper.selectByCheckEmailId(email);
 
 		if (authentication != null) {
 		    Members ordinaryMember = blogMemberMapper.selectByMemberId(authentication.getName());
