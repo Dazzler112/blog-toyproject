@@ -10,4 +10,9 @@ public class MemberController {
 	public String SignUpPage() {
 		return "members/signup";
 	}
+	
+	@GetMapping("/1")
+	public String LogInPage() {
+		return "members/login";
+	}
 }

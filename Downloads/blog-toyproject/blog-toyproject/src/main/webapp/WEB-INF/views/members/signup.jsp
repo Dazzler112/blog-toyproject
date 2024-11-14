@@ -25,8 +25,8 @@ body {
 	<my:navigation></my:navigation>
 		<div style="display: flex; justify-content: center;">
       		<div>		
-				<input type="text" name="authority" value="user" style="display: none;">
-				<input type="text" name="member_type" value="user" style="display: none;">
+				<input id="authority-space" type="text" name="authority" value="user" style="display: none;">
+				<input id="membertype-space" type="text" name="member_type" value="user" style="display: none;">
 				<!--아이디-->
 				 <div class="sign-column">
 	              <div>
@@ -80,7 +80,7 @@ body {
 		</div>
 		<br>
         <div class="member-sign-column">
-        	<input disabled  type="submit" id="signup-submit" value="회원가입">
+        	<input type="submit" id="signup-submit" value="회원가입">
         </div>
 	
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		
