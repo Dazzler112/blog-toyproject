@@ -39,7 +39,12 @@ body {
 	              </div>
 	              <input type="password" id="password-spc" name="password" maxlength="16">
 	            </div>
-         		<div id="sign-blank"></div>
+         		<div id="sign-blank">
+         			<c:if test="${not empty signUpMessage}">
+         				<p>${signUpMessage}</p>
+         				<% session.removeAttribute("signUpMessage"); %>
+         			</c:if>
+         		</div>
    
             </div> 
 		</div>

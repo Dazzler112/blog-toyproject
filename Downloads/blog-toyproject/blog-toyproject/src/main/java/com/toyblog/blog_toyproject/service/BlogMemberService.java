@@ -31,7 +31,6 @@ public class BlogMemberService {
 		
 		int cnt = blogMemberMapper.SignUp(member);
 		blogMemberMapper.insertAuthority(member);
-		System.out.println("문제가 발생");
 		return cnt ==1;
 	}
 
