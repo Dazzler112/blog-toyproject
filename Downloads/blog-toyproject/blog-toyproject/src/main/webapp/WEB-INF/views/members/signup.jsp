@@ -41,7 +41,7 @@ body {
 	              <div>
 	              <span style="margin-right: 35px;">비밀번호 * </span>
 	              </div>
-	              <input type="password" class="sign-input" id="input-password" name="password" placeholder="영문,숫자,특수문자 조합하여 8~16자리" maxlength="16">
+	              <input type="password" class="sign-input" id="input-password" name="password" placeholder="영문,숫자,특수문자 조합하여 8~20자리" maxlength="20">
 	              <div style="margin-left: 10px;" id="pwdcheck-blank1"></div>
 	            </div>
 	             <!--패스워드 확인-->           
@@ -49,7 +49,7 @@ body {
 	              <div>
 	              <span>비밀번호 확인 * </span>
 	              </div>
-	              <input type="password" class="sign-input" id="password-check" name="password-check" placeholder="위와 동일하게 입력해주세요">
+	              <input type="password" class="sign-input" id="password-check" name="password-check" placeholder="위와 동일하게 입력해주세요" maxlength="20">
 	              <div style="margin-left: 10px;" id="pwdcheck-blank2"></div>
 	            </div>
 	            <!--이름-->
