@@ -67,6 +67,7 @@ body {
 	              </div>
 	              <input type="number" id="phone-num" name="phone_number">
 	              <button class="check-button" type="button" id="checkPhoneNumBtn">중복확인</button>
+	              <div style="margin-left: 10px;" id="phonecheck-blank"></div>
 	            </div>            
 	 			<!--이메일-->            
 	            <div class="sign-column">
@@ -75,7 +76,24 @@ body {
 	              </div>
 	              <input type="text" id="mail-sign" name="email">
 	              <button class="check-button" type="button" id="checkPhoneNumBtn">중복확인</button>
-	            </div>      
+	            </div>     
+	            <!--이메일 인증--> 
+	            <div class="sign-column">
+	              <input type="hidden" id="totalemail" name="email" value="${members.email}">
+	              <input type="button" class="check-button" id="search-email" style="margin-left: -10px;" value="중복확인">
+	              <input style="display: none;" type="button" class="check-button" id="checkEmailBtn" value="인증하기">
+	              <div class="d-none form-text text-primary" id="validEmailId"></div>	
+                </div>  
+              <!-- 인증번호 입력 칸 -->
+	            <div  style="display: none;" id="inputVerificationCode">
+		            <div class="input-group">
+			            <input type="text" class="form-control" id="verificationCode" name="verificationCode" placeholder="인증번호를 입력하세요" />
+			            <button type="button" id="verifyEmailBtn" style="display: none;">확인</button>
+			            <div style="display: none;  color: #4C84F3" id="validEmailMessage"></div>
+		            </div>
+	            </div>                
+                
+                       
             </div> 
 		</div>
 		<br>

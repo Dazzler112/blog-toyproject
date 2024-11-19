@@ -1,4 +1,59 @@
 
+//==============================아이디 유효성검사 ================================================
+$("#input-id").blur(function (){
+    let idCheck = /^(?=.*[a-zA-Z])[a-zA-Z0-9]{6,20}$/;
+
+    if($("#input-id").val() == "") {
+        $("#idcheck-blank").css("color", "red");
+        $("#idcheck-blank").text("! 아이디는 필수 입력");
+        id = false;
+        enableSubmit();
+    }else if(!idCheck.test($("#input-id").val())) {
+        $("#idcheck-blank").css("color", "red");
+        $("#idcheck-blank").text("! 영문 또는 영문 숫자 조합하여 6~20자만 가능");
+        id = false;
+        enableSubmit();
+    }else {
+        $("#idcheck-blank").css("color", "blue");
+        $("#idcheck-blank").text("사용 가능한 아이디입니다. 중복확인을 해주세요.");
+        id = true;
+        enableSubmit();
+    }
+    if(id == true) {
+        $("#id-Confirm").show();
+    }else {
+        $("#id-Confirm").hide();
+    }
+});
+
+//==============================아이디 중복검사 ==============================================
+$("#id-Confirm").click(function() {
+    const member_id = $("#input-id").val();
+    if (member_id == "") {
+        alert("아이디를 입력해주세요.");
+    } else {
+        $.ajax(`/members/checkid/${member_id}`,{
+			method: "get",
+			contentType: "application/json",
+            success: function(data) {
+                if (data.available) {
+                    $("#idcheck-blank").css("color", "blue");
+                    $("#idcheck-blank").text("사용가능한 아이디입니다.");
+                    checkId = true;
+                } else {
+                    $("#idcheck-blank").css("color", "red");
+                    $("#idcheck-blank").text("! 중복된 아이디입니다.");
+                    checkId = false;
+                }
+            },
+            error: function() {
+                alert("오류가 발생했습니다. 다시 시도해주세요.");
+            }
+            /*,complete: enableSubmit*/ /*<= validation 완성되면 해제*/
+        });
+    }
+});
+
 //==============================비밀번호 유효성검사 ==============================================
 $("#input-password").blur(function() {
     let pwdCheck= /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/;
@@ -42,4 +97,67 @@ $("#password-check").blur(function() {
         enableSubmit();
     }
 
+});
+
+//==============================이름 확인 ==============================================
+$("#input-name").blur(function() {
+    let nameCheck = /^[a-zA-Z가-힣]{2,20}$/;
+
+    if ($("#input-name").val() == "") {
+        $("#namecheck-blank").css("color", "red");
+        $("#namecheck-blank").text("! 이름은 필수 입력입니다.");
+        name = false;
+        enableSubmit();
+    } else if (!nameCheck.test($("#input-name").val())) {
+        $("#namecheck-blank").css("color", "red");
+        $("#namecheck-blank").text("! 이름은 한글 또는 영어로 이루어져야 하며, 2자에서 20자 사이여야 합니다.");
+        name = false;
+        enableSubmit();
+    } else {
+        $("#namecheck-blank").css("color", "blue");
+        $("#namecheck-blank").text("유효한 이름입니다.");
+        name = true;
+        enableSubmit();
+    }
+});
+
+//================================연락처=========================================
+function maxLengthCheck(object){
+    if (object.value.length > object.maxLength) {
+        object.value = object.value.slice(0, object.maxLength);
+    }
+}
+
+$("#phone-num").blur(function() {
+
+    if ($("#phone-num").val() == "") {
+        	$("#phonecheck-blank").css("color", "red");
+        	$("#phonecheck-blank").text("번호를 입력해 주세요.");		
+        	phone_number = false;
+        	enableSubmit();
+    } 
+});
+
+$("#checkPhoneNumBtn").click(function() {
+    const phone_number = $("#phone-num").val();
+    // 입력한 ID와 ajax 요청 보내서
+    $.ajax(`/members/checkphone/${phone_number}`, {
+		method: "get",
+		contentType: "application/json",
+        success: function(data) {
+
+            if (data.available) {
+                // 사용 가능하다는 메세지 출력
+                $("#phonecheck-blank").css("color", "blue");
+                $("#phonecheck-blank").text("사용 가능한 번호입니다.");
+                checkphoneNumber = true;
+            } else {
+                // 사용 가능하지 않다는 메세지 출력
+                $("#phonecheck-blank").css("color", "red");
+                $("#phonecheck-blank").text("이미 가입된 번호입니다.");
+                checkphoneNumber = false;
+            }
+        },
+        /*complete: enableSubmit*/ /*<= 이 부분도 완료되면 해제*/
+    })
 });
