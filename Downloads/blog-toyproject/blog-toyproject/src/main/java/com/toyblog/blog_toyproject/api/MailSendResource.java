@@ -1,5 +1,7 @@
 package com.toyblog.blog_toyproject.api;
 
+import java.io.*;
+import java.net.*;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
@@ -20,9 +22,12 @@ public class MailSendResource {
 	private BlogMemberService blogMemberService;
 	
 	@PostMapping("/mail/code")
-	public void CheckEmailCode(String email, HttpSession http) {
+	public void CheckEmailCode(String email, HttpSession http) throws UnsupportedEncodingException {
+		
+		email = URLDecoder.decode(email, "UTF-8");
 		
 		mailSendService.SendMail(email, http);
+		
 	}
 	
 	@PostMapping("/mailcheck")

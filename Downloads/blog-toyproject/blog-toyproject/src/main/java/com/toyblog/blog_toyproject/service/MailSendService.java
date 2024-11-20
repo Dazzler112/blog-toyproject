@@ -8,7 +8,9 @@ import org.springframework.mail.javamail.*;
 import org.springframework.stereotype.*;
 
 import jakarta.servlet.http.*;
+import lombok.extern.slf4j.*;
 
+@Slf4j
 @Service
 public class MailSendService {
 
@@ -28,13 +30,17 @@ public class MailSendService {
 		int toUserSize = toUserList.size();
 		
 		SimpleMailMessage simpleMessage = new SimpleMailMessage();
+		
 		simpleMessage.setTo((String[]) toUserList.toArray(new String[toUserSize]));
 		
 		Random random = new Random();
 		int randomNumber = random.nextInt(900000) + 100000;
 		
+		log.info("randomNumber: {}", randomNumber);
+		log.info("Received email: {}", email);
+		
 		simpleMessage.setSubject("GamesReview Mail 인증");
-		simpleMessage.setText("Hello user \n" + "this code write website \n" + 
+		simpleMessage.setText("Hello user! \n" + "this code write website \n" + 
 							"\n" + "code number : " + randomNumber + "\n");
 		
 		javaMailSender.send(simpleMessage);
