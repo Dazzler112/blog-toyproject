@@ -161,3 +161,102 @@ $("#checkPhoneNumBtn").click(function() {
         /*complete: enableSubmit*/ /*<= 이 부분도 완료되면 해제*/
     })
 });
+
+//================================ 이메일 중복 확인 =====================================
+
+$("#checkmailBtn").click(function() {
+    const email = $("#mail-sign").val();
+
+    // 이메일이 비어있는 경우에는 중복 확인 버튼 동작하지 않도록 처리
+    if (email == "") {
+        alert("이메일 주소를 입력해주세요.");
+        return;
+    }
+
+    // 입력한 ID와 ajax 요청 보내서
+    $.ajax(`/searchmail/${email}`, {
+        method: "get",
+/*        data: {
+            email: email
+        },*/
+        success: function(data) {
+
+            if (data.available) {
+                // 사용 가능하다는 메세지 출력
+                $("#mailcheck-blank").css("color", "blue");
+                $("#mailcheck-blank").text("사용 가능한 메일입니다.");
+                searchEmail = true;
+            } else {
+                // 사용 가능하지 않다는 메세지 출력
+                $("#mailcheck-blank").css("color", "red");
+                $("#mailcheck-blank").text("이미 사용중인 메일입니다.");
+                searchEmail = false;
+            }
+        },
+        /*complete: enableSubmit*/ /*<= validation완성되면 해제*/
+    })
+});
+
+//================================ 이메일 인증 =========================================
+// 이메일 인증 버튼 클릭 이벤트 처리
+$("#checkEmailBtn").click(function() {
+    // 인증하기 버튼을 클릭하면 인증번호 입력 칸과 확인 버튼을 나타내고, 인증하기 버튼은 숨김
+    $("#inputVerificationCode").removeAttr("style");
+    $("#verifyEmailBtn").show();
+    $("#checkEmailBtn").hide();
+
+    var email = $("#totalemail").val();
+    if (email) {
+        // 이메일 전송 요청
+        $.ajax({
+            url: "/members/mail",
+            method: "POST",
+            data: {
+                email: email
+            },
+            success: function(response) {
+                // 이메일 전송 성공 시 처리
+                $("#totalemail").prop("disabled", true);
+                $("#verifyEmailBtn").hide();
+                $("#inputVerificationCode").removeAttr("style");
+                $("#verifyCodeBtn").show();
+            },
+            error: function() {
+                // 에러 처리 로직 추가
+            }
+        });
+    }
+});
+
+
+// 확인 버튼 클릭 이벤트 처리
+$("#verifyEmailBtn").click(function() {
+    var enteredCode = $("#verificationCode").val();
+    if (enteredCode) {
+        // 이메일 전송 요청
+        $.ajax({
+            url: "/members/mailCheck",
+            method: "POST",
+            data: {
+                enteredCode: enteredCode
+            },
+            success: function(response) {
+                var authentication = response.authentication;
+                console.log("authentication => " + authentication);
+
+                if (authentication) {
+                    // 인증번호 일치 시 회원 가입 진행
+                    checkEmail = true;
+                    $("#verificationSuccessText").css("color" , "blue");
+                    $("#verificationSuccessText").show();
+                    enableSubmit();
+
+                    alert("인증이 완료되었습니다. 회원 가입을 진행합니다.");
+                } else {
+                    alert("인증번호가 일치하지 않습니다. 다시 확인해 주세요.");
+                }
+            }
+
+        });
+    }
+});
