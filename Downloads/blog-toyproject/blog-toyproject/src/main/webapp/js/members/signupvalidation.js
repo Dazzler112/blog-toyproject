@@ -185,6 +185,8 @@ $("#checkmailBtn").click(function() {
                 // 사용 가능하다는 메세지 출력
                 $("#mailcheck-blank").css("color", "blue");
                 $("#mailcheck-blank").text("사용 가능한 메일입니다.");
+                $("#checkmailBtn").hide();
+                $("#checkEmailBtn").show();
                 searchEmail = true;
             } else {
                 // 사용 가능하지 않다는 메세지 출력
@@ -205,24 +207,25 @@ $("#checkEmailBtn").click(function() {
     $("#verifyEmailBtn").show();
     $("#checkEmailBtn").hide();
 
-    var email = $("#totalemail").val();
+    var email = $("#mail-sign").val();
     if (email) {
         // 이메일 전송 요청
-        $.ajax({
-            url: "/members/mail",
+        $.ajax(`/mail/code`, {
             method: "POST",
             data: {
                 email: email
             },
-            success: function(response) {
+            success: function(data) {
+				console.log(email);
                 // 이메일 전송 성공 시 처리
-                $("#totalemail").prop("disabled", true);
+                $("#mail-sign").prop("disabled", true);
                 $("#verifyEmailBtn").hide();
                 $("#inputVerificationCode").removeAttr("style");
                 $("#verifyCodeBtn").show();
             },
-            error: function() {
+            error: function(request, status, error) {
                 // 에러 처리 로직 추가
+                console.log(error);
             }
         });
     }

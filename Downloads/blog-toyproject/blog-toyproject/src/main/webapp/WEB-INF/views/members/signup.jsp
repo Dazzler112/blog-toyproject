@@ -76,13 +76,12 @@ body {
 	              </div>
 	              <input type="text" id="mail-sign" name="email">
 	              <button class="check-button" type="button" id="checkmailBtn">중복확인</button>
+	              	              <input style="display: none;" type="button" class="check-button" id="checkEmailBtn" value="인증하기">
 	              <div style="margin-left: 10px;" id="mailcheck-blank"></div>
 	            </div>     
 	            <!--이메일 인증--> 
 	            <div class="sign-column">
-	              <input type="hidden" id="totalemail" name="email" value="${members.email}">
-	              <input type="button" class="check-button" id="search-email" style="margin-left: -10px;" value="중복확인">
-	              <input style="display: none;" type="button" class="check-button" id="checkEmailBtn" value="인증하기">
+	              <input type="hidden" id="totalemail" name="email">
 	              <div class="d-none form-text text-primary" id="validEmailId"></div>	
                 </div>  
               <!-- 인증번호 입력 칸 -->

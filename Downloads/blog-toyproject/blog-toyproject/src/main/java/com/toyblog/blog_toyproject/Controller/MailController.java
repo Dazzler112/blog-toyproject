@@ -11,5 +11,4 @@ public class MailController {
 	@Autowired
 	private MailSendService mailSendService;
 	
-
 }
