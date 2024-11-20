@@ -75,7 +75,8 @@ body {
 	              <span style="margin-right: 35px;">이메일</span>
 	              </div>
 	              <input type="text" id="mail-sign" name="email">
-	              <button class="check-button" type="button" id="checkPhoneNumBtn">중복확인</button>
+	              <button class="check-button" type="button" id="checkmailBtn">중복확인</button>
+	              <div style="margin-left: 10px;" id="mailcheck-blank"></div>
 	            </div>     
 	            <!--이메일 인증--> 
 	            <div class="sign-column">
