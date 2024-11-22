@@ -30,12 +30,6 @@ public class SpringSecurityBasicAuthConfiguration {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		
-		//추후에 사용
-//		http.formLogin()
-//				.loginPage("").defaultSuccessUrl(null);
-//		http.logout()
-//				.logoutUrl("").logoutSuccessUrl(null);
-		
 		return http
 				.authorizeHttpRequests(
 						auth -> 
@@ -49,6 +43,19 @@ public class SpringSecurityBasicAuthConfiguration {
 									(SessionCreationPolicy.STATELESS)
 						)
 				.csrf().disable()
+				
+				.formLogin((formLogin) ->
+				formLogin
+					.loginPage("/1")
+//					.usernameParameter("username")
+//					.passwordParameter("password")
+					.defaultSuccessUrl("/about",true)
+				)
+				
+				//추후에 사용
+//				.logout((logoutConfig) ->
+//				logoutConfig.logoutSuccessUrl(null)
+//				)
 				.build();
 	}
 	

@@ -24,13 +24,14 @@ body {
 	<body>
 	<my:navigation></my:navigation>
 		<div style="display: flex; justify-content: center;">
+			<form method="post">
       		<div>		
 				<!--아이디-->
 				 <div class="sign-column">
 	              <div>
 	              	<span style="margin-right: 50px;">아이디</span>
 	              </div>
-	              <input type="text" id="id-spc" name="member_id" maxlength="20">
+	              <input type="text" id="id-spc" name="username" maxlength="20">
 	            </div>
 	             <!--패스워드-->           
 	            <div class="sign-column">
@@ -51,11 +52,13 @@ body {
 		<br>
         <div class="member-sign-column">
         	<input type="submit" id="login-btn" value="로그인">
-        </div>		
+        </div>	
+		</form>	
 		<br>
         <div class="member-sign-column">
         	<a href="/0"><button id="signup-btn">회원가입</button></a>
         </div>
+
 	
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		
 		<script src="/js/members/signup.js"></script>
