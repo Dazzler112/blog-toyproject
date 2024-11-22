@@ -1,3 +1,19 @@
+let checkId = false;
+let password_check = false;
+let name = false;
+let searchEmail = false;
+let checkEmail = false;
+let checkphoneNumber = false
+
+function enableSubmit() {
+    if (checkId && password_check && name && searchEmail && checkEmail && checkphoneNumber) {
+        $("#signup-submit").removeAttr("disabled").css("cursor", "pointer");
+        $("#need-sign").hide();
+    } else {
+        $("#signup-submit").attr("disabled", "");
+        $("#need-sign").show();
+    }
+}
 
 //==============================아이디 유효성검사 ================================================
 $("#input-id").blur(function (){
