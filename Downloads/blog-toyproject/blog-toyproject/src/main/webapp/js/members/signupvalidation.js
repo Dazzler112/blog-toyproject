@@ -185,6 +185,7 @@ $("#checkmailBtn").click(function() {
                 // 사용 가능하다는 메세지 출력
                 $("#mailcheck-blank").css("color", "blue");
                 $("#mailcheck-blank").text("사용 가능한 메일입니다.");
+                $("#mail-sign").prop("disabled", true);
                 $("#checkmailBtn").hide();
                 $("#checkEmailBtn").show();
                 searchEmail = true;
@@ -203,9 +204,9 @@ $("#checkmailBtn").click(function() {
 // 이메일 인증 버튼 클릭 이벤트 처리
 $("#checkEmailBtn").click(function() {
     // 인증하기 버튼을 클릭하면 인증번호 입력 칸과 확인 버튼을 나타내고, 인증하기 버튼은 숨김
-    $("#inputVerificationCode").removeAttr("style");
+/*    $("#inputVerificationCode").removeAttr("style");
     $("#verifyEmailBtn").show();
-    $("#checkEmailBtn").hide();
+    $("#checkEmailBtn").hide();*/
 
     var email = $("#mail-sign").val();
     if (email) {
@@ -219,9 +220,9 @@ $("#checkEmailBtn").click(function() {
 				console.log(email);
                 // 이메일 전송 성공 시 처리
                 $("#mail-sign").prop("disabled", true);
-                $("#verifyEmailBtn").hide();
+                $("#checkEmailBtn").hide();
                 $("#inputVerificationCode").removeAttr("style");
-                $("#verifyCodeBtn").show();
+                $("#verifyEmailBtn").show();
             },
             error: function(request, status, error) {
                 // 에러 처리 로직 추가
@@ -237,8 +238,7 @@ $("#verifyEmailBtn").click(function() {
     var enteredCode = $("#verificationCode").val();
     if (enteredCode) {
         // 이메일 전송 요청
-        $.ajax({
-            url: "/members/mailCheck",
+        $.ajax(`/mailcheck` ,{
             method: "POST",
             data: {
                 enteredCode: enteredCode
@@ -250,13 +250,17 @@ $("#verifyEmailBtn").click(function() {
                 if (authentication) {
                     // 인증번호 일치 시 회원 가입 진행
                     checkEmail = true;
-                    $("#verificationSuccessText").css("color" , "blue");
-                    $("#verificationSuccessText").show();
+                    $("#validEmailMessage").css("color" , "blue");
+                    $("#validEmailMessage").text("코드가 일치합니다");
+                    $("#verificationCode").prop("disabled", true);
+                    $("#verifyEmailBtn").prop("disabled", true);
                     enableSubmit();
 
                     alert("인증이 완료되었습니다. 회원 가입을 진행합니다.");
                 } else {
                     alert("인증번호가 일치하지 않습니다. 다시 확인해 주세요.");
+                    $("#validEmailMessage").css("color" , "red");
+                    $("#validEmailMessage").text("코드가 일치하지 않습니다");
                 }
             }
 
