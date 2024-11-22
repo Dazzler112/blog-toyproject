@@ -80,16 +80,16 @@ body {
 	              <div style="margin-left: 10px;" id="mailcheck-blank"></div>
 	            </div>     
 	            <!--이메일 인증--> 
-	            <div class="sign-column">
+<!-- 	            <div class="sign-column">
 	              <input type="hidden" id="totalemail" name="email">
 	              <div class="d-none form-text text-primary" id="validEmailId"></div>	
-                </div>  
+                </div>   -->
               <!-- 인증번호 입력 칸 -->
 	            <div  style="display: none;" id="inputVerificationCode">
 		            <div class="input-group">
 			            <input type="text" class="form-control" id="verificationCode" name="verificationCode" placeholder="인증번호를 입력하세요" />
 			            <button type="button" id="verifyEmailBtn" style="display: none;">확인</button>
-			            <div style="display: none;  color: #4C84F3" id="validEmailMessage"></div>
+			            <div id="validEmailMessage"></div>
 		            </div>
 	            </div>                
                 
