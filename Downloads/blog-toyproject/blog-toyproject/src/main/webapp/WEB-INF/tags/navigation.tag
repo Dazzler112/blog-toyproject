@@ -1,4 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <style>
 nav{
 	margin: 30px 0px;
@@ -35,6 +37,11 @@ nav a {
 	<ul class="ul-nav-style">
 		<li><a href="/post">Home</a></li>
 		<li><a href="/about">About</a></li>
+		<sec:authorize access="isAnonymous()">
 		<li><a href="/1">Login/Logout</a></li>
+		</sec:authorize>	
+		<sec:authorize access="isAuthenticated()">
+		<li><a href="/2?id=<sec:authentication property="name" />">Member Modify</a></li>
+		</sec:authorize>
 	</ul>
 </nav>

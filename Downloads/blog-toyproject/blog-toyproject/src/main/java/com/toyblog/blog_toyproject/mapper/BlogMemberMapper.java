@@ -79,4 +79,18 @@ public interface BlogMemberMapper {
 			""")
 	Members selectByCheckEmailId(String email);
 
+	@Update("""
+			<script>
+			UPDATE 
+			MEMBERS
+			SET
+				<if test="password neq null and password neq ''">
+				password = #{password}
+				</if>
+			WHERE
+				member_id = #{member_id}
+			</script>
+			""")
+	int memberUpdate(Members member);
+
 }

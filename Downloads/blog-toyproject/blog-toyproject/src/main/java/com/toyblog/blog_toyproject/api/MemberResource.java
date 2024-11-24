@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.*;
 import org.springframework.security.core.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +26,7 @@ public class MemberResource {
 	//회원 가입
 	@PostMapping("/members/signup")
 	public ResponseEntity<?> SignUpMember(@RequestBody Members member, 
-				HttpSession session, HttpServletResponse response) {
+				HttpSession session) {
 		
 		boolean signUpMember = blogMemberService.addMembers(member);
 		
@@ -48,6 +49,14 @@ public class MemberResource {
 										, Authentication authentication) {
 		
 		return blogMemberService.CheckPhoneNum(phone_number, authentication);
+	}
+	
+	@PostMapping("members/modify/{member_id}")
+	@PreAuthorize("isAuthenticated() and (authentication.name eq #member.id)")
+	public void ModifyMemberId(@PathVariable String member_id
+					, Members member, String oldPassword, HttpSession session) {
+		
+		boolean modifyId = blogMemberService.modifyMemberId(member, oldPassword);
 	}
 	
 }

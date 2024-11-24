@@ -64,5 +64,28 @@ public class BlogMemberService {
 		        return Map.of("available", member == null);
 		}
 	}
+
+	public boolean modifyMemberId(Members member, String oldPassword) {
+		
+		if(!member.getPassword().isBlank()) {
+			String plain = member.getPassword();
+			member.setPassword(passwordEncoder.encode(plain));
+		}
+		
+		Members oldMember = blogMemberMapper.selectByMemberId(member.getMember_id());
+		
+		int cnt = 0;
+		if(passwordEncoder.matches(oldPassword, oldMember.getMember_id())) {
+			
+			cnt = blogMemberMapper.memberUpdate(member);
+		}
+		return cnt ==1;
+	}
+
+	//회원정보 가져오기
+	public Members getMember(String member_id) {
+		
+		return blogMemberMapper.selectByMemberId(member_id);
+	}
 	
 }
