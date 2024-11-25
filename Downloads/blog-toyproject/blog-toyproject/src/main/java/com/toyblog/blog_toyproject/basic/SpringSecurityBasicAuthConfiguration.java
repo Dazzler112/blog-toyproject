@@ -40,7 +40,7 @@ public class SpringSecurityBasicAuthConfiguration {
 				.httpBasic(Customizer.withDefaults())
 				.sessionManagement(
 						session -> session.sessionCreationPolicy
-									(SessionCreationPolicy.STATELESS)
+									(SessionCreationPolicy.IF_REQUIRED)
 						)
 				.csrf().disable()
 				
