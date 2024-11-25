@@ -41,7 +41,7 @@ nav a {
 		<li><a href="/1">Login/Logout</a></li>
 		</sec:authorize>	
 		<sec:authorize access="isAuthenticated()">
-		<li><a href="/2?id=<sec:authentication property="name" />">Member Modify</a></li>
+		<li><a href="/2?member_id=<sec:authentication property="name" />">Member Modify</a></li>
 		</sec:authorize>
 	</ul>
 </nav>

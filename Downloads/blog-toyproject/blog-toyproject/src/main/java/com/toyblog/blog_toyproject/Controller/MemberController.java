@@ -24,8 +24,8 @@ public class MemberController {
 	
 	
 	@GetMapping("/2")
-	@PreAuthorize("isAuthenticated() and (authentication.name eq #id)")
-	public String ModifyPage(@RequestParam("id") String member_id) {
+	@PreAuthorize("isAuthenticated() and (authentication.name eq #member_id)")
+	public String ModifyPage(String member_id) {
 //		Members member = blogMemberService.getMember(member_id);
 //		
 //		System.out.println("member Parse" + member);
