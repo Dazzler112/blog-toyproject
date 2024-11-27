@@ -10,6 +10,9 @@ import org.springframework.stereotype.*;
 import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.mapper.*;
 
+import lombok.extern.slf4j.*;
+
+@Slf4j
 @Service
 public class BlogMemberService {
 
@@ -67,12 +70,15 @@ public class BlogMemberService {
 
 	public boolean modifyMemberId(Members member, String oldPassword) {
 		
+		System.err.println("service => " + member.getPassword());
 		if(!member.getPassword().isBlank()) {
+			
 			String plain = member.getPassword();
 			member.setPassword(passwordEncoder.encode(plain));
 		}
 		
 		Members oldMember = blogMemberMapper.selectByMemberId(member.getMember_id());
+		log.info("oldMember: {}", oldMember);
 		
 		int cnt = 0;
 		if(passwordEncoder.matches(oldPassword, oldMember.getMember_id())) {
@@ -84,6 +90,11 @@ public class BlogMemberService {
 
 	//회원정보 가져오기
 	public Members getMember(String member_id) {
+		
+		return blogMemberMapper.selectByMemberId(member_id);
+	}
+
+	public Members getMemberId(String member_id) {
 		
 		return blogMemberMapper.selectByMemberId(member_id);
 	}

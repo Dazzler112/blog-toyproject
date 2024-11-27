@@ -91,6 +91,6 @@ public interface BlogMemberMapper {
 				member_id = #{member_id}
 			</script>
 			""")
-	int memberUpdate(Members member);
+	Integer memberUpdate(Members member);
 
 }
