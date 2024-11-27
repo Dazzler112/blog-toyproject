@@ -2,8 +2,10 @@ package com.toyblog.blog_toyproject.Controller;
 
 import org.springframework.security.access.prepost.*;
 import org.springframework.stereotype.*;
+import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
 
+import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.service.*;
 
 @Controller
@@ -31,4 +33,12 @@ public class MemberController {
 //		System.out.println("member Parse" + member);
 		return "members/modify";
 	}
+	
+	@GetMapping("/members/modify")
+	public void ModifyGetMemberId(String member_id, Model model) {
+		Members member = blogMemberService.getMemberId(member_id);
+		
+		model.addAttribute("member", member);
+	}
+
 }

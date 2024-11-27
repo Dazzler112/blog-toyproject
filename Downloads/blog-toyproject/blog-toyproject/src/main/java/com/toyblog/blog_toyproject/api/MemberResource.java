@@ -4,7 +4,6 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
-import org.springframework.security.access.prepost.*;
 import org.springframework.security.core.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +11,9 @@ import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.service.*;
 
 import jakarta.servlet.http.*;
+import lombok.extern.slf4j.*;
 
+@Slf4j
 @RestController
 public class MemberResource {
 	
@@ -51,12 +52,13 @@ public class MemberResource {
 		return blogMemberService.CheckPhoneNum(phone_number, authentication);
 	}
 	
-	@PostMapping("members/modify/{member_id}")
-	@PreAuthorize("isAuthenticated() and (authentication.name eq #member.id)")
-	public void ModifyMemberId(@PathVariable String member_id
-					, Members member, String oldPassword, HttpSession session) {
+	
+	@PostMapping("/members/modify")
+	public void ModifyMemberId(@RequestBody Members member, String oldPassword, HttpSession session) {
 		
 		boolean modifyId = blogMemberService.modifyMemberId(member, oldPassword);
+		
+		log.info("modifyId: {}", modifyId);
 	}
 	
 }
