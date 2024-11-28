@@ -93,4 +93,13 @@ public interface BlogMemberMapper {
 			""")
 	Integer memberUpdate(Members member);
 
+	@Delete("""
+			DELETE 
+			FROM
+			MEMBERS
+			WHERE 
+			member_id = #{member_id}
+			""")
+	Integer deleteMemberId(String member_id);
+
 }

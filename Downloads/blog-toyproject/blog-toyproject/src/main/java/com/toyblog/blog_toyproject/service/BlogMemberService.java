@@ -98,5 +98,17 @@ public class BlogMemberService {
 		
 		return blogMemberMapper.selectByMemberId(member_id);
 	}
+
+	public boolean removeMemberId(Members member) {
+		
+//		Members getMember = blogMemberMapper.selectByMemberId(member.getMember_id());
+		int cnt = 0;
+		
+		cnt = blogMemberMapper.deleteMemberId(member.getMember_id());
+		log.info("deleteInfo: {}", cnt);
+		
+		System.out.println("members => " + member.getMember_id() + member.getPassword());
+		return cnt == 1;
+	}
 	
 }

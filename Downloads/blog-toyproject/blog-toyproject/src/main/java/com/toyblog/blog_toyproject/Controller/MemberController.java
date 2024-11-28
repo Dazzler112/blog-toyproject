@@ -14,20 +14,20 @@ public class MemberController {
 	private BlogMemberService blogMemberService;
 	
 	@GetMapping("/0")
-	public String SignUpPage() {
+	public String signUpPage() {
 		return "members/signup";
 	}
 	
 	@GetMapping("/1")
 	@PreAuthorize("isAnonymous()")
-	public String LogInPage() {
+	public String logInPage() {
 		return "members/login";
 	}
 	
 	
 	@GetMapping("/2")
 	@PreAuthorize("isAuthenticated() and (authentication.name eq #member_id)")
-	public String ModifyPage(String member_id) {
+	public String modifyPage(String member_id) {
 //		Members member = blogMemberService.getMember(member_id);
 //		
 //		System.out.println("member Parse" + member);
@@ -35,10 +35,16 @@ public class MemberController {
 	}
 	
 	@GetMapping("/members/modify")
-	public void ModifyGetMemberId(String member_id, Model model) {
+	public void modifyGetMemberId(String member_id, Model model) {
 		Members member = blogMemberService.getMemberId(member_id);
 		
 		model.addAttribute("member", member);
 	}
 
+	@GetMapping("/3")
+	@PreAuthorize("isAuthenticated() and (authentication.name eq #member_id)")
+	public String deletePage(String member_id) {
+
+		return "members/delete";
+	}
 }

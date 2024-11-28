@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
 import org.springframework.security.core.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.*;
 
 import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.service.*;
@@ -26,7 +27,7 @@ public class MemberResource {
 	
 	//회원 가입
 	@PostMapping("/members/signup")
-	public ResponseEntity<?> SignUpMember(@RequestBody Members member, 
+	public ResponseEntity<?> signUpMember(@RequestBody Members member, 
 				HttpSession session) {
 		
 		boolean signUpMember = blogMemberService.addMembers(member);
@@ -39,14 +40,14 @@ public class MemberResource {
 	
 	//id validation
 	@GetMapping("/members/checkid/{member_id}")
-	public Map<String, Object> CheckMemberId(@PathVariable String member_id) {
+	public Map<String, Object> checkMemberId(@PathVariable String member_id) {
 		
 		return blogMemberService.checkId(member_id);
 	}
 	
 	//phone validation
 	@GetMapping("/members/checkphone/{phone_number}")
-	public Map<String, Object> CheckPhoneNumber(@PathVariable String phone_number
+	public Map<String, Object> checkPhoneNumber(@PathVariable String phone_number
 										, Authentication authentication) {
 		
 		return blogMemberService.CheckPhoneNum(phone_number, authentication);
@@ -54,11 +55,19 @@ public class MemberResource {
 	
 	
 	@PostMapping("/members/modify")
-	public void ModifyMemberId(@RequestBody Members member, String oldPassword, HttpSession session) {
+	public void modifyMemberId(@RequestBody Members member, String oldPassword, HttpSession session) {
 		
 		boolean modifyId = blogMemberService.modifyMemberId(member, oldPassword);
 		
 		log.info("modifyId: {}", modifyId);
+	}
+	
+	@PostMapping("/members/remove")
+	public ResponseEntity<Void> deleteMember(@RequestBody Members member, RedirectAttributes rttr) {
+		
+		boolean memberDelete = blogMemberService.removeMemberId(member);
+		
+		return ResponseEntity.ok().build();
 	}
 	
 }
