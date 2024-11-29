@@ -54,8 +54,8 @@ public class MemberResource {
 	}
 	
 	
-	@PostMapping("/members/modify")
-	public void modifyMemberId(@RequestBody Members member, String oldPassword, HttpSession session) {
+	@PostMapping("/members/modify/{member_id}")
+	public void modifyMemberId(@PathVariable String member_id , @RequestBody Members member, String oldPassword, HttpSession session) {
 		
 		boolean modifyId = blogMemberService.modifyMemberId(member, oldPassword);
 		
