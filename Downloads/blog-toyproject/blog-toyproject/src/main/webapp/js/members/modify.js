@@ -39,12 +39,15 @@ $("#modify-password").keyup(function() {
 
 $("#modify-submit").click(function(){
 	const password = $("#modify-password").val();
+	const member_id = $("#search-id").val();
+	const oldMember = $("#search-id").val();
 	
-	$.ajax(`/members/modify`, {
+	$.ajax(`/members/modify/${member_id}`, {
 		method: "post",
 		contentType: "application/json",
         data: JSON.stringify({
-            password : password
+            password : password ,
+            oldMember
         }),		
 		success: function(result) { // 결과 성공 콜백함수
 			/*console.log(result);*/

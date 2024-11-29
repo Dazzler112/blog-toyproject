@@ -78,7 +78,7 @@ public class BlogMemberService {
 		}
 		
 		Members oldMember = blogMemberMapper.selectByMemberId(member.getMember_id());
-		log.info("oldMember: {}", oldMember);
+		System.err.println("oldMember service => " + oldMember.getMember_id()+" , " + oldMember.getPassword());
 		
 		int cnt = 0;
 		if(passwordEncoder.matches(oldPassword, oldMember.getMember_id())) {

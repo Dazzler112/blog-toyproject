@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
 <style>
@@ -25,15 +25,15 @@ body {
 	<my:navigation></my:navigation>
 		<div style="display: flex; justify-content: center;">
       		<div>		
-				<input id="authority-space" type="text" name="authority" value="user" style="display: none;">
-				<input id="membertype-space" type="text" name="member_type" value="user" style="display: none;">
-				<input type="hidden" id="search-id" name="member_id" value="${member.member_id}">
+				<input id="authority-space" type="text" name="authority" value="user" style="display: none;" readonly>
+				<input id="membertype-space" type="text" name="member_type" value="user" style="display: none;" readonly>
+				<input type="text" id="search-id" name="member_id" value="${member.member_id}" style="display: none;" readonly>
 	            <!--패스워드-->
 	            <div class="sign-column">
 	              <div>
 	              <span style="margin-right: 35px;">비밀번호 * </span>
 	              </div>
-	              <input type="password" class="sign-input" id="modify-password" name="password" value="${member.password}" placeholder="영문,숫자,특수문자 조합하여 8~20자리" maxlength="20">
+	              <input type="password" class="sign-input" id="modify-password" name="password" placeholder="영문,숫자,특수문자 조합하여 8~20자리" maxlength="20">
 	              <div style="margin-left: 10px;" id="mpwdcheck-blank1"></div>
 	            </div>                       
                        
