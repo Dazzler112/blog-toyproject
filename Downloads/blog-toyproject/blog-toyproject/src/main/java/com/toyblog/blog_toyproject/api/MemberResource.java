@@ -54,12 +54,12 @@ public class MemberResource {
 	}
 	
 	
-	@PostMapping("/members/modify/{member_id}")
-	public void modifyMemberId(@PathVariable String member_id , @RequestBody Members member, String oldPassword, HttpSession session) {
+	@PostMapping("/members/modify")
+	public void modifyMemberId(@RequestBody Members member, String oldPassword, Authentication authentication) {
 		
-		boolean modifyId = blogMemberService.modifyMemberId(member, oldPassword);
-		
-		log.info("modifyId: {}", modifyId);
+		boolean modifyId = blogMemberService.modifyMemberId(member, oldPassword, authentication);
+
+//		log.info("modifyId: {}", modifyId);
 	}
 	
 	@PostMapping("/members/remove")

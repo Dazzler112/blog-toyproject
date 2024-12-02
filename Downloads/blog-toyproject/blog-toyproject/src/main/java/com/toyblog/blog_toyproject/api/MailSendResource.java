@@ -40,7 +40,7 @@ public class MailSendResource {
 	@GetMapping("/searchmail/{email}")
 	public Map<String, Object> checkMailId(@PathVariable String email, Authentication authentication) {
 		
-		return blogMemberService.checkMailId(email, authentication);
+		return mailSendService.checkMailId(email, authentication);
 	}
 
 }

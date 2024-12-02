@@ -42,18 +42,18 @@ $("#modify-submit").click(function(){
 	const member_id = $("#search-id").val();
 	const oldMember = $("#search-id").val();
 	
-	$.ajax(`/members/modify/${member_id}`, {
+	$.ajax(`/members/modify`, {
 		method: "post",
 		contentType: "application/json",
         data: JSON.stringify({
-            password : password ,
-            oldMember
+			member_id : member_id,
+            password : password 
         }),		
 		success: function(result) { // 결과 성공 콜백함수
 			/*console.log(result);*/
 			console.log(result);
 			
-			window.location.href = result;
+			window.location.href = "/about";
 		},
 		error: function(request, status, error) { // 결과 에러 콜백함수
 			console.log(error + "잘못된 방식");
