@@ -69,16 +69,6 @@ public interface BlogMemberMapper {
 //	@ResultMap("simpleMemberMap")
 	Members selectByPhoneNumber(String phone_number);
 
-	@Select("""
-			SELECT
-			*
-			FROM
-			MEMBERS
-			WHERE
-			email = #{email}
-			""")
-	Members selectByCheckEmailId(String email);
-
 	@Update("""
 			<script>
 			UPDATE 
@@ -93,6 +83,15 @@ public interface BlogMemberMapper {
 			""")
 	Integer memberUpdate(Members member);
 
+	@Update("""
+			UPDATE
+			MEMBERAUTHORITY
+			SET
+			authority = #{authority}
+			WHERE member_id = #{member_id}
+			""")
+	void updateAuthority(Members member);
+	
 	@Delete("""
 			DELETE 
 			FROM
@@ -101,5 +100,6 @@ public interface BlogMemberMapper {
 			member_id = #{member_id}
 			""")
 	Integer deleteMemberId(String member_id);
+
 
 }

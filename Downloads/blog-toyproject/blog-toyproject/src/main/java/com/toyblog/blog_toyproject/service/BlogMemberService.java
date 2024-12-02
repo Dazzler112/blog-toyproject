@@ -57,36 +57,30 @@ public class BlogMemberService {
 		}
 	}
 
-	public Map<String, Object> checkMailId(String email, Authentication authentication) {
-		Members member = blogMemberMapper.selectByCheckEmailId(email);
 
-		if (authentication != null) {
-		    Members ordinaryMember = blogMemberMapper.selectByMemberId(authentication.getName());
-		    return Map.of("available", ordinaryMember == null || ordinaryMember.getEmail().equals(email));
-		}else {
-		        return Map.of("available", member == null);
-		}
-	}
-
-	public boolean modifyMemberId(Members member, String oldPassword) {
+	public boolean modifyMemberId(Members member, String oldPassword, Authentication authentication) {
 		
-		System.err.println("service => " + member.getPassword());
+//		System.err.println("service => " + member.getPassword());
 		if(!member.getPassword().isBlank()) {
 			
 			String plain = member.getPassword();
 			member.setPassword(passwordEncoder.encode(plain));
 		}
 		
-		Members oldMember = blogMemberMapper.selectByMemberId(member.getMember_id());
-		System.err.println("oldMember service => " + oldMember.getMember_id()+" , " + oldMember.getPassword());
+		Members oldMember = blogMemberMapper.selectByMemberId(authentication.getName());
 		
+		
+//		if (oldMember == null) {
+//		    throw new RuntimeException("Member not found for ID: " + member.getMember_id());
+//		}
+//		System.err.println("oldMember service => " + oldMember.getMember_id()+" , " + oldMember.getPassword());
+
 		int cnt = 0;
-		if(passwordEncoder.matches(oldPassword, oldMember.getMember_id())) {
-			
-			cnt = blogMemberMapper.memberUpdate(member);
-		}
-		return cnt ==1;
+		cnt = blogMemberMapper.memberUpdate(member);
+
+		return cnt == 1;
 	}
+	
 
 	//회원정보 가져오기
 	public Members getMember(String member_id) {

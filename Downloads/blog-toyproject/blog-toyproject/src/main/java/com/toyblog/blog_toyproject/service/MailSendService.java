@@ -5,7 +5,11 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.mail.*;
 import org.springframework.mail.javamail.*;
+import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
+
+import com.toyblog.blog_toyproject.dto.*;
+import com.toyblog.blog_toyproject.mapper.*;
 
 import jakarta.servlet.http.*;
 import lombok.extern.slf4j.*;
@@ -16,6 +20,12 @@ public class MailSendService {
 
 	@Autowired
 	private JavaMailSender javaMailSender;
+	
+	@Autowired
+	private BlogMailMapper blogMailMapper;
+	
+	@Autowired
+	private BlogMemberMapper blogMemberMapper;
 	
 	public void SendMail(String email, HttpSession http) {
 		
@@ -46,6 +56,17 @@ public class MailSendService {
 		javaMailSender.send(simpleMessage);
 		
 		http.setAttribute("authenticateNum", randomNumber);
+	}
+	
+	public Map<String, Object> checkMailId(String email, Authentication authentication) {
+		Members member = blogMailMapper.selectByCheckEmailId(email);
+
+		if (authentication != null) {
+		    Members ordinaryMember = blogMemberMapper.selectByMemberId(authentication.getName());
+		    return Map.of("available", ordinaryMember == null || ordinaryMember.getEmail().equals(email));
+		}else {
+		        return Map.of("available", member == null);
+		}
 	}
 
 	public Boolean compareNum(Integer enteredCode, HttpSession http) {
