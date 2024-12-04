@@ -58,7 +58,7 @@ public class BlogMemberService {
 	}
 
 
-	public boolean modifyMemberId(Members member, String oldPassword, Authentication authentication) {
+	public boolean modifyMemberId(Members member, Authentication authentication) {
 		
 //		System.err.println("service => " + member.getPassword());
 		if(!member.getPassword().isBlank()) {
@@ -93,12 +93,13 @@ public class BlogMemberService {
 		return blogMemberMapper.selectByMemberId(member_id);
 	}
 
-	public boolean removeMemberId(Members member) {
+	public boolean removeMemberId(Members member, Authentication authentication) {
 		
-//		Members getMember = blogMemberMapper.selectByMemberId(member.getMember_id());
+		Members getMember = blogMemberMapper.selectByMemberId(authentication.getName());
 		int cnt = 0;
 		
-		cnt = blogMemberMapper.deleteMemberId(member.getMember_id());
+		blogMemberMapper.deleteMemberAuthority(authentication.getName());
+		cnt = blogMemberMapper.deleteMemberId(authentication.getName());
 		log.info("deleteInfo: {}", cnt);
 		
 		System.out.println("members => " + member.getMember_id() + member.getPassword());

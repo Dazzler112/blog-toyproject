@@ -55,17 +55,17 @@ public class MemberResource {
 	
 	
 	@PostMapping("/members/modify")
-	public void modifyMemberId(@RequestBody Members member, String oldPassword, Authentication authentication) {
+	public void modifyMemberId(@RequestBody Members member, Authentication authentication) {
 		
-		boolean modifyId = blogMemberService.modifyMemberId(member, oldPassword, authentication);
+		boolean modifyId = blogMemberService.modifyMemberId(member, authentication);
 
 //		log.info("modifyId: {}", modifyId);
 	}
 	
 	@PostMapping("/members/remove")
-	public ResponseEntity<Void> deleteMember(@RequestBody Members member, RedirectAttributes rttr) {
+	public ResponseEntity<Void> deleteMember(@RequestBody Members member, Authentication authentication, RedirectAttributes rttr) {
 		
-		boolean memberDelete = blogMemberService.removeMemberId(member);
+		boolean memberDelete = blogMemberService.removeMemberId(member, authentication);
 		
 		return ResponseEntity.ok().build();
 	}
