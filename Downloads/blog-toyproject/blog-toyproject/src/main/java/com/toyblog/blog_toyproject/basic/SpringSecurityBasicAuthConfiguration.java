@@ -9,6 +9,7 @@ import org.springframework.security.config.http.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.security.web.*;
+import org.springframework.security.web.util.matcher.*;
 
 @Configuration
 @EnableMethodSecurity
@@ -53,9 +54,12 @@ public class SpringSecurityBasicAuthConfiguration {
 				)
 				
 				//추후에 사용
-//				.logout((logoutConfig) ->
-//				logoutConfig.logoutSuccessUrl(null)
-//				)
+				.logout((logoutConfig) ->
+				logoutConfig.logoutRequestMatcher(new AntPathRequestMatcher("/0/0"))
+					.logoutSuccessUrl("/about")
+					.invalidateHttpSession(true) //.invalidateHttpSession(true)를 통해 로그아웃 시 생성된 사용자 세션도 삭제 
+				)
+		
 				.build();
 	}
 	

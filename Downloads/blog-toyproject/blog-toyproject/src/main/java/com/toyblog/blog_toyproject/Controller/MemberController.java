@@ -47,7 +47,10 @@ public class MemberController {
 
 		Members member = blogMemberService.getMemberId(member_id);
 		
+		MemberAuthority memberAut = blogMemberService.getAuthorityId(member_id);
+				
 		model.addAttribute("member", member);
+		model.addAttribute("memberAuth",memberAut);
 		
 		return "members/delete";
 	}
