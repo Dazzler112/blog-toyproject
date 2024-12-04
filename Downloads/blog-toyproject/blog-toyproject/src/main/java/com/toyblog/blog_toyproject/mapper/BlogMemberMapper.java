@@ -101,5 +101,14 @@ public interface BlogMemberMapper {
 			""")
 	Integer deleteMemberId(String member_id);
 
+	@Delete("""
+			DELETE
+			FROM
+			MEMBERAUTHORITY
+			WHERE
+			member_id = #{member_id}
+			""")
+	void deleteMemberAuthority(String member_id);
+
 
 }

@@ -43,8 +43,12 @@ public class MemberController {
 	
 	@GetMapping("/3")
 	@PreAuthorize("isAuthenticated() and (authentication.name eq #member_id)")
-	public String deletePage(String member_id) {
+	public String deletePage(String member_id, Model model) {
 
+		Members member = blogMemberService.getMemberId(member_id);
+		
+		model.addAttribute("member", member);
+		
 		return "members/delete";
 	}
 }
