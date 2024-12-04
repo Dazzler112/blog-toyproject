@@ -23,7 +23,8 @@ body {
 	</head>
 	<body>
 	<my:navigation></my:navigation>
-		<input type="text" id="search-id" name="delete-member_id" value="${member.member_id}" style="display: none;" readonly>
+		<input type="text" id="delete-member_id" name="member_id" value="${member.member_id}" style="display: none;" readonly>
+		<input type="text" id="delete-authmember_id" name="member_id" value="${memberAuth.member_id}" style="display: none;" readonly>
         <div style="display: flex; justify-content: center;">
         	<span id="need-sign" style="color: rgba(252, 168, 149, 0.7); font-size: 9px; margin-bottom: 8px;">* 항목은 필수 사항입니다.</span>
         </div>		

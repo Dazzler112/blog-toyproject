@@ -93,6 +93,11 @@ public class BlogMemberService {
 		return blogMemberMapper.selectByMemberId(member_id);
 	}
 
+	public MemberAuthority getAuthorityId(String member_id) {
+		
+		return blogMemberMapper.selectByAuthMemberId(member_id);
+	}
+	
 	public boolean removeMemberId(Members member, Authentication authentication) {
 		
 		Members getMember = blogMemberMapper.selectByMemberId(authentication.getName());

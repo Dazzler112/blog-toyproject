@@ -62,6 +62,16 @@ public interface BlogMemberMapper {
 			SELECT
 			*
 			FROM
+			MEMBERAUTHORITY
+			WHERE 
+			member_id = #{member_id}
+			""")
+	MemberAuthority selectByAuthMemberId(String member_id);
+	
+	@Select("""
+			SELECT
+			*
+			FROM
 			MEMBERS
 			WHERE 
 			phone_number = #{phone_number}
@@ -109,6 +119,7 @@ public interface BlogMemberMapper {
 			member_id = #{member_id}
 			""")
 	void deleteMemberAuthority(String member_id);
+
 
 
 }
