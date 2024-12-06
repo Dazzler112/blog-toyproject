@@ -110,5 +110,12 @@ public class BlogMemberService {
 		System.out.println("members => " + member.getMember_id() + member.getPassword());
 		return cnt == 1;
 	}
+
+	public Members findMemberId(String member_id) {
+		
+		Members member = blogMemberMapper.selectByMemberId(member_id);
+		
+		return member;
+	}
 	
 }

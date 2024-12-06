@@ -54,4 +54,10 @@ public class MemberController {
 		
 		return "members/delete";
 	}
+	
+	@GetMapping("/4")
+	public String findMemberId() {
+		
+		return "members/checkid";
+	}
 }
