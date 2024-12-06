@@ -70,4 +70,12 @@ public class MemberResource {
 		return ResponseEntity.ok().build();
 	}
 	
+	@PostMapping("/members/findid")
+	public Members findId(String member_id) {
+		
+		Members member = blogMemberService.findMemberId(member_id);
+		
+		return member;
+	}
+
 }
