@@ -120,6 +120,14 @@ public interface BlogMemberMapper {
 			""")
 	void deleteMemberAuthority(String member_id);
 
-
+	@Select("""
+			SELECT
+			member_id 
+			FROM
+			MEMBERS
+			WHERE
+			email = #{email}
+			""")
+	String selectMemberEmail(String email);
 
 }

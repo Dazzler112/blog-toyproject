@@ -25,19 +25,19 @@ body {
 	<my:navigation></my:navigation>
 		<div style="display: flex; justify-content: center;">
       		<div>		
-				<!--아이디-->
+				<!--메일-->
 				 <div class="sign-column">
 	              <div>
-	              	<span style="margin-right: 50px;">아이디</span>
+	              	<span style="margin-right: 50px;">email</span>
 	              </div>
-	              <input type="text" id="id-spc" name="username" maxlength="20">
+	              <input type="text" id="find-email" name="email" maxlength="20">
 	            </div>
    
             </div> 
 		</div>
 		<br>
         <div class="member-sign-column">
-        	<input type="submit" id="login-btn" value="ID찾기">
+        	<input type="submit" id="email-btn" value="ID찾기">
         </div>	
 
         <div id="findid_div"></div>

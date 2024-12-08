@@ -1,22 +1,28 @@
 
-$("#findid-btn").click(function(){
-	const member_id = $("#find-id").val();
+$("#email-btn").click(function(){
+	const email = $("#find-email").val();
 	
-	$.ajax(`/members/modify`, {
-		method: "post",
-		contentType: "application/json",
-        data: JSON.stringify({
-			member_id : member_id
-        }),		
-		success: function(result) { // 결과 성공 콜백함수
-			/*console.log(result);*/
-			console.log(result);
-			if(MEMBERS.getMeber_Id == member_id) {
-				$("#sign-blank").html(<p>로그인 생성이 완료되었습니다.</p>);
-			}
-		},
-		error: function(request, status, error) { // 결과 에러 콜백함수
-			console.log(error + "잘못된 방식");
-		},
-	});
+		$.ajax(`/members/findid`, {
+			method: "post",
+			contentType: "application/json",
+	        data: JSON.stringify({
+            	email: email
+        	}),	
+			success: function(data) { // 결과 성공 콜백함수
+				/*console.log(result);*/
+				console.log(data);
+				console.log(email);
+				if(data == 0) {
+					$("#findid_div").css("color", "red");
+					$("#findid_div").text("!해당된 메일이 없습니다.");
+				} else {
+					$("#findid_div").css("color", "blue");
+					$("#findid_div").html("ID는 " + data + "입니다.");
+				}
+			},
+			error: function(request, status, error) { // 결과 에러 콜백함수
+				console.log(error + "잘못된 방식");
+			},
+		});
+
 });
