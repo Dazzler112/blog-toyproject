@@ -71,11 +71,12 @@ public class MemberResource {
 	}
 	
 	@PostMapping("/members/findid")
-	public Members findId(String member_id) {
+	public String findId(@RequestBody Members member, String email) {
+
+		System.err.println("Controller => " + member.getEmail());
+		String result = blogMemberService.findMemberId(member);
 		
-		Members member = blogMemberService.findMemberId(member_id);
-		
-		return member;
+		return result;
 	}
 
 }

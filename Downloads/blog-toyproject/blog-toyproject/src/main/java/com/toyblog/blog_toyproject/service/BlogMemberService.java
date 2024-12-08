@@ -111,11 +111,13 @@ public class BlogMemberService {
 		return cnt == 1;
 	}
 
-	public Members findMemberId(String member_id) {
+	public String findMemberId(Members member) {
+		String result = "";
 		
-		Members member = blogMemberMapper.selectByMemberId(member_id);
-		
-		return member;
+		System.err.println("Service => " + member.getEmail());
+		result = blogMemberMapper.selectMemberEmail(member.getEmail());
+
+		return result;
 	}
 	
 }
