@@ -26,8 +26,13 @@ public class MemberController {
 		return "members/login";
 	}
 	
-	
 	@GetMapping("/2")
+	@PreAuthorize("isAuthenticated()")
+	public String myPage() {
+		return "members/mypage";
+	}
+	
+	@GetMapping("/3")
 	@PreAuthorize("isAuthenticated() and (authentication.name eq #member_id)")
 	public String modifyPage(String member_id, Model model) {
 		
@@ -41,7 +46,7 @@ public class MemberController {
 		return "members/modify";
 	}
 	
-	@GetMapping("/3")
+	@GetMapping("/4")
 	@PreAuthorize("isAuthenticated() and (authentication.name eq #member_id)")
 	public String deletePage(String member_id, Model model) {
 
@@ -55,9 +60,15 @@ public class MemberController {
 		return "members/delete";
 	}
 	
-	@GetMapping("/4")
+	@GetMapping("/5")
 	public String findMemberId() {
 		
 		return "members/checkid";
+	}
+	
+	@GetMapping("/6")
+	public String findMemberPassword() {
+		
+		return "members/findpassword";
 	}
 }

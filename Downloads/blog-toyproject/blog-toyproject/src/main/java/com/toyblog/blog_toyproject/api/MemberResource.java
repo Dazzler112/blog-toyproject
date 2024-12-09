@@ -78,5 +78,11 @@ public class MemberResource {
 		
 		return result;
 	}
+	
+	@PostMapping("/members/findpw")
+	public void findPassword(@RequestBody Members member, Authentication authentication) {
+		
+		boolean findPwMember = blogMemberService.findMemberPassword(member, authentication);
+	}
 
 }
