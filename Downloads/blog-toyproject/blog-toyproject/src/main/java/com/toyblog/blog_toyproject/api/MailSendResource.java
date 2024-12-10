@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.security.core.*;
 import org.springframework.web.bind.annotation.*;
 
+import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.service.*;
 
 import jakarta.servlet.http.*;
@@ -22,11 +23,18 @@ public class MailSendResource {
 	private BlogMemberService blogMemberService;
 	
 	@PostMapping("/mail/code")
-	public void CheckEmailCode(String email, HttpSession http) throws UnsupportedEncodingException {
+	public void CheckEmailCode(String email, HttpSession http, Members member) throws UnsupportedEncodingException {
 		
 		email = URLDecoder.decode(email, "UTF-8");
 		
+		String memberId = blogMemberService.findMemberId(member);
+		if(memberId == null) {
+			throw new RuntimeException("No member found with email: " + email);
+		}
+		
 		mailSendService.SendMail(email, http);
+		
+		http.setAttribute("memberId", memberId);
 		
 	}
 	
