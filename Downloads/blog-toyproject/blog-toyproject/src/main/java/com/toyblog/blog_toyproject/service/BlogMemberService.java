@@ -119,5 +119,17 @@ public class BlogMemberService {
 
 		return result;
 	}
+
+	public boolean findMemberPassword(Members member, Authentication authentication) {
+		
+		if(!member.getPassword().isBlank()) {
+			String plain = member.getPassword();
+			member.setPassword(passwordEncoder.encode(plain));			
+		}
+		
+		int cnt = 0;
+		cnt = blogMemberMapper.memberUpdate(member);
+		return cnt == 1;
+	}
 	
 }

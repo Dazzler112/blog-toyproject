@@ -78,5 +78,16 @@ public class MemberResource {
 		
 		return result;
 	}
+	
+	@PostMapping("/members/findpw")
+	public void findPassword(@RequestBody Members member, Authentication authentication, HttpSession session) {
+		
+		String sessionMemberId = (String) session.getAttribute("memberId");
+	    if (sessionMemberId == null) {
+	        throw new RuntimeException("Session is invalid. Please verify your email first.");
+	    }
+	    
+		boolean findPwMember = blogMemberService.findMemberPassword(member, authentication);
+	}
 
 }

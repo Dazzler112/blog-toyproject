@@ -37,15 +37,12 @@ nav a {
 	<ul class="ul-nav-style">
 		<li><a href="/post">Home</a></li>
 		<li><a href="/about">About</a></li>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/2">mypage</a></li>
+		</sec:authorize>			
 		<sec:authorize access="isAnonymous()">
-			<li><a href="/1">Login/Logout</a></li>
+			<li><a href="/1">Login</a></li>
 		</sec:authorize>	
-		<sec:authorize access="isAuthenticated()">
-			<li><a href="/2?member_id=<sec:authentication property="name" />">Member Modify</a></li>
-		</sec:authorize>
-		<sec:authorize access="isAuthenticated()">
-			<li><a href="/3?member_id=<sec:authentication property="name" />">Member Delete</a></li>
-		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
         	<li><a href="/0/0">Logout</a></li>
         </sec:authorize>
