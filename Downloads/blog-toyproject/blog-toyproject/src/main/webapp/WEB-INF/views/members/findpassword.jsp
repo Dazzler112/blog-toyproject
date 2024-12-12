@@ -26,6 +26,7 @@ body {
 	<div style="display: flex; justify-content: center;">
 		<div>
 			<input id="authority-space" type="text" name="authority" value="user" style="display: none;"> <input id="membertype-space" type="text" name="member_type" value="user" style="display: none;">
+			<div  id="memid"></div>
 			<!--이메일-->
 			<div class="sign-column">
 				<div>
