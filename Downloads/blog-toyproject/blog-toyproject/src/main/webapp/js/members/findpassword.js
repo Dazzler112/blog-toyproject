@@ -67,6 +67,9 @@ $("#codeemail_Btn").click(function() {
                     $("#verifycode").prop("disabled", true);
                     $("#codeemail_Btn").prop("disabled", true);
                     $("#pwmodify-div").show();
+                    $("#memid").html(
+                	`<input id="memberId" name="memberId" value="${response.memberId}">`
+            		);
                     enableSubmit();
 
                     alert("인증이 완료되었습니다. 회원 가입을 진행합니다.");
@@ -129,12 +132,13 @@ $("#passwordfind-check").blur(function() {
 //================================ 비밀번호 변경 =========================================
 $("#pwfind-submit").click(function(){
 	const password = $("#input-password").val();
-	
+	const member_id = $("#memberId").val();
 	$.ajax(`/members/findpw`, {
 		method: "post",
 		contentType: "application/json",
         data: JSON.stringify({
-            password : password 
+            password : password,
+            member_id : member_id
         }),		
 		success: function(result) { // 결과 성공 콜백함수
 			/*console.log(result);*/

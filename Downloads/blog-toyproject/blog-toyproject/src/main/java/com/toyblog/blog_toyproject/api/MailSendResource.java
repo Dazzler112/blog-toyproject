@@ -5,6 +5,7 @@ import java.net.*;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.*;
 import org.springframework.security.core.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class MailSendResource {
 	private BlogMemberService blogMemberService;
 	
 	@PostMapping("/mail/code")
-	public void CheckEmailCode(String email, HttpSession http, Members member) throws UnsupportedEncodingException {
+	public ResponseEntity<Map<String, Object>> CheckEmailCode(String email, HttpSession http, Members member) throws UnsupportedEncodingException {
 		
 		email = URLDecoder.decode(email, "UTF-8");
 		
@@ -36,13 +37,25 @@ public class MailSendResource {
 		
 		http.setAttribute("memberId", memberId);
 		
+		Map<String, Object> response = new HashMap<>();
+		response.put("memberId", memberId);
+		
+		return ResponseEntity.ok(response);
+		
 	}
 	
 	@PostMapping("/mailcheck")
-	public Map<String, Object> mailCheck(Integer enteredCode, HttpSession http) {
+	public ResponseEntity<Map<String, Object>> mailCheck(Integer enteredCode, HttpSession http) {
 		Boolean ok = mailSendService.compareNum(enteredCode, http);
 		
-		return Map.of("authentication", ok);
+		Integer authenticateNum = (Integer) http.getAttribute("authenticateNum");
+		String memberId = (String) http.getAttribute("memberId");
+		
+		Map<String, Object> response = new HashMap<>();
+	    response.put("authentication", authenticateNum != null && authenticateNum.equals(Integer.valueOf(enteredCode)));
+	    response.put("memberId", memberId);
+	    
+	    return ResponseEntity.ok(response);
 	}
 	
 	@GetMapping("/searchmail/{email}")
