@@ -19,6 +19,33 @@ body {
 	justify-content: space-between;
 	text-align: center;
 }
+
+/* 글쓰기버튼 css */
+.writer_link-color {
+   color: rgba(0, 0, 0, 0.5);
+   font-size: 18px;
+   text-decoration: none;
+   color: white;
+}
+
+.board_writer-icon {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: black;
+   padding: 16px;
+   border-radius: 50%;
+}
+
+.div_writer {
+   margin-bottom: 50px;
+   margin-right: 30px;
+   position: fixed;
+   bottom: 0;
+   right: 0;
+   margin: 0px, 30px, 30px, 0px;
+}
+/*===================*/
 </style>
 
 <html>
@@ -60,6 +87,16 @@ body {
 					</div>
 				</div>
 			</div>
+			
+						
+   <div class="div_writer">
+      <a href="/main/post" class="writer_link-color">
+         <div class="board_writer-icon">
+            <span>🖍</span>
+         </div>
+      </a>
+   </div>
+   			
 		</div>
 	</body>
 </html>

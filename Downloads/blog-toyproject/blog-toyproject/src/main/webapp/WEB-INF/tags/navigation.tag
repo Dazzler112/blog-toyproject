@@ -36,12 +36,12 @@ nav a {
 <body>
 	<nav>
 		<div>
-			<a href="/post">
+			<a href="/main">
 				<img src="/img/signature.jpg" style="width: 60px;  height: 60px; ">
 			</a>
 		</div>
 		<ul class="ul-nav-style">
-			<li><a href="/post"><span class="nav-li-a_style">Home</span></a></li>
+			<li><a href="/main"><span class="nav-li-a_style">Home</span></a></li>
 			<li><a href="/about"><span class="nav-li-a_style">About</span></a></li>
 			<sec:authorize access="isAuthenticated()">
 				<li><a href="/2"><span class="nav-li-a_style">mypage</span></a></li>

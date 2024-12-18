@@ -4,8 +4,8 @@ import java.time.*;
 import java.util.*;
 
 public class Board {
-
-	public Board(Integer board_id, String title, String body, String writer, LocalDate write_date,
+	
+	public Board(Integer board_id, String title, String body, String writer, LocalDateTime write_date, String category,
 			List<String> photoName, Boolean liked, Integer like_count, Integer file_count, Integer reply_count) {
 		super();
 		this.board_id = board_id;
@@ -13,22 +13,26 @@ public class Board {
 		this.body = body;
 		this.writer = writer;
 		this.write_date = write_date;
+		this.category = category;
 		this.photoName = photoName;
 		this.liked = liked;
 		this.like_count = like_count;
 		this.file_count = file_count;
 		this.reply_count = reply_count;
 	}
-	
-	//
+
+	public Board() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	private Integer board_id;
 	private String title;
 	private String body;
 	private String writer; 
-	private LocalDate write_date;
+	private LocalDateTime write_date;
 	
-//	private String category; <=보류
+	private String category;
 	
 	private List<String> photoName;
 	
@@ -64,12 +68,7 @@ public class Board {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public LocalDate getWrite_date() {
-		return write_date;
-	}
-	public void setWrite_date(LocalDate write_date) {
-		this.write_date = write_date;
-	}
+
 	public List<String> getPhotoName() {
 		return photoName;
 	}
@@ -101,7 +100,20 @@ public class Board {
 		this.reply_count = reply_count;
 	}
 	
-	//
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	
+	public LocalDateTime getWrite_date() {
+		return write_date;
+	}
+	
+	public void setWrite_date(LocalDateTime write_date) {
+		this.write_date = write_date;
+	}
 	
 	@Override
 	public String toString() {
@@ -109,5 +121,6 @@ public class Board {
 				+ ", write_date=" + write_date + ", photoName=" + photoName + ", liked=" + liked + ", like_count="
 				+ like_count + ", file_count=" + file_count + ", reply_count=" + reply_count + "]";
 	}
+
 	
 }
