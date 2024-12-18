@@ -7,12 +7,6 @@ import org.springframework.web.bind.annotation.*;
 public class BlogAboutController {
 	
 	
-	@GetMapping("post")
-	public String boardPage() {
-		
-		return "main/main-view";
-	}
-	
 	@GetMapping("about")
 	public String aboutPage() {
 		
