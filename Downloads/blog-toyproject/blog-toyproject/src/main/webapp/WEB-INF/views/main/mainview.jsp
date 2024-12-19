@@ -53,6 +53,8 @@ body {
 	    <meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Review Pages</title>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
 	<my:navigation></my:navigation>
@@ -65,16 +67,18 @@ body {
 				</div>
 			</div>
 			
-			<div class="center-container">
+		<c:forEach items="${boardList}" var="board">
+			<div id="board-container" class="center-container">
 				<div>
-					<img src="#">
+					<img src="${bucketUrl}/${board.board_id}/${board.photo_name}" />
 				</div>
 				
 				<div>
+					<div><input id="board_id-value" type="text" name="board_id" value="${board.board_id}" style="display:none; " readonly /></div>
 					<div class=""><a><span>⋮</span></a></div>
 					<div class="">
-					<h3>title</h3>
-					<span>text</span>
+					<h3 id="board-title">${board.title}</h3>
+					<span id="board-body">${board.body}</span>
 					</div>
 					<div class="">
 						<div>
@@ -87,6 +91,8 @@ body {
 					</div>
 				</div>
 			</div>
+			<br>
+		   </c:forEach>	
 			
 						
    <div class="div_writer">
@@ -98,5 +104,9 @@ body {
    </div>
    			
 		</div>
+		
+		
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/main/view.js"></script>
 	</body>
 </html>

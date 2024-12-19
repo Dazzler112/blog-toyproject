@@ -5,8 +5,13 @@ import java.util.*;
 
 public class Board {
 	
+	public Board() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Board(Integer board_id, String title, String body, String writer, LocalDateTime write_date, String category,
-			List<String> photoName, Boolean liked, Integer like_count, Integer file_count, Integer reply_count) {
+			List<String> photo_name, Boolean liked, Integer like_count, Integer file_count, Integer reply_count) {
 		super();
 		this.board_id = board_id;
 		this.title = title;
@@ -14,16 +19,11 @@ public class Board {
 		this.writer = writer;
 		this.write_date = write_date;
 		this.category = category;
-		this.photoName = photoName;
+		this.photo_name = photo_name;
 		this.liked = liked;
 		this.like_count = like_count;
 		this.file_count = file_count;
 		this.reply_count = reply_count;
-	}
-
-	public Board() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	private Integer board_id;
@@ -34,7 +34,7 @@ public class Board {
 	
 	private String category;
 	
-	private List<String> photoName;
+	private List<String> photo_name;
 	
 	private Boolean liked;
 	private Integer like_count;
@@ -69,12 +69,6 @@ public class Board {
 		this.writer = writer;
 	}
 
-	public List<String> getPhotoName() {
-		return photoName;
-	}
-	public void setPhotoName(List<String> photoName) {
-		this.photoName = photoName;
-	}
 	public Boolean getLiked() {
 		return liked;
 	}
@@ -115,12 +109,19 @@ public class Board {
 		this.write_date = write_date;
 	}
 	
+	public List<String> getPhoto_name() {
+		return photo_name;
+	}
+	public void setPhoto_name(List<String> photo_name) {
+		this.photo_name = photo_name;
+	}
+	
 	@Override
 	public String toString() {
 		return "Board [board_id=" + board_id + ", title=" + title + ", body=" + body + ", writer=" + writer
-				+ ", write_date=" + write_date + ", photoName=" + photoName + ", liked=" + liked + ", like_count="
-				+ like_count + ", file_count=" + file_count + ", reply_count=" + reply_count + "]";
+				+ ", write_date=" + write_date + ", category=" + category + ", photo_name=" + photo_name + ", liked="
+				+ liked + ", like_count=" + like_count + ", file_count=" + file_count + ", reply_count=" + reply_count
+				+ "]";
 	}
-
 	
 }
