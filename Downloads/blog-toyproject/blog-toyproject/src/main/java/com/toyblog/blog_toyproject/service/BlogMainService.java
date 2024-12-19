@@ -1,6 +1,7 @@
 package com.toyblog.blog_toyproject.service;
 
 import java.io.*;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
@@ -46,5 +47,12 @@ public class BlogMainService {
 			}
 		}
 		return cnt == 1;
+	}
+
+	public List<Board> getBoardId() {
+		
+		List<Board> board = blogMainMapper.selectBoard();
+		
+		return board;
 	}
 }

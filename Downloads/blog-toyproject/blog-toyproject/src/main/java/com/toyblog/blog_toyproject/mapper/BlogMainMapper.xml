@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.toyblog.blog_toyproject.mapper.BlogMainMapper">
+
+	<resultMap type="com.toyblog.blog_toyproject.dto.Board" id="boardTotalMap">
+		<id column="board_id" property="board_id"></id>
+		<result column="title" property="title"></result>
+		<result column="body" property="body"></result>
+		<result column="writer" property="writer"></result>
+		<result column="write_date" property="write_date"></result>
+		<result column="category" property="category"></result>
+		<collection property="photo_name" ofType="string">
+			<result column="photo_name" />
+		</collection>
+	</resultMap>
+	
+</mapper>     

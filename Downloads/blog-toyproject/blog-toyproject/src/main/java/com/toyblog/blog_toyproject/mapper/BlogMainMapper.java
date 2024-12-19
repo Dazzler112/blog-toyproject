@@ -1,5 +1,7 @@
 package com.toyblog.blog_toyproject.mapper;
 
+import java.util.*;
+
 import org.apache.ibatis.annotations.*;
 
 import com.toyblog.blog_toyproject.dto.*;
@@ -21,5 +23,24 @@ public interface BlogMainMapper {
 			VALUES(#{board_id}, #{photo_name})
 			""")
 	Integer insertFileName(Integer board_id, String photo_name);
+
+	@Select("""
+			SELECT
+				b.board_id
+			  , b.title
+			  , b.body
+			  , b.writer
+			  , b.write_date
+			  , b.category
+			  , p.photo_name
+			FROM
+			   BOARD b
+			   LEFT JOIN
+			   PHOTO p 
+			   ON
+			   b.board_id = p.board_id
+			""")
+	@ResultMap("boardTotalMap")
+	List<Board> selectBoard();
 
 }
