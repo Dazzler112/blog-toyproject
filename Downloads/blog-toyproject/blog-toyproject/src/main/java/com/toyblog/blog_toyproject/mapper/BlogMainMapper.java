@@ -43,4 +43,25 @@ public interface BlogMainMapper {
 	@ResultMap("boardTotalMap")
 	List<Board> selectBoard();
 
+	@Select("""
+			SELECT
+				b.board_id
+			  , b.title
+			  , b.body
+			  , b.writer
+			  , b.write_date
+			  , b.category
+			  , p.photo_name
+			FROM
+			   BOARD b
+			   LEFT JOIN
+			   PHOTO p 
+			   ON
+			   b.board_id = p.board_id
+			   WHERE
+			   b.board_id = #{board_id}
+			""")
+	@ResultMap("boardTotalMap")
+	List<Board> selectPostBoardId(Integer board_id);
+
 }

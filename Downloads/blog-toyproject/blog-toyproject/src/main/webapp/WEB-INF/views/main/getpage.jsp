@@ -15,11 +15,18 @@ body {
 }
 .center-container {
 	border: 0.5px solid rgba(0,0,0,0.3);
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+.top-info {
 	display: flex;
 	justify-content: space-between;
-	text-align: center;
 }
-
+.body-info {
+	text-align: center;
+	align-items: center;
+}
 /* 글쓰기버튼 css */
 .writer_link-color {
    color: rgba(0, 0, 0, 0.5);
@@ -46,10 +53,6 @@ body {
    margin: 0px, 30px, 30px, 0px;
 }
 /*===================*/
-.get-view{
-	text-decoration: none;
-	color: black;
-}
 </style>
 
 <html>
@@ -71,50 +74,59 @@ body {
 				</div>
 			</div>
 			
-		<c:forEach items="${boardList}" var="board">
+
 			<div id="board-container" class="center-container">
-			<c:forEach items="${board.photo_name}" var="photo">
-				<div>
-					<a class="get-view" href="/main/${board.board_id}" data-board-id="${board.board_id}">
-					<img src="${bucketUrl}/${board.board_id}/${photo}" />
-					</a>
+				<div><input id="board_id" type="text" name="board_id" style="display:none; " readonly /></div>
+				<div class="top-info">
+					<div>
+						<span id="board_writer">writer</span>
+						<span id="board_writedate">date</span>					
+					</div>
+						<a><span>⋮</span></a>
+					<div>
+					</div>					
 				</div>
-			</c:forEach>	
+				<div class="title-info">
+					<h3 id="board-title">title</h3>
+				</div>
+				<br>
+				<div class="body-info">
+					<div>
+						<img  id="board-img" src="" />
+					</div>
+					<div>
+						<span id="board-body">body</span>
+					</div>
+				</div>
+	
 				<div>
-					<div><input id="board_id-value" type="text" name="board_id" value="${board.board_id}" style="display:none; " readonly /></div>
-					<div class=""><a><span>⋮</span></a></div>
-					<a class="get-view" href="/main/${board.board_id}" data-board-id="${board.board_id}">
-						<div class="">
-						<h3 id="board-title">${board.title}</h3>
-						<span id="board-body">${board.body}</span>
-						</div>
-					</a>
 					<div class="">
-						<div>
-						<span>views</span>
-						<span>comment</span>
-						</div>
-						<div>
-						🤍						
-						</div>
+					
+					
+					</div>
+					<div class="">
+
 					</div>
 				</div>
 			</div>
-			<br>
-		   </c:forEach>	
+
 			
 						
-   <div class="div_writer">
-      <a href="/main/post" class="writer_link-color">
-         <div class="board_writer-icon">
-            <span>🖍</span>
-         </div>
-      </a>
-   </div>
+		   <div class="div_writer">
+		      <a href="/main/post" class="writer_link-color">
+		         <div class="board_writer-icon">
+		            <span>🖍</span>
+		         </div>
+		      </a>
+		   </div>
    			
 		</div>
 		
 		
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/main/view.js"></script>
+	<script>
+		const boardId = "${board_id}";
+	</script>
 	</body>
 </html>

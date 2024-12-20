@@ -17,7 +17,7 @@ $("#add-writer-botton").click(function(){
 		formData.append("photoFile" ,files[i]);
 	}
 	
-	$.ajax(`/main/addpost`, {
+	$.ajax(`/post/addpost`, {
 		method: "post",
         data: formData,		
         processData: false, // FormData 처리 설정
