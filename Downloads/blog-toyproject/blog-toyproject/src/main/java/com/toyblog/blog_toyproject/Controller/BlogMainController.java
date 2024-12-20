@@ -17,7 +17,7 @@ public class BlogMainController {
 	private BlogMainService blogMainService; 
 	
 	@GetMapping("main")
-	public String boardPage(Model model) {
+	public String boardListPage(Model model) {
 		
 		List<Board> board = blogMainService.getBoardId();
 		
@@ -25,6 +25,12 @@ public class BlogMainController {
 		
 		return "main/mainview";
 	}
+	
+	@GetMapping("main/{board_id}")
+	public String getBoardPage () {
+		
+		return "main/getpage";
+	} 
 	
 	@GetMapping("main/post")
 	public String boardPostPage() {

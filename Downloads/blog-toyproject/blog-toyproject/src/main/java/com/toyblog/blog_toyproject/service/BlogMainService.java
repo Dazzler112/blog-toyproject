@@ -55,4 +55,11 @@ public class BlogMainService {
 		
 		return board;
 	}
+
+	public List<Board> getPostBoardId(Integer board_id) {
+		
+		List<Board> board = blogMainMapper.selectPostBoardId(board_id);
+		
+		return board;
+	}
 }

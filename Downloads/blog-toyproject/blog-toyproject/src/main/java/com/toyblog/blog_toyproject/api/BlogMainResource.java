@@ -2,6 +2,7 @@ package com.toyblog.blog_toyproject.api;
 
 import java.io.*;
 import java.time.*;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.format.annotation.*;
@@ -19,14 +20,15 @@ public class BlogMainResource {
 	@Autowired
 	private BlogMainService blogMainService;
 	
-//	@GetMapping("main/{board_id}")
-//	public ResponseEntity<Board> getBoardList(@PathVariable Integer board_id) {
-//		
-//		Board board = blogMainService.getBoardId(board_id);
-//		return ResponseEntity.ok(board);
-//	}
+	@GetMapping("/post/{board_id}")
+	public ResponseEntity<List<Board>> getPostBoard(@PathVariable Integer board_id) {
+		
+		List<Board> board = blogMainService.getPostBoardId(board_id);
+		
+		return ResponseEntity.ok(board);
+	}
 
-	@PostMapping(value = "/main/addpost", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@PostMapping(value = "/post/addpost", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public void addMain(@RequestPart("photoFile") MultipartFile[] files, 
 						@RequestParam("title") String title,
 				        @RequestParam("body") String body,
