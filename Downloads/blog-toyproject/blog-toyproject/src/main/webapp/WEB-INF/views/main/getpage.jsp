@@ -27,32 +27,7 @@ body {
 	text-align: center;
 	align-items: center;
 }
-/* 글쓰기버튼 css */
-.writer_link-color {
-   color: rgba(0, 0, 0, 0.5);
-   font-size: 18px;
-   text-decoration: none;
-   color: white;
-}
 
-.board_writer-icon {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: black;
-   padding: 16px;
-   border-radius: 50%;
-}
-
-.div_writer {
-   margin-bottom: 50px;
-   margin-right: 30px;
-   position: fixed;
-   bottom: 0;
-   right: 0;
-   margin: 0px, 30px, 30px, 0px;
-}
-/*===================*/
 </style>
 
 <html>
@@ -76,26 +51,26 @@ body {
 			
 
 			<div id="board-container" class="center-container">
-				<div><input id="board_id" type="text" name="board_id" style="display:none; " readonly /></div>
+				<div><input id="board_get-id" type="text" name="board_id" style="display:none; " readonly /></div>
 				<div class="top-info">
 					<div>
-						<span id="board_writer">writer</span>
-						<span id="board_writedate">date</span>					
+						<span id="board_get-writer">writer</span>
+						<span id="board_get-writedate">date</span>					
 					</div>
 						<a><span>⋮</span></a>
 					<div>
 					</div>					
 				</div>
 				<div class="title-info">
-					<h3 id="board-title">title</h3>
+					<h3 id="board_get-title">title</h3>
 				</div>
 				<br>
 				<div class="body-info">
 					<div>
-						<img  id="board-img" src="" />
+						<img  id="board_get-img" src="" />
 					</div>
 					<div>
-						<span id="board-body">body</span>
+						<span id="board_get-body">body</span>
 					</div>
 				</div>
 	
@@ -111,22 +86,24 @@ body {
 			</div>
 
 			
-						
-		   <div class="div_writer">
-		      <a href="/main/post" class="writer_link-color">
-		         <div class="board_writer-icon">
-		            <span>🖍</span>
-		         </div>
-		      </a>
-		   </div>
+		   <div>			
+			   <div class="div_modify">
+			      <a href="/main/modify" class="">
+			            <span>수정</span>
+			      </a>
+			   </div>
+				<div class="div_delete">
+			      <a href="/main/delete" class="">
+			            <span>삭제</span>
+			      </a>
+			   </div>
+   		   </div>		
    			
 		</div>
 		
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/main/view.js"></script>
-	<script>
-		const boardId = "${board_id}";
-	</script>
+
 	</body>
 </html>
