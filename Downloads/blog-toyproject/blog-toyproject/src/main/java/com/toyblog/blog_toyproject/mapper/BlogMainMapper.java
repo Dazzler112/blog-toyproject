@@ -39,6 +39,7 @@ public interface BlogMainMapper {
 			   PHOTO p 
 			   ON
 			   b.board_id = p.board_id
+			   ORDER BY board_id DESC
 			""")
 	@ResultMap("boardTotalMap")
 	List<Board> selectBoard();
@@ -63,5 +64,32 @@ public interface BlogMainMapper {
 			""")
 	@ResultMap("boardTotalMap")
 	List<Board> selectPostBoardId(Integer board_id);
+	
+	@Select("""
+			SELECT 
+			photo_name
+			FROM
+			PHOTO
+			WHERE board_id = #{board_id}
+			""")
+	List<String> selectPhotoFile(Integer board_id);
+
+	@Delete("""
+			DELETE
+			FROM
+			PHOTO
+			WHERE
+			board_id = #{board_id}
+			""")
+	void deletePhotoBoardId(Integer board_id);
+
+	@Delete("""
+			DELETE
+			FROM
+			BOARD
+			WHERE
+			board_id = #{board_id}
+			""")
+	int deletePost(Integer board_id);
 
 }

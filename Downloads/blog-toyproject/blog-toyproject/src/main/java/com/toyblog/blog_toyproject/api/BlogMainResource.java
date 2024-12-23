@@ -25,10 +25,6 @@ public class BlogMainResource {
 		
 		List<Board> board = blogMainService.getPostBoardId(board_id);
 		
-		if(board == null) {
-			return ResponseEntity.notFound().build();
-		}
-		
 		return ResponseEntity.ok(board);
 	}
 
@@ -58,4 +54,10 @@ public class BlogMainResource {
 			throw new RuntimeException("게시글 등록 실패");
 		}
 	}
+	
+	@PostMapping("/post/remove")
+	public void deletePost(@RequestBody Integer board_id) {
+		
+		boolean ok = blogMainService.removeMainPost(board_id);
+	}	
 }

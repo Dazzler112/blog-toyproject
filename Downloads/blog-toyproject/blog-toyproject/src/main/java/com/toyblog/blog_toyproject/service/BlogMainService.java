@@ -62,4 +62,25 @@ public class BlogMainService {
 		
 		return board;
 	}
+	
+	public boolean removeMainPost(Integer board_id) {
+
+		List<String> photoNames = blogMainMapper.selectPhotoFile(board_id);
+		
+		blogMainMapper.deletePhotoBoardId(board_id);
+		
+		for(String photoName : photoNames) {
+			String photoKey = "review_blog_project" + board_id + "/" + photoName;
+			DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
+					.bucket(bucketName)
+					.key(photoKey)
+					.build();
+			
+				s3.deleteObject(deleteObjectRequest);
+		}
+		
+		int cnt = blogMainMapper.deletePost(board_id);
+		
+		return cnt == 1;
+	}	
 }

@@ -37,4 +37,16 @@ public class BlogMainController {
 		
 		return "main/post";
 	}
+	
+	@GetMapping("main/remove")
+	public String deletePost() {
+		
+		return "main/remove";
+	}
+	
+	@GetMapping("main/modify/{board_id}")
+	public String modifyPost() {
+		
+		return "main/modify";
+	}
 }
