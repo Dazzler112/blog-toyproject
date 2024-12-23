@@ -10,6 +10,7 @@
 				console.log(response);
                 const board = response[0];
                 
+                $("#board_get-id").val(board.board_id);
                 $("#board_get-title").text(board.title);
                 $("#board_get-writer").text(board.writer);
                 
@@ -27,3 +28,16 @@
             }
         });
     });
+    
+    
+		$(document).on("click", "#modify-link", function (event) {
+		    event.preventDefault(); // 기본 링크 동작 방지
+		    const pathParts = window.location.pathname.split("/");
+		    const board_id = pathParts.length > 2 ? pathParts[2] : null;// /main/{board_id}에서 추출
+		    if (board_id) {
+		    	const url = `/main/modify/${board_id}`; // 수정 페이지 URL 생성
+		    	window.location.href = url; // 수정 페이지로 이동
+		    } else {
+		    	console.error("올바르지 않은 경로입니다. : board_id를 찾을 수 없음.")
+		    }		    
+		});    

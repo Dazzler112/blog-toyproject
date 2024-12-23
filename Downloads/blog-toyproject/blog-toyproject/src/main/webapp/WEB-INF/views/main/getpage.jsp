@@ -28,6 +28,45 @@ body {
 	align-items: center;
 }
 
+//=======여기 삭제 모달==========
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.confirm-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+//=======까지 삭제 모달==========
 </style>
 
 <html>
@@ -88,22 +127,32 @@ body {
 			
 		   <div>			
 			   <div class="div_modify">
-			      <a href="/main/modify" class="">
+			      <a href="#" id="modify-link">
 			            <span>수정</span>
 			      </a>
 			   </div>
-				<div class="div_delete">
-			      <a href="/main/delete" class="">
-			            <span>삭제</span>
-			      </a>
+			   
+			   <div id="deleteModal" class="modal" style="display:none;">
+				    <div class="modal-content">
+				        <p>정말 해당 게시글을 삭제하시겠습니까?</p>
+				        <button id="confirmDelete" class="confirm-btn">예</button>
+				        <button id="cancelDelete" class="cancel-btn">아니오</button>
+				    </div>
 			   </div>
+				<div class="div_removee">
+				  <button id="remove_post-btn">삭제</button>
+			   </div>
+
+			   
    		   </div>		
    			
 		</div>
 		
 		
+		
+		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/main/view.js"></script>
-
+	<script src="/js/main/delete.js"></script>
 	</body>
 </html>
