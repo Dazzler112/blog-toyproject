@@ -56,9 +56,9 @@ public class BlogMainService {
 		return board;
 	}
 
-	public List<Board> getPostBoardId(Integer board_id) {
+	public Board getPostBoardId(Integer board_id) {
 		
-		List<Board> board = blogMainMapper.selectPostBoardId(board_id);
+		Board board = blogMainMapper.selectPostBoardId(board_id);
 		
 		return board;
 	}
@@ -80,6 +80,43 @@ public class BlogMainService {
 		}
 		
 		int cnt = blogMainMapper.deletePost(board_id);
+		
+		return cnt == 1;
+	}
+
+	public boolean updatePost(Board board, List<String> removeFiles, MultipartFile[] addFile) throws IOException {
+		
+		if(removeFiles != null && !removeFiles.isEmpty()) {
+			for(String fileName : removeFiles) {
+				String fileKey = "review_blog_project" + board.getBoard_id() + "/" + fileName;
+				DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
+							.bucket(bucketName)
+							.key(fileKey)
+							.build();
+				
+				s3.deleteObject(deleteObjectRequest);
+				
+				blogMainMapper.deletePhotoName(board.getBoard_id(), fileName);
+			}
+		}
+		
+		for(MultipartFile file : addFile) {
+			if(file.getSize() > 0) {
+				blogMainMapper.updatePhotoName(board.getBoard_id(), file.getOriginalFilename());
+				
+				String fileKey = "review_blog_project" + board.getBoard_id() + "/" + file.getOriginalFilename();
+				PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+						.acl(ObjectCannedACL.PUBLIC_READ)
+						.bucket(bucketName)
+						.key(fileKey)
+						.build();
+				
+				RequestBody request = RequestBody.fromInputStream(file.getInputStream(), file.getSize());
+				s3.putObject(putObjectRequest, request);
+			}
+		}
+		
+		int cnt = blogMainMapper.updateBoard(board);
 		
 		return cnt == 1;
 	}	

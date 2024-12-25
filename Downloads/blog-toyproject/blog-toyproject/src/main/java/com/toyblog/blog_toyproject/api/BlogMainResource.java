@@ -21,9 +21,9 @@ public class BlogMainResource {
 	private BlogMainService blogMainService;
 	
 	@GetMapping("/post/{board_id}")
-	public ResponseEntity<List<Board>> getPostBoard(@PathVariable Integer board_id) {
+	public ResponseEntity<Board> getPostBoard(@PathVariable Integer board_id) {
 		
-		List<Board> board = blogMainService.getPostBoardId(board_id);
+		Board board = blogMainService.getPostBoardId(board_id);
 		
 		return ResponseEntity.ok(board);
 	}
@@ -60,4 +60,29 @@ public class BlogMainResource {
 		
 		boolean ok = blogMainService.removeMainPost(board_id);
 	}	
+	
+	@PostMapping(value = "/post/modify/{board_id}" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public void modifyPost(@PathVariable Integer board_id,
+						   @RequestParam(value = "deletePhotoFile", required = false) List<String> removeFiles, 
+						   @RequestPart(value = "photoFile", required = false) MultipartFile[] addFile, 
+						   @RequestParam("title") String title,
+				           @RequestParam("body") String body,
+				           @RequestParam("category") String category, 
+				           @RequestParam("write_date") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime writeDateStr,
+				           Authentication authentication) throws IOException {
+		
+		ZonedDateTime seoulDateTime = ZonedDateTime.parse(writeDateStr + "+09:00")
+				.withZoneSameInstant(ZoneId.of("Asia/Seoul"));
+		LocalDateTime write_date = seoulDateTime.toLocalDateTime();
+		
+		Board board = new Board();
+		board.setBoard_id(board_id);
+		board.setTitle(title);
+		board.setBody(body);
+		board.setCategory(category);
+		board.setWrite_date(write_date);
+		board.setWriter(authentication.getName());
+		
+		boolean ok = blogMainService.updatePost(board, removeFiles, addFile);
+	}
 }

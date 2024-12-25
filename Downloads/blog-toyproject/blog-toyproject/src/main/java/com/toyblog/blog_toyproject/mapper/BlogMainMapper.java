@@ -63,7 +63,7 @@ public interface BlogMainMapper {
 			   b.board_id = #{board_id}
 			""")
 	@ResultMap("boardTotalMap")
-	List<Board> selectPostBoardId(Integer board_id);
+	Board selectPostBoardId(Integer board_id);
 	
 	@Select("""
 			SELECT 
@@ -91,5 +91,45 @@ public interface BlogMainMapper {
 			board_id = #{board_id}
 			""")
 	int deletePost(Integer board_id);
+
+	@Delete("""
+			DELETE
+			FROM
+			PHOTO
+			WHERE
+			board_id = #{board_id}
+			AND
+			photo_name = #{fileName}
+			""")
+	void deletePhotoName(Integer board_id, String fileName);
+
+	@Insert("""
+			INSERT
+			INTO
+			PHOTO
+			     (
+				  board_id
+				, photo_name
+				 )
+			VALUES
+				  (
+				   #{board_id}
+				 , #{photo_name}
+				  )
+			""")
+	void updatePhotoName(Integer board_id, String photo_name);
+
+	@Update("""
+			UPDATE
+			BOARD
+			SET
+				title = #{title}
+			  ,	body = #{body}
+			  , write_date = #{write_date}
+			  , category = #{category}
+			WHERE
+			  board_id = #{board_id}
+			""")
+	int updateBoard(Board board);
 
 }
