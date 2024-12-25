@@ -8,7 +8,7 @@
             success: function(response) {
 				// response는 서버에서 반환된 Board 객체
 				console.log(response);
-                const board = response[0];
+                const board = response;
                 
                 $("#board_get-id").val(board.board_id);
                 $("#board_get-title").text(board.title);

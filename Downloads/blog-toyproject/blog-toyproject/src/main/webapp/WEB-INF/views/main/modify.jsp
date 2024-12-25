@@ -29,10 +29,10 @@ body {
 		<div>
 
          <div class="col-10 col-md-12 col-lg-14">
-            <form action="" method="post" enctype="multipart/form-data">
                <div id="category_div-div" >
+               	   <input type="text" id="get_post-board_id" name="board_id"  readonly />
 	               <span class="category_title" style="font-weight: 600;">카테고리</span>
-	               <select id="game-category" name="category">
+	               <select id="modi_game-category" name="category">
 		               <option value="전략/시뮬레이션"> 전략/시뮬레이션
 		               <option value="RPG"> RPG
 		               <option value="액션/격투"> 액션/격투
@@ -44,24 +44,23 @@ body {
                </div>
                <div class="mb-3">
 	               <label for="add-title" class="form-label"></label><span style="font-weight: 600;">제목</span>
-	               <input id="add-title" type="text"  class="form-control" name="title" />
+	               <input id="modify-title" type="text"  class="form-control" name="title" />
                </div>
                <div class="mb-3">
-	               <label for="add-body" class="form-label"></label><span style="font-weight: 600;">본문</span>
-	               <textarea rows="10" id="add-body" class="form-control" name="body" ></textarea>
+	               <label for="modify-body" class="form-label"></label><span style="font-weight: 600;">본문</span>
+	               <textarea rows="10" id="modify-body" class="form-control" name="body" ></textarea>
                </div>
                <div class="mb-3">
                   <label for="add-file" class="form-label"></label>
                   <span style="font-weight: 600;">사진</span>
-                  <input id="add-file" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
+                  <input id="modify-file" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
                </div>    
                		<input id="add-date" type="text"  class="form-control" name="write_date" style="display:none;" readonly/>
                <br>
 	            <div class="member-sign-column">
-	               <button id="modify-writer-botton">수정</button>
-	               <a href="/main" id="cancle-writer-botton" style="margin: 0px 0px 0px 10px; text-decoration: none;">취소</a>
-				</div>               
-            </form>
+	               <button id="modify-writer-button">수정</button>
+	               <button id="modify_cancle">취소</button> 
+				</div>    
          </div>
 
 		</div>
@@ -69,6 +68,6 @@ body {
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="/js/main/post.js"></script>
+	<script src="/js/main/modify.js"></script>
 </body>
 </html>

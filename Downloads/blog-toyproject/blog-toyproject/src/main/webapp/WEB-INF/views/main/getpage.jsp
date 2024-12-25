@@ -49,7 +49,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-button {
+.button-style {
     margin: 5px;
     padding: 10px 20px;
     border: none;
@@ -127,9 +127,7 @@ button {
 			
 		   <div>			
 			   <div class="div_modify">
-			      <a href="#" id="modify-link">
-			            <span>수정</span>
-			      </a>
+			      <button class="button-style" id="modify-link">수정</button>
 			   </div>
 			   
 			   <div id="deleteModal" class="modal" style="display:none;">
@@ -140,7 +138,7 @@ button {
 				    </div>
 			   </div>
 				<div class="div_removee">
-				  <button id="remove_post-btn">삭제</button>
+				  <button class="button-style" id="remove_post-btn">삭제</button>
 			   </div>
 
 			   
