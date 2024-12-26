@@ -28,7 +28,7 @@ body {
 	align-items: center;
 }
 
-//=======여기 삭제 모달==========
+/* 여기부터 삭제모달 */
 .modal {
     position: fixed;
     top: 0;
@@ -66,7 +66,43 @@ body {
     background-color: #f44336;
     color: white;
 }
-//=======까지 삭제 모달==========
+/* 여기까지 삭제 모달 */
+
+.view_list-all {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px 20px 0px;
+}
+
+.list_view-container{
+	margin-bottom: 20px;
+	border: 0.5px solid rgba(0,0,0,0.3);
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+.comment-container {
+	margin-top: 10px;
+	border: 0.5px solid rgba(0,0,0,0.3);
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+.comment_count-container {
+	display: flex;
+	margin-bottom: 20px;
+	padding: 0px 20px;
+}
+.comment_count-container-sub {
+	border-bottom: 0.5px solid rgba(0,0,0,0.3);
+}
+
+.comment_write-container {
+	margin-bottom: 20px;
+}
+.comment_write-container-btn {
+	display: flex;
+}
 </style>
 
 <html>
@@ -79,7 +115,9 @@ body {
 	</head>
 	<body>
 	<my:navigation></my:navigation>
+	
 		<div class="main-container">
+		
 			<div class="top-container">
 				<div><a href="#">All Posts</a></div>
 				<div>
@@ -88,7 +126,6 @@ body {
 				</div>
 			</div>
 			
-
 			<div id="board-container" class="center-container">
 				<div><input id="board_get-id" type="text" name="board_id" style="display:none; " readonly /></div>
 				<div class="top-info">
@@ -125,7 +162,7 @@ body {
 			</div>
 
 			
-		   <div>			
+		   <div style="display: flex; margin: 20px 0px;">			
 			   <div class="div_modify">
 			      <button class="button-style" id="modify-link">수정</button>
 			   </div>
@@ -140,9 +177,30 @@ body {
 				<div class="div_removee">
 				  <button class="button-style" id="remove_post-btn">삭제</button>
 			   </div>
-
-			   
-   		   </div>		
+   		   </div>
+   		   	
+			<div class="view_list-all">
+				<div class="view_list-elem"><span>Recent Post</span></div>
+				<div class="view_list-elem"><span>See All</span></div>
+			</div>	
+   			
+   			<div class="list_view-container">
+   				<img src="#">
+   			</div>
+   			
+   			<div class="comment-container">
+   				<div class="comment_count-container">
+	   				<div class="comment_count-container-sub">
+	   				<span>Comment</span>
+	   				</div>
+   				</div>
+   				<div class="comment_write-container"><input type="text"/></div>
+   				<div class="comment_write-container-btn">
+   					<button id="comment_cancle-btn">Cancel</button>
+   					<button id="comment_publish-btn">Publish</button>
+   				</div>
+   				<div class="comment_reply-container"></div>
+   			</div>
    			
 		</div>
 		
