@@ -63,6 +63,7 @@ public class BlogMainService {
 		return board;
 	}
 	
+	@Transactional(rollbackFor = Exception.class)
 	public boolean removeMainPost(Integer board_id) {
 
 		List<String> photoNames = blogMainMapper.selectPhotoFile(board_id);
@@ -70,7 +71,7 @@ public class BlogMainService {
 		blogMainMapper.deletePhotoBoardId(board_id);
 		
 		for(String photoName : photoNames) {
-			String photoKey = "review_blog_project" + board_id + "/" + photoName;
+			String photoKey = "review_blog_project/" + board_id + "/" + photoName;
 			DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
 					.bucket(bucketName)
 					.key(photoKey)
@@ -88,7 +89,7 @@ public class BlogMainService {
 		
 		if(removeFiles != null && !removeFiles.isEmpty()) {
 			for(String fileName : removeFiles) {
-				String fileKey = "review_blog_project" + board.getBoard_id() + "/" + fileName;
+				String fileKey = "review_blog_project/" + board.getBoard_id() + "/" + fileName;
 				DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
 							.bucket(bucketName)
 							.key(fileKey)
@@ -104,7 +105,7 @@ public class BlogMainService {
 			if(file.getSize() > 0) {
 				blogMainMapper.updatePhotoName(board.getBoard_id(), file.getOriginalFilename());
 				
-				String fileKey = "review_blog_project" + board.getBoard_id() + "/" + file.getOriginalFilename();
+				String fileKey = "review_blog_project/" + board.getBoard_id() + "/" + file.getOriginalFilename();
 				PutObjectRequest putObjectRequest = PutObjectRequest.builder()
 						.acl(ObjectCannedACL.PUBLIC_READ)
 						.bucket(bucketName)

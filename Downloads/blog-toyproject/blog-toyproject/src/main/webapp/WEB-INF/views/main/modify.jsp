@@ -54,7 +54,10 @@ body {
                   <label for="add-file" class="form-label"></label>
                   <span style="font-weight: 600;">사진</span>
                   <input id="modify-file" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
-               </div>    
+               </div>   
+
+				<div id="file-list-container"></div>               
+                
                		<input id="add-date" type="text"  class="form-control" name="write_date" style="display:none;" readonly/>
                <br>
 	            <div class="member-sign-column">

@@ -99,9 +99,9 @@ public interface BlogMainMapper {
 			WHERE
 			board_id = #{board_id}
 			AND
-			photo_name = #{fileName}
+			photo_name = #{photo_name}
 			""")
-	void deletePhotoName(Integer board_id, String fileName);
+	void deletePhotoName(Integer board_id, String photo_name);
 
 	@Insert("""
 			INSERT
