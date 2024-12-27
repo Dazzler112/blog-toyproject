@@ -21,9 +21,10 @@ public class BlogMainResource {
 	private BlogMainService blogMainService;
 	
 	@GetMapping("/post/{board_id}")
-	public ResponseEntity<Board> getPostBoard(@PathVariable Integer board_id) {
+	public ResponseEntity<Board> getPostBoard(@PathVariable Integer board_id, 
+											  Authentication authentication) {
 		
-		Board board = blogMainService.getPostBoardId(board_id);
+		Board board = blogMainService.getPostBoardId(board_id, authentication);
 		
 		return ResponseEntity.ok(board);
 	}
@@ -84,5 +85,20 @@ public class BlogMainResource {
 		board.setWriter(authentication.getName());
 		
 		boolean ok = blogMainService.updatePost(board, removeFiles, addFile);
+	}
+	
+	@PostMapping("/post/like")
+	public ResponseEntity<Map<String, Object>> postLike (@RequestBody BoardLike boardLike,
+														Authentication authentication) {
+		
+		if(authentication == null) {
+			return ResponseEntity
+						.status(403)
+						.body(Map.of("message", "Please SignUp."));
+		} else {
+			return ResponseEntity
+					.ok()
+					.body(blogMainService.postCountLike(boardLike, authentication));
+		}
 	}
 }

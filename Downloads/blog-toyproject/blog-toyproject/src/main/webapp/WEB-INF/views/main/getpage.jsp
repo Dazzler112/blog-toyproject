@@ -103,6 +103,11 @@ body {
 .comment_write-container-btn {
 	display: flex;
 }
+.count_container {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px;
+}
 </style>
 
 <html>
@@ -143,13 +148,14 @@ body {
 				<br>
 				<div class="body-info">
 					<div>
-						<img  id="board_get-img" src="" />
+						<img id="board_get-img" src="" />
 					</div>
 					<div>
 						<span id="board_get-body">body</span>
 					</div>
 				</div>
-	
+				
+			<div>
 				<div>
 					<div class="">
 					
@@ -159,6 +165,18 @@ body {
 
 					</div>
 				</div>
+			</div>
+				
+				<div class="count_container">
+					<div class="">
+						<span>views</span>
+						<span>comment</span>
+					</div>
+					<div class="">
+						<button id="getboard_list-likecount"><span id="getboard_likeheart">🤍</span></button>
+					</div>
+				</div>
+				
 			</div>
 
 			
@@ -210,5 +228,6 @@ body {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/main/view.js"></script>
 	<script src="/js/main/delete.js"></script>
+	<script src="/js/main/likepost.js"></script>
 	</body>
 </html>

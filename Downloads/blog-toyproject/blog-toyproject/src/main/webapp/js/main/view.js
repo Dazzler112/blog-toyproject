@@ -21,6 +21,12 @@
                 
                 const bucketUrl = "https://bucket0503-2345lhc5232.s3.ap-northeast-2.amazonaws.com/review_blog_project";
  				$("#board_get-img").attr("src", `${bucketUrl}/${board.board_id}/${board.photo_name}`);
+ 				
+	            if (board.liked) {
+	                $("#getboard_likeheart").text("🧡"); // 좋아요 상태
+	            } else {
+	                $("#getboard_likeheart").text("🤍"); // 좋아요 상태 아님
+	            } 				
                 
             },
             error: function(err) {

@@ -33,6 +33,15 @@ public interface BlogMainMapper {
 			  , b.write_date
 			  , b.category
 			  , p.photo_name
+			  ,
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDLIKE
+			   WHERE 	
+			   	board_id = board_id
+			  )	like_count
 			FROM
 			   BOARD b
 			   LEFT JOIN
@@ -41,7 +50,7 @@ public interface BlogMainMapper {
 			   b.board_id = p.board_id
 			   ORDER BY board_id DESC
 			""")
-	@ResultMap("boardTotalMap")
+	@ResultMap("boardPageMap")
 	List<Board> selectBoard();
 
 	@Select("""
