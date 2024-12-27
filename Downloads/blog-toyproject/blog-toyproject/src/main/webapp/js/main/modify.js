@@ -6,7 +6,7 @@ $(document).ready(function(){
 	$.ajax(`/post/${board_id}`, {
 		method: "get",
 		success: function(response) { 
-			console.log(response);
+			//console.log(response);
 			
 			const fileListContainer = $("#file-list-container"); // 서버에서 전달된 기존 파일 이름 배열
 			fileListContainer.empty(); // 기존 리스트 초기화

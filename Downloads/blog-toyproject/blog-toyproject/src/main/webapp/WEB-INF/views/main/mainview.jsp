@@ -50,6 +50,9 @@ body {
 	text-decoration: none;
 	color: black;
 }
+#board_likeheart {
+	cursor: pointer;
+}
 </style>
 
 <html>
@@ -95,7 +98,17 @@ body {
 						<span>comment</span>
 						</div>
 						<div>
-						🤍						
+			            <span id="board_likeheart">
+			                <c:choose>
+			                    <c:when test="${board.liked}">
+			                        🧡
+			                    </c:when>
+			                    <c:otherwise>
+			                        🤍
+			                    </c:otherwise>
+			                </c:choose>
+			            </span>
+            			<span id="like-number">${board.like_count}</span> 						
 						</div>
 					</div>
 				</div>
@@ -115,6 +128,7 @@ body {
 		</div>
 		
 		
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/main/likepost.js"></script>	
 	</body>
 </html>

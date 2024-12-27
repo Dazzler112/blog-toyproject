@@ -3,6 +3,7 @@ package com.toyblog.blog_toyproject.Controller;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +18,9 @@ public class BlogMainController {
 	private BlogMainService blogMainService; 
 	
 	@GetMapping("main")
-	public String boardListPage(Model model) {
+	public String boardListPage(Model model,Authentication authentication) {
 		
-		List<Board> board = blogMainService.getBoardId();
+		List<Board> board = blogMainService.getBoardId(authentication);
 		
 		model.addAttribute("boardList",board);
 		

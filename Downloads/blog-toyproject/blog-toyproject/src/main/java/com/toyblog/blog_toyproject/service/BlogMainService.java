@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
 import org.springframework.transaction.annotation.*;
 import org.springframework.web.multipart.*;
@@ -27,6 +28,9 @@ public class BlogMainService {
 	@Autowired
 	private BlogMainMapper blogMainMapper;
 
+	@Autowired
+	private BlogMainLikeMapper blogMainLikeMapper;
+	
 	@Transactional(rollbackFor = Exception.class)
 	public boolean addboard(Board board, MultipartFile[] files) throws IOException {
 		
@@ -49,17 +53,33 @@ public class BlogMainService {
 		return cnt == 1;
 	}
 
-	public List<Board> getBoardId() {
+	public List<Board> getBoardId(Authentication authentication) {
 		
 		List<Board> board = blogMainMapper.selectBoard();
+		
+		
+		if(authentication != null) {
+			for(Board boards : board) {
+				BoardLike boardLike = blogMainLikeMapper.selectLike(boards.getBoard_id(), authentication.getName());				
+				if(boardLike != null) {
+					boards.setLiked(true);
+				}
+			}
+		}	
 		
 		return board;
 	}
 
-	public Board getPostBoardId(Integer board_id) {
+	public Board getPostBoardId(Integer board_id, Authentication authentication) {
 		
 		Board board = blogMainMapper.selectPostBoardId(board_id);
 		
+		if(authentication != null) {
+			BoardLike boardLike = blogMainLikeMapper.selectLike(board_id, authentication.getName());
+			if(boardLike != null) {
+				board.setLiked(true);
+			}
+		}
 		return board;
 	}
 	
@@ -120,5 +140,23 @@ public class BlogMainService {
 		int cnt = blogMainMapper.updateBoard(board);
 		
 		return cnt == 1;
-	}	
+	}
+
+	public Map<String, Object> postCountLike(BoardLike boardLike, Authentication authentication) {
+		
+		Map<String, Object> result = new HashMap<>();
+		result.put("boardLike", false);
+		
+		boardLike.setMember_id(authentication.getName());
+		Integer deleteLikeCnt = blogMainLikeMapper.deleteLike(boardLike);
+		if(deleteLikeCnt != 1) {
+			Integer insertLikeCnt = blogMainLikeMapper.insertLike(boardLike);
+			result.put("boardLike", true);
+		}
+		Integer likeCount = blogMainLikeMapper.likeCountBoardId(boardLike.getBoard_id());
+		result.put("likeCount", likeCount);
+		
+		return result;
+	}
+
 }
