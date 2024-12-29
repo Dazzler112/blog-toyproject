@@ -88,7 +88,7 @@ public class BlogMainResource {
 	}
 	
 	@PostMapping("/post/like")
-	public ResponseEntity<Map<String, Object>> postLike (@RequestBody BoardLike boardLike,
+	public ResponseEntity<Map<String, Object>> postLike(@RequestBody BoardLike boardLike,
 														Authentication authentication) {
 		
 		if(authentication == null) {
@@ -99,6 +99,35 @@ public class BlogMainResource {
 			return ResponseEntity
 					.ok()
 					.body(blogMainService.postCountLike(boardLike, authentication));
+		}
+	}
+	
+	@GetMapping("/post/comment")
+	public List<BoardReply> commentList(@RequestParam("board_id") Integer board_id, 
+									    Authentication authentication) {
+		
+		return blogMainService.getCommentList(board_id, authentication);
+	}
+	
+	@GetMapping("/post/comment/{reply_id}")
+	public BoardReply getCommentId(@PathVariable Integer reply_id) {
+		
+		return blogMainService.getReplyId(reply_id);
+	}
+	
+	@PostMapping("/post/comment")
+	public ResponseEntity<Map<String, Object>> addComment(@RequestBody BoardReply boardReply,
+														  Authentication authentication) {
+		
+		if(authentication == null) {
+			return ResponseEntity
+					.status(403)
+					.body(Map.of("message","Please SignUp."));
+		} else {
+			Map<String, Object> result = blogMainService.addComment(boardReply, authentication);
+			return ResponseEntity
+						.ok()
+						.body(result);
 		}
 	}
 }
