@@ -199,12 +199,12 @@ body {
 	   				<span>Comment</span>
 	   				</div>
    				</div>
-   				<div class="comment_write-container"><input type="text"/></div>
-   				<div class="comment_write-container-btn">
-   					<button id="comment_cancle-btn">Cancel</button>
-   					<button id="comment_publish-btn">Publish</button>
+   				<div class="comment_write-container">
+   					<textarea placeholder="Write a comment..." rows="" cols="" id="comment_write-box"></textarea>
    				</div>
-   				<div class="comment_reply-container"></div>
+   				<div class="comment_write-container-btn">
+   				</div>
+   				<div id="comment_reply-container"></div>
    			</div>
    			
 		</div>
@@ -216,5 +216,6 @@ body {
 	<script src="/js/main/view.js"></script>
 	<script src="/js/main/delete.js"></script>
 	<script src="/js/main/likepost.js"></script>
+	<script src="/js/main/comment.js"></script>
 	</body>
 </html>

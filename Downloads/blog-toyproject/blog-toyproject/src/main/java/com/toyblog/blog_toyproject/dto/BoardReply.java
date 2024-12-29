@@ -4,6 +4,11 @@ import java.time.*;
 
 public class BoardReply {
 
+	public BoardReply() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public BoardReply(Integer reply_id, Integer board_id, String comment_body, String member_id, LocalDate comment_date,
 			Integer depth, Integer parentID, Boolean editable) {
 		super();

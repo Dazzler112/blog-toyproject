@@ -159,4 +159,42 @@ public class BlogMainService {
 		return result;
 	}
 
+	public List<BoardReply> getCommentList(Integer board_id, Authentication authentication) {
+
+		List<BoardReply> comments = blogMainMapper.selectCommentbyBoardId(board_id);
+		
+		/*
+		 * if(authentication != null) {
+		 * 
+		 * for(BoardReply comment : comments) {
+		 * comment.setEditable(comment.getMember_id().equals(authentication.getName()));
+		 * } }
+		 */
+		
+		return comments;
+	}
+
+	public BoardReply getReplyId(Integer reply_id) {
+		
+		return blogMainMapper.getCommentReplyId(reply_id);
+
+	}
+
+	public Map<String, Object> addComment(BoardReply boardReply, Authentication authentication) {
+		
+		boardReply.setMember_id(authentication.getName());
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		int cnt = blogMainMapper.addComment(boardReply); 
+		
+		if(cnt == 1) {
+			result.put("message", "comment add successful.");
+		} else {
+			result.put("message", "comment not added!");
+		}
+		
+		return result;
+	}
+
 }
