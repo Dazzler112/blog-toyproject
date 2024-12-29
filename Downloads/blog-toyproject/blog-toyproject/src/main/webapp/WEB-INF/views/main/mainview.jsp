@@ -8,11 +8,7 @@ body {
 .main-container {
 	margin: 150px 250px 30px 250px;
 }
-.top-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 0px 45px 0px;
-}
+
 .center-container {
 	border: 0.5px solid rgba(0,0,0,0.3);
 	display: flex;
@@ -65,14 +61,8 @@ body {
 	</head>
 	<body>
 	<my:navigation></my:navigation>
+	<my:search></my:search>
 		<div class="main-container">
-			<div class="top-container">
-				<div><a href="#">All Posts</a></div>
-				<div>
-					<input type="search">
-					<input type="button" value="🔍">
-				</div>
-			</div>
 			
 		<c:forEach items="${boardList}" var="board">
 			<div id="board-container" class="center-container">
