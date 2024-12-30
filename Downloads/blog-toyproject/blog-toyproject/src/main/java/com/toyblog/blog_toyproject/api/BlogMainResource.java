@@ -130,4 +130,14 @@ public class BlogMainResource {
 						.body(result);
 		}
 	}
+	
+	@DeleteMapping("/post/comment/{reply_id}")
+	public ResponseEntity<Map<String, Object>> deleteComment(@PathVariable Integer reply_id) {
+		
+		Map<String, Object> result = blogMainService.deleteCommentReply(reply_id);
+		
+		return ResponseEntity
+					.ok()
+					.body(result);
+	}
 }
