@@ -31,6 +31,9 @@ public class BlogMainService {
 	@Autowired
 	private BlogMainLikeMapper blogMainLikeMapper;
 	
+	@Autowired
+	private BlogCommentMapper blogCommentMapper;
+	
 	@Transactional(rollbackFor = Exception.class)
 	public boolean addboard(Board board, MultipartFile[] files) throws IOException {
 		
@@ -161,22 +164,22 @@ public class BlogMainService {
 
 	public List<BoardReply> getCommentList(Integer board_id, Authentication authentication) {
 
-		List<BoardReply> comments = blogMainMapper.selectCommentbyBoardId(board_id);
+		List<BoardReply> comments = blogCommentMapper.selectCommentbyBoardId(board_id);
 		
-		/*
-		 * if(authentication != null) {
-		 * 
-		 * for(BoardReply comment : comments) {
-		 * comment.setEditable(comment.getMember_id().equals(authentication.getName()));
-		 * } }
-		 */
+		
+		  if(authentication != null) {
+		  
+		  for(BoardReply comment : comments) {
+		  comment.setEditable(comment.getMember_id().equals(authentication.getName()));
+		  } }
+		 
 		
 		return comments;
 	}
 
 	public BoardReply getReplyId(Integer reply_id) {
 		
-		return blogMainMapper.getCommentReplyId(reply_id);
+		return blogCommentMapper.getCommentReplyId(reply_id);
 
 	}
 
@@ -186,12 +189,27 @@ public class BlogMainService {
 		
 		Map<String, Object> result = new HashMap<>();
 		
-		int cnt = blogMainMapper.addComment(boardReply); 
+		int cnt = blogCommentMapper.addComment(boardReply); 
 		
 		if(cnt == 1) {
 			result.put("message", "comment add successful.");
 		} else {
 			result.put("message", "comment not added!");
+		}
+		
+		return result;
+	}
+
+	public Map<String, Object> deleteCommentReply(Integer reply_id) {
+		
+		int cnt = blogCommentMapper.deleteComment(reply_id);
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		if(cnt == 1) {
+			result.put("message", "delete successful");
+		}else {
+			result.put("message", "somethings wrong..");
 		}
 		
 		return result;

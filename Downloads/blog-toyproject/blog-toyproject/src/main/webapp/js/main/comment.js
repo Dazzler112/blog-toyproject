@@ -1,5 +1,4 @@
-$(document).ready(function () {
-    commentlist();
+commentlist();
 
     // 댓글 작성 영역 클릭 시 버튼 생성
     $("#comment_write-box").click(function () {
@@ -35,7 +34,8 @@ $(document).ready(function () {
                 console.log("Comment added successfully:", data);
                 $("#comment_write-box").val(""); // 댓글 입력창 초기화
                 $(".comment_write-container-btn").empty(); // 버튼 제거
-                commentlist(); // 댓글 목록 갱신
+                //location.reload(); // 댓글 목록 갱신
+                commentlist();
             },
             error: function (request, status, error) {
                 console.log("Error adding comment:", error);
@@ -59,11 +59,8 @@ $(document).ready(function () {
                 for (const comment of comments) {
                     const editButtons = `
                         <button 
-                            id="commentDeleteBtn${comment.reply_id}" 
-                            class="commentDeleteButton btn btn-danger"
-                            data-bs-toggle="modal"
-                            data-bs-target="#deleteCommentConfirmModal"
-                            data-comment-id="${comment.reply_id}">
+                            id="commentDeleteBtn" 
+                            class="commentDeleteButton">
                                 <i class="fa-regular fa-trash-can"></i>
                         </button>
                         <button
@@ -76,8 +73,9 @@ $(document).ready(function () {
                     `;
 
                     $("#comment_reply-container").append(`
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <li style="display:flex; justify-content:space-between; align-items: start;" class="comment-list">
                             <div class="ms-2 me-auto">
+                            	<input id="comment_replyid" type="text" name="reply_id" value="${comment.reply_id}" hidden/>
                                 <div class="fw-bold"> <i class="fa-solid fa-user"></i> ${comment.member_id}</div>
                                 <div style="white-space: pre-wrap;">${comment.comment_body}</div>
                             </div>
@@ -93,7 +91,23 @@ $(document).ready(function () {
             },
             error: function (request, status, error) {
                 console.error("Error fetching comments:", error);
-            }
+            }            
         });
     }
-});
+    
+    $(".comment-container").on("click", ".commentDeleteButton", function () {
+        const reply_id = $(this).closest("li").find("#comment_replyid").val(); // 댓글 ID 가져오기
+        $.ajax("/post/comment/" + reply_id, {
+            method: "delete",
+            success: function (data) {
+                //location.reload();
+                console.log("Comment deleted successfully:", data);
+                commentlist();
+            },
+            error: function (request, status, error) {
+                console.error("Error deleting comment:", error);
+                alert("댓글 삭제에 실패하였습니다.");
+            }
+        });
+    });
+	
