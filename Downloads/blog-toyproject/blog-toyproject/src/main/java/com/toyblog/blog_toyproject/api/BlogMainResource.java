@@ -140,4 +140,14 @@ public class BlogMainResource {
 					.ok()
 					.body(result);
 	}
+	
+	@PutMapping("/post/comment/update")
+	public ResponseEntity<Map<String, Object>> updateComment(@RequestBody BoardReply boardReply) {
+		
+		Map<String, Object> result = blogMainService.commentUpdate(boardReply);
+		
+		return ResponseEntity
+				.ok()
+				.body(result);
+	}
 }

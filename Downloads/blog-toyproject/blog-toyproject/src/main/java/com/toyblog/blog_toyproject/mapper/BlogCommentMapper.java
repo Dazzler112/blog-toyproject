@@ -59,5 +59,16 @@ public interface BlogCommentMapper {
 			reply_id = #{reply_id}
 			""")
 	int deleteComment(Integer reply_id);
+
+	@Update("""
+			UPDATE
+			BOARDREPLY
+			SET
+				comment_body = #{comment_body}
+			  , comment_date = #{comment_date}
+			WHERE
+				reply_id = #{reply_id}
+			""")
+	int updateComment(BoardReply boardReply);
 	
 }

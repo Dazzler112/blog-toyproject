@@ -215,4 +215,19 @@ public class BlogMainService {
 		return result;
 	}
 
+	public Map<String, Object> commentUpdate(BoardReply boardReply) {
+		
+		int cnt = blogCommentMapper.updateComment(boardReply);
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		if(cnt == 1) {
+			result.put("message", "update successful");
+		} else {
+			result.put("message", "somethings wrong..");
+		}
+		
+		return result;
+	}
+
 }
