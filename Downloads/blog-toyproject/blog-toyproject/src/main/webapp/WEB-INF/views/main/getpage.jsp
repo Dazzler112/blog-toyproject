@@ -205,6 +205,9 @@ body {
    				<div class="comment_write-container-btn">
    				</div>
    				<div id="comment_reply-container"></div>
+   				<div class="update_comment-container">
+
+				</div>
    			</div>
    			
 		</div>
