@@ -6,7 +6,7 @@ body {
 	margin: 0px 55px;
 }
 .main-container {
-	margin: 150px 250px 30px 250px;
+	margin: 0px 250px 120px 250px;
 }
 .center-container {
 	border: 0.5px solid rgba(0,0,0,0.3);
@@ -103,6 +103,26 @@ body {
 	justify-content: space-between;
 	margin: 20px;
 }
+
+.see_all-button {
+	text-decoration: none;
+}
+
+.see_all-button span {
+	color: rgba(0,0,0,0.5); 
+	transition: 0.1s color ease-in-out;
+}
+
+.see_all-button span:hover {
+	color: rgb(223,173,105);
+}
+
+#board_get-img {
+	max-width: 90%; /* 뷰포트 너비에 맞춤 */
+    max-height: 100vh; /* 뷰포트 높이에 맞춤 */
+    width: auto;
+    height: auto;
+}
 </style>
 
 <html>
@@ -186,7 +206,7 @@ body {
    		   	
 			<div class="view_list-all">
 				<div class="view_list-elem"><span>Recent Post</span></div>
-				<div class="view_list-elem"><span>See All</span></div>
+				<div class="view_list-elem"><a href="/main" class="see_all-button"><span>See All</span></a></div>
 			</div>	
    			
    			<div class="list_view-container">
@@ -220,5 +240,7 @@ body {
 	<script src="/js/main/delete.js"></script>
 	<script src="/js/main/likepost.js"></script>
 	<script src="/js/main/comment.js"></script>
+	
+	<my:bottom></my:bottom>	
 	</body>
 </html>

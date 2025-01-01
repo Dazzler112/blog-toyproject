@@ -100,7 +100,9 @@ function commentlist() {
     $.ajax("/post/comment?board_id=" + board_id, {
         method: "get",
         success: function (comments) {
-            $("#commentListContainer").empty();
+			
+            $("#comment_reply-container").empty();
+            
             for (const comment of comments) {
                 const editButtons = `
                     <button 
@@ -120,8 +122,10 @@ function commentlist() {
                     <li style="display:flex; justify-content:space-between; align-items: start;" class="comment-list">
                         <div class="ms-2 me-auto">
                             <input id="comment_replyid" type="text" name="reply_id" value="${comment.reply_id}" hidden/>
-                            <div class="fw-bold"> <i class="fa-solid fa-user"></i> ${comment.member_id}</div>
-                            <div style="white-space: pre-wrap;">${comment.comment_body}</div>
+                            <div class="fw-bold"> <i class="fa-solid fa-user"></i> <span>${comment.member_id}<span></div>
+                            <div style="margin-top:5px;">
+                           	  <span>${comment.comment_body}</span>
+                            </div>
                         </div>
                         <div>
                             <span class="badge bg-primary rounded-pill">${comment.comment_date}</span>

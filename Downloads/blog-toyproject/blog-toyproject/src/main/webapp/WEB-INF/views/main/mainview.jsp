@@ -6,7 +6,7 @@ body {
 	margin: 0px 55px;
 }
 .main-container {
-	margin: 150px 250px 30px 250px;
+	margin: 0px 250px 90px 250px;
 }
 
 .center-container {
@@ -37,18 +37,26 @@ body {
    margin-bottom: 50px;
    margin-right: 30px;
    position: fixed;
-   bottom: 0;
+   bottom: 40;
    right: 0;
    margin: 0px, 30px, 30px, 0px;
+   z-index: 1;
 }
 /*===================*/
 .get-view{
 	text-decoration: none;
 	color: black;
+	z-index: -1;
 }
 #board_likeheart {
 	cursor: pointer;
 }
+
+#photo_img-id {
+	width: 100%;  /* 너비를 부모에 맞춤 */
+    height: 100%; /* 높이를 부모에 맞춤 */
+    object-fit: cover;
+}    
 </style>
 
 <html>
@@ -69,7 +77,7 @@ body {
 			<c:forEach items="${board.photo_name}" var="photo">
 				<div>
 					<a class="get-view" href="/main/${board.board_id}" data-board-id="${board.board_id}">
-					<img src="${bucketUrl}/${board.board_id}/${photo}" />
+					<img id="photo_img-id" src="${bucketUrl}/${board.board_id}/${photo}" />
 					</a>
 				</div>
 			</c:forEach>	
@@ -89,14 +97,12 @@ body {
 						</div>
 						<div>
 			            <span id="board_likeheart">
-			                <c:choose>
-			                    <c:when test="${board.liked}">
-			                        🧡
-			                    </c:when>
-			                    <c:otherwise>
-			                        🤍
-			                    </c:otherwise>
-			                </c:choose>
+			            	<c:if test="${board.liked}"> 
+			            		🧡
+			            	</c:if>
+			            	<c:if test="${not board.liked}"> 
+			            		🤍
+			            	</c:if>			            	
 			            </span>
             			<span id="like-number">${board.like_count}</span> 						
 						</div>
@@ -120,5 +126,7 @@ body {
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/main/likepost.js"></script>	
+	
+	<my:bottom></my:bottom>	
 	</body>
 </html>

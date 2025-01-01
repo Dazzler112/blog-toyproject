@@ -11,6 +11,7 @@
 		<result column="writer" property="writer"></result>
 		<result column="write_date" property="write_date"></result>
 		<result column="category" property="category"></result>
+		<result column="like_count" property="like_count"></result>
 		<collection property="photo_name" ofType="string">
 			<result column="photo_name" />
 		</collection>
