@@ -17,7 +17,7 @@ public interface BlogCommentMapper {
 			BOARDREPLY
 			WHERE
 			board_id = #{board_id}
-			ORDER BY reply_id
+			ORDER BY reply_id DESC
 			""")
 	List<BoardReply> selectCommentbyBoardId(Integer board_id);
 
@@ -69,6 +69,15 @@ public interface BlogCommentMapper {
 			WHERE
 				reply_id = #{reply_id}
 			""")
-	int updateComment(BoardReply boardReply);
+	Integer updateComment(BoardReply boardReply);
+
+	@Delete("""
+			DELETE
+			FROM
+			BOARDREPLY
+			WHERE
+			board_id = #{board_id}
+			""")
+	Integer deleteByBoardId(Integer board_id);
 	
 }

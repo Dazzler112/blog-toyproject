@@ -53,4 +53,15 @@ public interface BlogMainLikeMapper {
 			""")
 	BoardLike selectLike(Integer board_id, String member_id);
 
+	@Delete("""
+			DELETE
+			FROM
+			BOARDLIKE
+			WHERE
+			board_id = #{board_id}
+			""")
+	Integer deleteByBoardId(Integer board_id);
+	
+	
+
 }

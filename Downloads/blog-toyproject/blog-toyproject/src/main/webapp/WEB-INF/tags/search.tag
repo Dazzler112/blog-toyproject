@@ -17,7 +17,7 @@ body {
 <body>
 	<div class="mcontainer">
 		<div class="top-container">
-			<div><a href="#">All Posts</a></div>
+			<div><a href="/main">All Posts</a></div>
 				<div>
 					<input type="search">
 					<input type="button" value="🔍">

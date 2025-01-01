@@ -62,6 +62,15 @@ public interface BlogMainMapper {
 			  , b.write_date
 			  , b.category
 			  , p.photo_name
+			  ,			  
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDLIKE
+			   WHERE 	
+			   	board_id = b.board_id
+			  )	like_count
 			FROM
 			   BOARD b
 			   LEFT JOIN

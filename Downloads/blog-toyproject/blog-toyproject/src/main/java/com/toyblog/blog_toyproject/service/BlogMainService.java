@@ -89,6 +89,10 @@ public class BlogMainService {
 	@Transactional(rollbackFor = Exception.class)
 	public boolean removeMainPost(Integer board_id) {
 
+		blogMainLikeMapper.deleteByBoardId(board_id);
+		
+		blogCommentMapper.deleteByBoardId(board_id);
+		
 		List<String> photoNames = blogMainMapper.selectPhotoFile(board_id);
 		
 		blogMainMapper.deletePhotoBoardId(board_id);
