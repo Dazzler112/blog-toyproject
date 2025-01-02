@@ -40,8 +40,17 @@ public interface BlogMainMapper {
 			   FROM
 			   BOARDLIKE
 			   WHERE 	
-			   	board_id = board_id
+			   	board_id = b.board_id
 			  )	like_count
+			  ,
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDREPLY
+			   WHERE 	
+			   	board_id = b.board_id
+			  )	reply_count
 			FROM
 			   BOARD b
 			   LEFT JOIN

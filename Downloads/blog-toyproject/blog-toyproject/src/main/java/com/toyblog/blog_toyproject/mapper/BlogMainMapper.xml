@@ -30,6 +30,9 @@
 		<collection property="like_count" ofType="Integer">
 			<result column="like_count" property="like_count"/>
 		</collection>
+		<collection property="reply_count" ofType="Integer">
+			<result column="reply_count" property="reply_count"/>
+		</collection>		
 	</resultMap>	
 	
 </mapper>     

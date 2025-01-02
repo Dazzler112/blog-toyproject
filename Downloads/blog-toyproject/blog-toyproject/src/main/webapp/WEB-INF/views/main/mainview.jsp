@@ -48,7 +48,7 @@ body {
 	color: black;
 	z-index: -1;
 }
-#board_likeheart {
+.board_likeheart {
 	cursor: pointer;
 }
 
@@ -82,7 +82,9 @@ body {
 				</div>
 			</c:forEach>	
 				<div>
-					<div><input id="board_id-value" type="text" name="board_id" value="${board.board_id}" style="display:none; " readonly /></div>
+					<div>
+						<input id="board_id-value" type="text" name="board_id" value="${board.board_id}"  hidden readonly />
+					</div>
 					<div class=""><a><span>⋮</span></a></div>
 					<a class="get-view" href="/main/${board.board_id}" onclick="getBoard(${board.board_id})">
 						<div class="">
@@ -90,21 +92,21 @@ body {
 						<span id="board-body">${board.body}</span>
 						</div>
 					</a>
-					<div class="">
+					<div class="active_container" data-board-id="${board.board_id}">
 						<div>
 						<span>views</span>
-						<span>comment</span>
+						<span>comment ${board.reply_count}</span>
 						</div>
 						<div>
-			            <span id="board_likeheart">
-			            	<c:if test="${board.liked}"> 
-			            		🧡
-			            	</c:if>
-			            	<c:if test="${not board.liked}"> 
-			            		🤍
-			            	</c:if>			            	
-			            </span>
-            			<span id="like-number">${board.like_count}</span> 						
+				            <span class="board_likeheart">
+				            	<c:if test="${board.liked}"> 
+				            		🧡
+				            	</c:if>
+				            	<c:if test="${not board.liked}"> 
+				            		🤍
+				            	</c:if>			            	
+				            </span>
+	            			<span class="like-number">${board.like_count}</span> 						
 						</div>
 					</div>
 				</div>
