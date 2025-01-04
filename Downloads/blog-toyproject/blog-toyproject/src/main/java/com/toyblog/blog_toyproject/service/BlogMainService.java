@@ -234,4 +234,11 @@ public class BlogMainService {
 		return result;
 	}
 
+	public boolean postingView(Integer board_id) {
+		
+		int cnt = blogMainMapper.blogPostingViews(board_id);
+		
+		return cnt > 0;
+	}
+
 }

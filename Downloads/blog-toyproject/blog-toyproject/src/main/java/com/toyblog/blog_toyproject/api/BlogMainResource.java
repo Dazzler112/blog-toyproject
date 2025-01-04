@@ -150,4 +150,9 @@ public class BlogMainResource {
 				.ok()
 				.body(result);
 	}
+	
+	@PostMapping("/post/views/{board_id}")
+	public void postViews(@PathVariable Integer board_id) {
+		boolean viewOk = blogMainService.postingView(board_id);
+	}
 }

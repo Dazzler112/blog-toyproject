@@ -32,6 +32,7 @@ public interface BlogMainMapper {
 			  , b.writer
 			  , b.write_date
 			  , b.category
+			  , b.views
 			  , p.photo_name
 			  ,
 			  (
@@ -70,6 +71,7 @@ public interface BlogMainMapper {
 			  , b.writer
 			  , b.write_date
 			  , b.category
+			  , b.views
 			  , p.photo_name
 			  ,			  
 			  (
@@ -80,6 +82,15 @@ public interface BlogMainMapper {
 			   WHERE 	
 			   	board_id = b.board_id
 			  )	like_count
+			  ,
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDREPLY
+			   WHERE 	
+			   	board_id = b.board_id
+			  )	reply_count			  
 			FROM
 			   BOARD b
 			   LEFT JOIN
@@ -158,5 +169,15 @@ public interface BlogMainMapper {
 			  board_id = #{board_id}
 			""")
 	int updateBoard(Board board);
+	
+	@Update("""
+			UPDATE
+			BOARD
+			SET
+				views = #{views} + 1
+			WHERE
+				board_id = #{board_id}
+			""")
+	Integer blogPostingViews(Integer board_id);
 
 }
