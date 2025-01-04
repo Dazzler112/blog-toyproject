@@ -17,7 +17,7 @@ public interface BlogCommentMapper {
 			BOARDREPLY
 			WHERE
 			board_id = #{board_id}
-			ORDER BY reply_id DESC
+			ORDER BY reply_id ASC
 			""")
 	List<BoardReply> selectCommentbyBoardId(Integer board_id);
 

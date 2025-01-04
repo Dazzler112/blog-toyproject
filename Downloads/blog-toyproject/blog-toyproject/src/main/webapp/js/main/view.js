@@ -26,13 +26,16 @@
 	                $("#getboard_likeheart").text("🧡"); // 좋아요 상태
 	            } else {
 	                $("#getboard_likeheart").text("🤍"); // 좋아요 상태 아님
-	            } 				
+	            }
+	            
+	            $("#comment_count-id").text(board.reply_count); 				
                 
             },
             error: function(err) {
                 console.error("Error fetching board data:", err);
             }
         });
+   
     });
     
     

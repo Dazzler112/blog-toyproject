@@ -1,0 +1,16 @@
+body {
+	margin: 0px 55px;
+}
+
+#about-update_body {
+	resize: none;	
+}
+
+.about_update-container {
+	display:flex; 
+	justify-content: center;
+}
+
+.about_update-container-t {
+	margin-bottom: 15px;
+}

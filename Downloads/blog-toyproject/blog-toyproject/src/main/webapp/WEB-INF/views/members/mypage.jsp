@@ -3,18 +3,6 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <style>
-body {
-	margin: 0px 55px;
-}
-
-.sign-column{
-    margin: 0px 0px 15px 0px;
-}
-
-.member-sign-column{
-    display: flex;
-    justify-content: center;
-}
 </style>
 <html>
 	<head>
@@ -22,6 +10,7 @@ body {
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 		<title>Review Pages</title>
 		
+		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>

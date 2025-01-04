@@ -119,10 +119,12 @@ function commentlist() {
                 `;
 
                 $("#comment_reply-container").append(`
-                    <li style="display:flex; justify-content:space-between; align-items: start;" class="comment-list">
-                        <div class="ms-2 me-auto">
+                    <li style="display:flex; justify-content:space-between; align-items: start; margin: 10px 20px; border-bottom: 1px solid rgba(0,0,0,0.2);" class="comment-list">
+                        <div class="comment_content-container" style="margin-bottom: 15px;">
                             <input id="comment_replyid" type="text" name="reply_id" value="${comment.reply_id}" hidden/>
-                            <div class="fw-bold"> <i class="fa-solid fa-user"></i> <span>${comment.member_id}<span></div>
+                            <div class="fw-bold"> 
+                            	<i class="fa-solid fa-user"></i><span>${comment.member_id}<span>
+                            </div>
                             <div style="margin-top:5px;">
                            	  <span>${comment.comment_body}</span>
                             </div>

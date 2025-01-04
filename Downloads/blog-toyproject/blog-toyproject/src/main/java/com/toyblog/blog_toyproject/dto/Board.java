@@ -4,14 +4,15 @@ import java.time.*;
 import java.util.*;
 
 public class Board {
-	
+		
 	public Board() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Board(Integer board_id, String title, String body, String writer, LocalDateTime write_date, String category,
-			List<String> photo_name, Boolean liked, Integer like_count, Integer file_count, Integer reply_count) {
+			Integer views, List<String> photo_name, Boolean liked, Integer like_count, Integer file_count,
+			Integer reply_count) {
 		super();
 		this.board_id = board_id;
 		this.title = title;
@@ -19,6 +20,7 @@ public class Board {
 		this.writer = writer;
 		this.write_date = write_date;
 		this.category = category;
+		this.views = views;
 		this.photo_name = photo_name;
 		this.liked = liked;
 		this.like_count = like_count;
@@ -33,6 +35,7 @@ public class Board {
 	private LocalDateTime write_date;
 	
 	private String category;
+	private Integer views;
 	
 	private List<String> photo_name;
 	
@@ -42,7 +45,6 @@ public class Board {
 	private Integer file_count;
 	private Integer reply_count;
 	
-	//
 	
 	public Integer getBoard_id() {
 		return board_id;
@@ -68,7 +70,30 @@ public class Board {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-
+	public LocalDateTime getWrite_date() {
+		return write_date;
+	}
+	public void setWrite_date(LocalDateTime write_date) {
+		this.write_date = write_date;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public Integer getViews() {
+		return views;
+	}
+	public void setViews(Integer views) {
+		this.views = views;
+	}
+	public List<String> getPhoto_name() {
+		return photo_name;
+	}
+	public void setPhoto_name(List<String> photo_name) {
+		this.photo_name = photo_name;
+	}
 	public Boolean getLiked() {
 		return liked;
 	}
@@ -94,34 +119,12 @@ public class Board {
 		this.reply_count = reply_count;
 	}
 	
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-	
-	public LocalDateTime getWrite_date() {
-		return write_date;
-	}
-	
-	public void setWrite_date(LocalDateTime write_date) {
-		this.write_date = write_date;
-	}
-	
-	public List<String> getPhoto_name() {
-		return photo_name;
-	}
-	public void setPhoto_name(List<String> photo_name) {
-		this.photo_name = photo_name;
-	}
-	
 	@Override
 	public String toString() {
 		return "Board [board_id=" + board_id + ", title=" + title + ", body=" + body + ", writer=" + writer
-				+ ", write_date=" + write_date + ", category=" + category + ", photo_name=" + photo_name + ", liked="
-				+ liked + ", like_count=" + like_count + ", file_count=" + file_count + ", reply_count=" + reply_count
-				+ "]";
+				+ ", write_date=" + write_date + ", category=" + category + ", views=" + views + ", photo_name="
+				+ photo_name + ", liked=" + liked + ", like_count=" + like_count + ", file_count=" + file_count
+				+ ", reply_count=" + reply_count + "]";
 	}
 	
 }

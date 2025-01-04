@@ -11,7 +11,9 @@
 		<result column="writer" property="writer"></result>
 		<result column="write_date" property="write_date"></result>
 		<result column="category" property="category"></result>
+		<result column="views" property="views"></result>
 		<result column="like_count" property="like_count"></result>
+		<result column="reply_count" property="reply_count"></result>
 		<collection property="photo_name" ofType="string">
 			<result column="photo_name" />
 		</collection>
@@ -24,6 +26,7 @@
 		<result column="writer" property="writer"></result>
 		<result column="write_date" property="write_date"></result>
 		<result column="category" property="category"></result>
+		<result column="views" property="views"></result>
 		<collection property="photo_name" ofType="string">
 			<result column="photo_name" />
 		</collection>

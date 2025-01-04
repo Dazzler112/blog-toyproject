@@ -1,0 +1,13 @@
+body {
+	margin: 0px 55px;
+}
+.about-title{
+	display: flex;
+	justify-content: center;
+}
+#about-body{
+	display: flex;
+	justify-content: center;
+	padding: 0px 200px;
+	margin: 0px 80px;
+}

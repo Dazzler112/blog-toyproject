@@ -2,9 +2,6 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
 <style>
-body {
-	margin: 0px 55px;
-}
 </style>
 <html>
 	<head>
@@ -12,14 +9,15 @@ body {
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 		<title>Review Pages</title>
 		
+		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
 	<my:navigation></my:navigation>
-			<div style="display:flex; justify-content: center;">
-				<textarea id="about-update_body" style="width: 800px; height: 800px;" rows="10" name="body"></textarea>
+			<div class="about_update-container about_update-container-t">
+				<textarea id="about-update_body" rows="25" cols="150" name="body"></textarea>
 			</div>
-			<div style="display:flex; justify-content: center;">
+			<div class="about_update-container">
 				<input id="about-update_submit" type="submit" value="등록"/>
 			</div>
 			
