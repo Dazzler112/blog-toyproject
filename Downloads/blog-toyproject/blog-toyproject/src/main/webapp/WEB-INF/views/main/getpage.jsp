@@ -56,8 +56,8 @@
 				
 				<div class="count_container">
 					<div class="">
-						<span>views</span>
-						<span>comment</span>
+						<span id="get_count-views"></span><span>views</span>
+						<span id="get_count-comment"></span><span>comment</span>
 					</div>
 					<div class="">
 						<button id="getboard_list-likecount"><span id="getboard_likeheart">🤍</span></button>

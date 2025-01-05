@@ -1,13 +1,10 @@
 $(".get-view").click(function() {
 	const boardItem = $(this).closest(".get-view");
 	const board_id = boardItem.data("board-id");
-		
-	const data = {board_id};
-	console.log(data);
-	$.ajax(`/post/views/${data}`, {
+	console.log(board_id);
+	$.ajax(`/post/views/${board_id}`, {
 		method: "post",
 		contentType: "application/json",
-		data: JSON.stringify(data),
 		success: function(data) {
 			console.log(data);
 		},
