@@ -25,3 +25,24 @@ function listAbout() {
 	});
 
 }
+
+
+
+const track = document.querySelector('.carousel-track'); // 슬라이드 전체 컨테이너
+const images = Array.from(track.children); // 모든 이미지
+const imageWidth = images[0].getBoundingClientRect().width + 10; // 이미지 + 마진 너비
+let currentPosition = 0; // 현재 슬라이더 위치
+
+function moveCarousel() {
+    currentPosition -= imageWidth; // 왼쪽으로 이동
+
+    // 마지막 이미지를 지나면 처음으로 돌아감
+    if (Math.abs(currentPosition) >= track.scrollWidth) {
+        currentPosition = 0;
+    }
+
+    track.style.transform = `translateX(${currentPosition}px)`;
+}
+
+// 3초마다 이동
+setInterval(moveCarousel, 3000);

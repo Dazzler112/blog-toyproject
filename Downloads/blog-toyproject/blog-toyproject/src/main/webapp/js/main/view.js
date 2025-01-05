@@ -28,7 +28,10 @@
 	                $("#getboard_likeheart").text("🤍"); // 좋아요 상태 아님
 	            }
 	            
-	            $("#comment_count-id").text(board.reply_count); 				
+	            $("#get_count-views").text(board.views);
+	            $("#get_count-comment").text(board.reply_count);	
+	            	
+	            $("#comment_count-id").text(board.reply_count);
                 
             },
             error: function(err) {

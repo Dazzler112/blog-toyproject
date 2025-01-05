@@ -174,7 +174,7 @@ public interface BlogMainMapper {
 			UPDATE
 			BOARD
 			SET
-				views = #{views} + 1
+				views = views + 1
 			WHERE
 				board_id = #{board_id}
 			""")
