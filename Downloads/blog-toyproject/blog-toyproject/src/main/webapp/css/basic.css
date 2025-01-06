@@ -1,0 +1,9 @@
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	height: 119vh;
+}
+
+.main-container {
+	margin: 0px 305px 120px 305px;
+}
