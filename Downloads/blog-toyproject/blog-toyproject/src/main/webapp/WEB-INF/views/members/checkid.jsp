@@ -15,6 +15,7 @@
 	</head>
 	<body>
 	<my:navigation></my:navigation>
+	<div class="main-container">
 		<div style="display: flex; justify-content: center;">
       		<div>		
 				<!--메일-->
@@ -33,10 +34,10 @@
         </div>	
 
         <div id="findid_div"></div>
-
+	</div>
+		<my:bottom></my:bottom>	
+		
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		
 		<script src="/js/members/findid.js"></script>
-		
-		<my:bottom></my:bottom>	
 	</body>
 </html>

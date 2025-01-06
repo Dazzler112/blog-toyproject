@@ -14,15 +14,18 @@
 	</head>
 	<body>
 	<my:navigation></my:navigation>
+		<div class="main-container">
 			<div style="display:flex; justify-content: center;">
 				<textarea id="about-post_body" rows="50" cols="200" name="body"></textarea>
 			</div>
 			<div style="display:flex; justify-content: center;">
 				<input id="about-post_submit" type="submit" value="등록"/>
 			</div>
-   		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>					
-		<script src="/js/about/aboutpost.js"></script>	
+		</div>	
 		
-		<my:bottom></my:bottom>		
+		<my:bottom></my:bottom>
+		
+   		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>					
+		<script src="/js/about/aboutpost.js"></script>			
 	</body>
 </html>

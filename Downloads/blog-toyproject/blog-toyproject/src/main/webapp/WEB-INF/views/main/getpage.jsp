@@ -84,14 +84,50 @@
 			   </div>
    		   </div>
    		   	
-			<div class="view_list-all">
-				<div class="view_list-elem"><span>Recent Post</span></div>
-				<div class="view_list-elem"><a href="/main" class="see_all-button"><span>See All</span></a></div>
+			<div class="view_list-container">
+				<div >
+				
+					<div class="view-list-all">
+						<div>
+							<span>Recent Post</span>
+						</div>
+						<div>
+							<a href="/main" class="see_all-button"><span>See All</span></a>
+						</div>
+					</div>
+					
+				<div style="display: flex; justify-content: space-between;">		
+						<div class="list_view-container list_view-container-f">
+							<div>
+			   				<img class="list_view-img" src="#">
+			   				</div>
+			   				<div>
+			   					<h2 class="list_view-title">title</h2>
+			   				</div>
+			   				<div>
+			   					<div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
+			   					<div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
+			   				</div>
+			   			</div>
+			   							
+						<div class="list_view-container list_view-container-b">
+							<div>
+			   				<img class="list_view-img" src="#">
+			   				</div>
+			   				<div>
+			   					<h2>title</h2>
+			   				</div>
+			   				<div>
+			   					<div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
+								<div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
+			   				</div>
+			   			</div>
+		   			
+		   			</div>
+   					
+   				</div>	
+   							
 			</div>	
-   			
-   			<div class="list_view-container">
-   				<img src="#">
-   			</div>
    			
    			<div class="comment-container">
    				<div class="comment_count-container">
@@ -120,6 +156,7 @@
 	<script src="/js/main/delete.js"></script>
 	<script src="/js/main/likepost.js"></script>
 	<script src="/js/main/comment.js"></script>
+	<script src="/js/main/viewcontainer.js"></script>
 	
 	<my:bottom></my:bottom>	
 	</body>

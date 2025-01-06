@@ -14,16 +14,17 @@
 	</head>
 	<body>
 	<my:navigation></my:navigation>
+		<div class="main-container">
 			<div class="about_update-container about_update-container-t">
 				<textarea id="about-update_body" rows="25" cols="150" name="body"></textarea>
 			</div>
 			<div class="about_update-container">
 				<input id="about-update_submit" type="submit" value="등록"/>
 			</div>
-			
+		</div>	
+		<my:bottom></my:bottom>	
+		
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>					
 		<script src="/js/about/aboutupdate.js"></script>	
-		
-		<my:bottom></my:bottom>	
 	</body>
 </html>

@@ -14,7 +14,7 @@
 </head>
 <body>
 	<my:navigation></my:navigation>
-	<div style="display: flex; justify-content: center;">
+	<div class="main-container">
 		<div>
 
          <div class="col-10 col-md-12 col-lg-14">

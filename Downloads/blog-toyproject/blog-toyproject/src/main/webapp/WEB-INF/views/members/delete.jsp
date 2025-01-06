@@ -14,6 +14,7 @@
 	</head>
 	<body>
 	<my:navigation></my:navigation>
+	<div class="main-container">
 		<input type="text" id="delete-member_id" name="member_id" value="${member.member_id}" style="display: none;" readonly>
 		<input type="text" id="delete-authmember_id" name="member_id" value="${memberAuth.member_id}" style="display: none;" readonly>
         <div style="display: flex; justify-content: center;">
@@ -23,10 +24,11 @@
         <div class="member-sign-column">
         	<input type="submit" id="delete-submit" value="계정삭제">
         </div>
+	</div>
 	
+		<my:bottom></my:bottom>	
+		
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		
 		<script src="/js/members/delete.js"></script>
-		
-		<my:bottom></my:bottom>	
 	</body>
 </html>

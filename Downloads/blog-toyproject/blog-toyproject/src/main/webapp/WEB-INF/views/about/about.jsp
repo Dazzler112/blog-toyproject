@@ -14,32 +14,34 @@
 	</head>
 	<body>
 	<my:navigation></my:navigation>
-		<div class="about-title">
-			<H1>About The Blog</H1>
-		</div>
-		<br>
-		<div>
-			<div style="display:none;"><span id="about-id_text"></span></div>
-			<div id="about-body">
-				<!-- <span id="about-body_text"></span> -->
+		<div class="main-container">
+			<div class="about-title">
+				<H1>About The Blog</H1>
 			</div>
-		</div>
-		<div style="display:flex; justify-content: right;">
-			<a href="/about/post"><button id="post-button" style="display:none; margin-right: 10px;">게시</button></a>
-			<a href="/about/post/-1"><button>수정</button></a>
-		</div>
-		
-    <div class="carousel_container"> <!-- 페이지 전체를 중앙 정렬하는 컨테이너 -->
-        <div class="carousel">
-            <div class="carousel-track">
-                <img src="your-image1.jpg" alt="Image 1">
-                <img src="your-image2.jpg" alt="Image 2">
-                <img src="your-image3.jpg" alt="Image 3">
-                <img src="your-image4.jpg" alt="Image 4">
-                <img src="your-image5.jpg" alt="Image 5">
-            </div>
-        </div>
-    </div>	
+			<br>
+			<div>
+				<div style="display:none;"><span id="about-id_text"></span></div>
+				<div id="about-body">
+					<!-- <span id="about-body_text"></span> -->
+				</div>
+			</div>
+			<div style="display:flex; justify-content: right;">
+				<a href="/about/post"><button id="post-button" style="display:none; margin-right: 10px;">게시</button></a>
+				<a href="/about/post/-1"><button>수정</button></a>
+			</div>
+			
+	</div>
+	    <div class="carousel_container"> <!-- 페이지 전체를 중앙 정렬하는 컨테이너 -->
+	        <div class="carousel">
+	            <div class="carousel-track">
+	                <img src="your-image1.jpg" alt="Image 1">
+	                <img src="your-image2.jpg" alt="Image 2">
+	                <img src="your-image3.jpg" alt="Image 3">
+	                <img src="your-image4.jpg" alt="Image 4">
+	                <img src="your-image5.jpg" alt="Image 5">
+	            </div>
+	        </div>
+	    </div>	
 	
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		
 		<script src="/js/about/aboutget.js"></script>
