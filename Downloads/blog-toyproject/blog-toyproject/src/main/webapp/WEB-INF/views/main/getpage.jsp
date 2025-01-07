@@ -98,30 +98,62 @@
 					
 				<div style="display: flex; justify-content: space-between;">		
 						<div class="list_view-container list_view-container-f">
+							<input type="text" class="list_view-id">
 							<div>
 			   				<img class="list_view-img" src="#">
 			   				</div>
 			   				<div>
 			   					<h2 class="list_view-title">title</h2>
 			   				</div>
-			   				<div>
+			   				<div class="list_view-status">
 			   					<div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
 			   					<div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
 			   				</div>
 			   			</div>
 			   							
 						<div class="list_view-container list_view-container-b">
+							<input type="text" class="list_view-id">
 							<div>
 			   				<img class="list_view-img" src="#">
 			   				</div>
 			   				<div>
-			   					<h2>title</h2>
+			   					<h2 class="list_view-title">title</h2>
 			   				</div>
-			   				<div>
+			   				<div class="list_view-status">
 			   					<div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
 								<div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
 			   				</div>
 			   			</div>
+			   			
+						<!-- Previous Extra 첫 번째 게시물 -->
+						<div class="list_view-container list_view-container-extra-1">
+						    <input type="text" class="list_view-id">
+						    <div>
+						        <img class="list_view-img" src="#">
+						    </div>
+						    <div>
+						        <h2 class="list_view-title">title</h2>
+						    </div>
+						    <div class="list_view-status">
+						        <div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
+						        <div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
+						    </div>
+						</div>
+						
+						<!-- Previous Extra 두 번째 게시물 -->
+						<div class="list_view-container list_view-container-extra-2">
+						    <input type="text" class="list_view-id">
+						    <div>
+						        <img class="list_view-img" src="#">
+						    </div>
+						    <div>
+						        <h2 class="list_view-title">title</h2>
+						    </div>
+						    <div class="list_view-status">
+						        <div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
+						        <div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
+						    </div>
+						</div>			   			
 		   			
 		   			</div>
    					

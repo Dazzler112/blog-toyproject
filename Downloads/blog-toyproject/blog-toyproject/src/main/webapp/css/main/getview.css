@@ -59,17 +59,7 @@
     margin: 0px 0px 20px 0px;
 }
 
-.list_view-container-f {
-	width: 30vw;
-	height: 30vh;
-	margin-bottom: 20px;
-	border: 0.5px solid rgba(0,0,0,0.3);
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-}
-
-.list_view-container-b {
+.list_view-container {
 	width: 30vw;
 	height: 30vh;
 	margin-bottom: 20px;
@@ -83,7 +73,15 @@
 	width: 50%;
 	height: 50%;
 }
+.list_view-status {
+	display: flex; 
+	justify-content: space-between;
+}
 
+.list_view-title {
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	padding: 0px 10px;
+}
 .comment-container {
 	margin-top: 10px;
 	border: 0.5px solid rgba(0,0,0,0.3);
