@@ -180,4 +180,115 @@ public interface BlogMainMapper {
 			""")
 	Integer blogPostingViews(Integer board_id);
 
+	@Select("""
+			SELECT
+				b.board_id
+			  , b.title
+			  , b.views
+			  , p.photo_name
+			  ,
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDLIKE
+			   WHERE 	
+			   	board_id = b.board_id
+			  )	like_count
+			  ,
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDREPLY
+			   WHERE 	
+			   	board_id = b.board_id
+			  )	reply_count	
+			FROM
+			   BOARD b
+			   LEFT JOIN
+			   PHOTO p 
+			   ON
+			   b.board_id = p.board_id
+			   WHERE
+			   b.board_id < #{board_id}
+			   ORDER BY board_id DESC LIMIT 1			  		  	
+			""")
+	@ResultMap("boardTotalMap")
+	Board getPreviousPost(Integer board_id);
+
+	@Select("""
+			SELECT
+				b.board_id
+			  , b.title
+			  , b.views
+			  , p.photo_name
+			  ,
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDLIKE
+			   WHERE 	
+			   	board_id = b.board_id
+			  )	like_count
+			  ,
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDREPLY
+			   WHERE 	
+			   	board_id = b.board_id
+			  )	reply_count	
+			FROM
+			   BOARD b
+			   LEFT JOIN
+			   PHOTO p 
+			   ON
+			   b.board_id = p.board_id
+			   WHERE
+			   b.board_id > #{board_id}
+			   ORDER BY board_id ASC LIMIT 1			  		  	
+			""")	
+	@ResultMap("boardTotalMap")	
+	Board getNextPost(Integer board_id);
+
+	@Select("""
+			SELECT
+				b.board_id
+			  , b.title
+			  , b.views
+			  , p.photo_name
+			  ,
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDLIKE
+			   WHERE 	
+			   	board_id = b.board_id
+			  )	like_count
+			  ,
+			  (
+			   SELECT 
+			   	COUNT(*)
+			   FROM
+			   BOARDREPLY
+			   WHERE 	
+			   	board_id = b.board_id
+			  )	reply_count	
+			FROM
+			   BOARD b
+			   LEFT JOIN
+			   PHOTO p 
+			   ON
+			   b.board_id = p.board_id
+			   WHERE
+			   b.board_id < #{board_id}
+			   ORDER BY board_id DESC LIMIT #{limit}			  		  	
+			""")		
+	@ResultMap("boardTotalMap")	
+	List<Board> getPreviousPostExtra(Integer board_id, int limit);
+	
 }

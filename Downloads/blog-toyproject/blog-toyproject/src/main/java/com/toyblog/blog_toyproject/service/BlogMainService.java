@@ -241,4 +241,22 @@ public class BlogMainService {
 		return cnt > 0;
 	}
 
+	public Map<String, Object> getPostContainer(Integer board_id) {
+		
+		Map<String, Object> result = new HashMap<>();
+		
+//		Board board = blogMainMapper.selectPostBoardId(board_id);
+		
+		result.put("previous", blogMainMapper.getPreviousPost(board_id));
+		
+		result.put("next", blogMainMapper.getNextPost(board_id));
+		
+		
+		if(result.get("next") == null) {
+			result.put("previousExtra", blogMainMapper.getPreviousPostExtra(board_id, 2));
+		}
+		
+		return result;
+	}
+
 }

@@ -155,4 +155,14 @@ public class BlogMainResource {
 	public void postViews(@PathVariable Integer board_id) {
 		boolean viewOk = blogMainService.postingView(board_id);
 	}
+	
+	@GetMapping("/post/views/containerview/{board_id}")
+	public ResponseEntity<Map<String, Object>> upToDatePost(@PathVariable Integer board_id) {
+		
+		Map<String, Object> result = blogMainService.getPostContainer(board_id);
+
+			return ResponseEntity
+					.ok(result);
+
+	}
 }
