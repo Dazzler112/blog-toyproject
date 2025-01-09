@@ -134,3 +134,7 @@
     width: auto;
     height: auto;
 }
+
+.list_view-likeheart {
+	cursor: pointer;
+}

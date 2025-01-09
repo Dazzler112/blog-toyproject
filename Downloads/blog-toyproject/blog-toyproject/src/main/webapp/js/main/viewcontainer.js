@@ -21,7 +21,6 @@ $(document).ready(function () {
                 $(containerSelector + " .list_view-title").text(data.title || "제목 없음");
                 $(containerSelector + " .list_view-count").text(`👁 ${data.views || 0}`);
                 $(containerSelector + " .list_view-comment").text(`🗨 ${data.reply_count || 0}`);
-                $(containerSelector + " .list_view-likeheart").text(data.liked ? "🧡" : "🤍");
             }
 
             // 다음글 처리
@@ -53,6 +52,13 @@ $(document).ready(function () {
             } else {
                 $(".list_view-container-extra-1, .list_view-container-extra-2").hide();
             }
+            
+            if(response.liked) {
+				console.log(liked);
+				$(".list_view-likeheart").text("🧡");
+			} else {
+				$(".list_view-likeheart").text("🤍");
+			}
         },
         error: function (err) {
             console.error("Error fetching board data:", err);

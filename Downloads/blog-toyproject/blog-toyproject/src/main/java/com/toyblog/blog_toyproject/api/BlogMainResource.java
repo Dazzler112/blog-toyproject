@@ -157,9 +157,10 @@ public class BlogMainResource {
 	}
 	
 	@GetMapping("/post/views/containerview/{board_id}")
-	public ResponseEntity<Map<String, Object>> upToDatePost(@PathVariable Integer board_id) {
+	public ResponseEntity<Map<String, Object>> upToDatePost(@PathVariable Integer board_id, 
+															Authentication authentication) {
 		
-		Map<String, Object> result = blogMainService.getPostContainer(board_id);
+		Map<String, Object> result = blogMainService.getPostContainer(board_id, authentication);
 
 			return ResponseEntity
 					.ok(result);
