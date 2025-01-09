@@ -97,7 +97,7 @@
 					</div>
 					
 				<div style="display: flex; justify-content: space-between;">		
-						<div class="list_view-container list_view-container-f">
+						<div class="list_view-container list_view-container-f" data-board-id="${board.board_id}">
 							<input type="text" class="list_view-id">
 							<div>
 			   				<img class="list_view-img" src="#">
@@ -107,11 +107,11 @@
 			   				</div>
 			   				<div class="list_view-status">
 			   					<div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
-			   					<div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
+			   					<div><span class="list_view-likeheart">🤍</span></div>
 			   				</div>
 			   			</div>
 			   							
-						<div class="list_view-container list_view-container-b">
+						<div class="list_view-container list_view-container-b" data-board-id="${board.board_id}">
 							<input type="text" class="list_view-id">
 							<div>
 			   				<img class="list_view-img" src="#">
@@ -121,12 +121,12 @@
 			   				</div>
 			   				<div class="list_view-status">
 			   					<div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
-								<div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
+								<div><span class="list_view-likeheart">🤍</span></div>
 			   				</div>
 			   			</div>
 			   			
 						<!-- Previous Extra 첫 번째 게시물 -->
-						<div class="list_view-container list_view-container-extra-1">
+						<div class="list_view-container list_view-container-extra-1" data-board-id="${board.board_id}">
 						    <input type="text" class="list_view-id">
 						    <div>
 						        <img class="list_view-img" src="#">
@@ -136,12 +136,12 @@
 						    </div>
 						    <div class="list_view-status">
 						        <div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
-						        <div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
+						        <div><span class="list_view-likeheart">🤍</span></div>
 						    </div>
 						</div>
 						
 						<!-- Previous Extra 두 번째 게시물 -->
-						<div class="list_view-container list_view-container-extra-2">
+						<div class="list_view-container list_view-container-extra-2" data-board-id="${board.board_id}">
 						    <input type="text" class="list_view-id">
 						    <div>
 						        <img class="list_view-img" src="#">
@@ -151,7 +151,7 @@
 						    </div>
 						    <div class="list_view-status">
 						        <div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
-						        <div><button id="getboard_list-likecount"><span class="list_view-likeheart">🤍</span></button></div>
+						        <div><span class="list_view-likeheart">🤍</span></div>
 						    </div>
 						</div>			   			
 		   			
