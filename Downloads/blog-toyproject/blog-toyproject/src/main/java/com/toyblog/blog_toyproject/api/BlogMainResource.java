@@ -162,6 +162,7 @@ public class BlogMainResource {
 		
 		Map<String, Object> result = blogMainService.getPostContainer(board_id, authentication);
 
+		System.out.println("Response Data: " + result);
 			return ResponseEntity
 					.ok(result);
 

@@ -243,31 +243,45 @@ public class BlogMainService {
 
 	public Map<String, Object> getPostContainer(Integer board_id, Authentication authentication) {
 		
-		Map<String, Object> result = new HashMap<>();
-		
-		
-		Board pBoard = blogMainMapper.getPreviousPost(board_id);
-		if(authentication != null) {
-			BoardLike boardLike = blogMainLikeMapper.selectLike(board_id, authentication.getName());
-			if(boardLike != null)
-				pBoard.setLiked(true);
-		}
-		result.put("previous", pBoard);
-		
-		Board nBoard = blogMainMapper.getNextPost(board_id);
-		if(authentication != null) {
-			BoardLike boardLike = blogMainLikeMapper.selectLike(board_id, authentication.getName());
-			if(boardLike != null)
-				nBoard.setLiked(true);
-		}		
-		result.put("next", nBoard);
-		
-		if(result.get("next") == null) {
-			result.put("previousExtra", blogMainMapper.getPreviousPostExtra(board_id, 2));
-		}
-		
-		
-		return result;
+	    Map<String, Object> result = new HashMap<>();
+
+	    // 이전 게시물 조회
+	    Board pBoard = blogMainMapper.getPreviousPost(board_id);
+	    if (pBoard != null && authentication != null) {
+	        BoardLike boardLike = blogMainLikeMapper.selectLike(pBoard.getBoard_id(), authentication.getName());
+	        if (boardLike != null) {
+	            pBoard.setLiked(true);
+	        }
+	    }
+	    result.put("previous", pBoard);
+
+	    // 다음 게시물 조회
+	    Board nBoard = blogMainMapper.getNextPost(board_id);
+	    if (nBoard != null && authentication != null) {
+	        BoardLike boardLike = blogMainLikeMapper.selectLike(nBoard.getBoard_id(), authentication.getName());
+	        if (boardLike != null) {
+	            nBoard.setLiked(true);
+	        }
+	    }
+	    result.put("next", nBoard);
+
+	    // 추가 이전 게시물
+	    if (result.get("next") == null) { // 다음 게시물이 없는 경우
+	        List<Board> exBoardList = blogMainMapper.getPreviousPostExtra(board_id, 2);
+	        if (exBoardList != null && !exBoardList.isEmpty()) {
+	            for (Board exBoard : exBoardList) {
+	                if (authentication != null) {
+	                    BoardLike boardLike = blogMainLikeMapper.selectLike(exBoard.getBoard_id(), authentication.getName());
+	                    if (boardLike != null) {
+	                        exBoard.setLiked(true);
+	                    }
+	                }
+	            }
+	            result.put("previousExtra", exBoardList); // 추가 이전 게시물 리스트 저장
+	        }
+	    }
+
+	    return result;
 	}
 
 }

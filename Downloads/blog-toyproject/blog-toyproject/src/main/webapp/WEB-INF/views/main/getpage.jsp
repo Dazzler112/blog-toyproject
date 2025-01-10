@@ -98,12 +98,12 @@
 					
 				<div style="display: flex; justify-content: space-between;">		
 						<div class="list_view-container list_view-container-f" data-board-id="${board.board_id}">
-							<input type="text" class="list_view-id">
+							<input type="text" class="list_view-id" hidden>
 							<div>
-			   				<img class="list_view-img" src="#">
+			   				<a class="list-view_get" href=""><img class="list_view-img" src="#"></a>
 			   				</div>
 			   				<div>
-			   					<h2 class="list_view-title">title</h2>
+			   					<a class="list-view_get" href=""><h2 class="list_view-title">title</h2></a>
 			   				</div>
 			   				<div class="list_view-status">
 			   					<div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
@@ -112,12 +112,12 @@
 			   			</div>
 			   							
 						<div class="list_view-container list_view-container-b" data-board-id="${board.board_id}">
-							<input type="text" class="list_view-id">
+							<input type="text" class="list_view-id" hidden>
 							<div>
-			   				<img class="list_view-img" src="#">
+			   				<a class="list-view_get" href=""><img class="list_view-img" src="#"></a>
 			   				</div>
 			   				<div>
-			   					<h2 class="list_view-title">title</h2>
+			   					<a class="list-view_get" href=""><h2 class="list_view-title">title</h2></a>
 			   				</div>
 			   				<div class="list_view-status">
 			   					<div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
@@ -127,12 +127,12 @@
 			   			
 						<!-- Previous Extra 첫 번째 게시물 -->
 						<div class="list_view-container list_view-container-extra-1" data-board-id="${board.board_id}">
-						    <input type="text" class="list_view-id">
+						    <input type="text" class="list_view-id" hidden>
 						    <div>
-						        <img class="list_view-img" src="#">
+						        <a class="list-view_get" href=""><img class="list_view-img" src="#"></a>
 						    </div>
 						    <div>
-						        <h2 class="list_view-title">title</h2>
+						        <a class="list-view_get" href=""><h2 class="list_view-title">title</h2></a>
 						    </div>
 						    <div class="list_view-status">
 						        <div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
@@ -142,12 +142,12 @@
 						
 						<!-- Previous Extra 두 번째 게시물 -->
 						<div class="list_view-container list_view-container-extra-2" data-board-id="${board.board_id}">
-						    <input type="text" class="list_view-id">
+						    <input type="text" class="list_view-id" hidden>
 						    <div>
-						        <img class="list_view-img" src="#">
+						        <a class="list-view_get" href=""><img class="list_view-img" src="#"></a>
 						    </div>
 						    <div>
-						        <h2 class="list_view-title">title</h2>
+						        <a class="list-view_get" href=""><h2 class="list_view-title">title</h2></a>
 						    </div>
 						    <div class="list_view-status">
 						        <div><span class="list_view-count">👁</span><span class="list_view-comment">🗨</span></div>
