@@ -12,17 +12,25 @@ $(document).ready(function () {
                 "https://bucket0503-2345lhc5232.s3.ap-northeast-2.amazonaws.com/review_blog_project";
 
             // 공통 렌더링 함수
-            function renderPostData(containerSelector, data, bucketUrl) {
-                const photoUrl = data.photo_name
-                    ? `${bucketUrl}/${data.board_id}/${data.photo_name}`
-                    : "default.png";
-                $(containerSelector + " .list_view-id").val(data.board_id);
-                $(containerSelector + " .list_view-img").attr("src", photoUrl);
-                $(containerSelector + " .list_view-title").text(data.title || "제목 없음");
-                $(containerSelector + " .list_view-count").text(`👁 ${data.views || 0}`);
-                $(containerSelector + " .list_view-comment").text(`🗨 ${data.reply_count || 0}`);
-            }
-
+			function renderPostData(containerSelector, data, bucketUrl) {
+			    const photoUrl = data.photo_name
+			        ? `${bucketUrl}/${data.board_id}/${data.photo_name}`
+			        : "default.png";
+			
+			    $(containerSelector + " .list_view-id").val(data.board_id);
+			    $(containerSelector + " .list_view-img").attr("src", photoUrl);
+			    $(containerSelector + " .list-view_get").attr("href", `/main/${data.board_id}`);
+			    $(containerSelector + " .list_view-title").text(data.title || "제목 없음");
+			    $(containerSelector + " .list_view-count").text(`👁 ${data.views || 0}`);
+			    $(containerSelector + " .list_view-comment").text(`🗨 ${data.reply_count || 0}`);
+			    
+				if(data.liked) {
+					$(containerSelector + " .list_view-likeheart").text("🧡");
+				} else {
+					$(containerSelector + " .list_view-likeheart").text("🤍");
+				}
+			}
+		
             // 다음글 처리
             if (next) {
                 renderPostData(".list_view-container-f", next, bucketUrl);
@@ -53,12 +61,6 @@ $(document).ready(function () {
                 $(".list_view-container-extra-1, .list_view-container-extra-2").hide();
             }
             
-            if(response.liked) {
-				console.log(liked);
-				$(".list_view-likeheart").text("🧡");
-			} else {
-				$(".list_view-likeheart").text("🤍");
-			}
         },
         error: function (err) {
             console.error("Error fetching board data:", err);
