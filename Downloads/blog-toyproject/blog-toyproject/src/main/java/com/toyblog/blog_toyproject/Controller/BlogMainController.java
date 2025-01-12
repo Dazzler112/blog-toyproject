@@ -8,7 +8,6 @@ import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
 
-import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.service.*;
 
 @Controller
@@ -18,11 +17,15 @@ public class BlogMainController {
 	private BlogMainService blogMainService; 
 	
 	@GetMapping("main")
-	public String boardListPage(Model model,Authentication authentication) {
+	public String boardListPage(@RequestParam(value = "search", defaultValue = "") String search,
+								@RequestParam(value = "type", required = false) String type,
+								Model model,
+								Authentication authentication) {
 		
-		List<Board> board = blogMainService.getBoardId(authentication);
-		
-		model.addAttribute("boardList",board);
+//		List<Board> board = blogMainService.getBoardId(authentication);
+//		model.addAttribute("boardList",board);
+		Map<String, Object> result = blogMainService.resultListMain(authentication ,search, type);
+		model.addAllAttributes(result);
 		
 		return "main/mainview";
 	}

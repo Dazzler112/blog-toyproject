@@ -56,23 +56,46 @@ public class BlogMainService {
 		return cnt == 1;
 	}
 
-	public List<Board> getBoardId(Authentication authentication) {
+	// 검색서치를 위해 메소드 바꿔야함
+//	public List<Board> getBoardId(Authentication authentication) {
+//		
+//		List<Board> board = blogMainMapper.selectBoard();
+//		
+//		
+//		if(authentication != null) {
+//			for(Board boards : board) {
+//				BoardLike boardLike = blogMainLikeMapper.selectLike(boards.getBoard_id(), authentication.getName());				
+//				if(boardLike != null) {
+//					boards.setLiked(true);
+//				}
+//			}
+//		}	
+//		
+//		return board;
+//	}
+
+	public Map<String, Object> resultListMain(Authentication authentication, String search, String type) {
 		
-		List<Board> board = blogMainMapper.selectBoard();
+		Integer searchBar = blogMainMapper.countAll(search, type);
 		
+		Map<String, Object> allInfo = new HashMap<>();
+		allInfo.put("searchPage", searchBar);
+		
+		List<Board> board = blogMainMapper.selectAllMainBoard(search, type);
 		
 		if(authentication != null) {
-			for(Board boards : board) {
-				BoardLike boardLike = blogMainLikeMapper.selectLike(boards.getBoard_id(), authentication.getName());				
-				if(boardLike != null) {
-					boards.setLiked(true);
-				}
+		for(Board boards : board) {
+			BoardLike boardLike = blogMainLikeMapper.selectLike(boards.getBoard_id(), authentication.getName());				
+			if(boardLike != null) {
+				boards.setLiked(true);
 			}
-		}	
+		}
+	}	
 		
-		return board;
+		return Map.of("allInfo", allInfo,
+					  "boardList", board);
 	}
-
+	
 	public Board getPostBoardId(Integer board_id, Authentication authentication) {
 		
 		Board board = blogMainMapper.selectPostBoardId(board_id);
@@ -283,5 +306,6 @@ public class BlogMainService {
 
 	    return result;
 	}
+
 
 }
