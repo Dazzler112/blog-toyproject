@@ -30,7 +30,7 @@ public class BlogMainResource {
 	}
 
 	@PostMapping(value = "/post/addpost", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public void addMain(@RequestPart("photoFile") MultipartFile[] files, 
+	public void addMain(@RequestPart(value = "photoFile", required = false) MultipartFile[] files, 
 						@RequestParam("title") String title,
 				        @RequestParam("body") String body,
 				        @RequestParam("category") String category, 

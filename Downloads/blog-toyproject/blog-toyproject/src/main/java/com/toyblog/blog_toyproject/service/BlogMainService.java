@@ -38,6 +38,7 @@ public class BlogMainService {
 	public boolean addboard(Board board, MultipartFile[] files) throws IOException {
 		
 		int cnt = blogMainMapper.insertBoard(board);
+		if (files != null && files.length > 0) { //사진파일이 null값이 아닐경우만 사진 삽입 실행
 		for(MultipartFile file : files) {
 			if(file.getSize() > 0) {
 				blogMainMapper.insertFileName(board.getBoard_id(), file.getOriginalFilename());
@@ -52,6 +53,7 @@ public class BlogMainService {
 				
 				s3.putObject(putObjectRequest, requestBody);
 			}
+		}
 		}
 		return cnt == 1;
 	}
@@ -150,7 +152,7 @@ public class BlogMainService {
 				blogMainMapper.deletePhotoName(board.getBoard_id(), fileName);
 			}
 		}
-		
+		if (addFile != null && addFile.length > 0) {
 		for(MultipartFile file : addFile) {
 			if(file.getSize() > 0) {
 				blogMainMapper.updatePhotoName(board.getBoard_id(), file.getOriginalFilename());
@@ -165,6 +167,7 @@ public class BlogMainService {
 				RequestBody request = RequestBody.fromInputStream(file.getInputStream(), file.getSize());
 				s3.putObject(putObjectRequest, request);
 			}
+		}
 		}
 		
 		int cnt = blogMainMapper.updateBoard(board);
