@@ -13,8 +13,10 @@ $("#add-writer-botton").click(function(){
 	formData.append("write_date", formattedDate);
 	
 	const files = $("#add-file")[0].files;
-	for (let i = 0; i < files.length; i++) {
-		formData.append("photoFile" ,files[i]);
+	if(files.length > 0) { //파일이 존재하는 경우만 실행되게 하니면 해당 for문실행x
+		for (let i = 0; i < files.length; i++) {
+			formData.append("photoFile" ,files[i]);
+		}
 	}
 	
 	$.ajax(`/post/addpost`, {

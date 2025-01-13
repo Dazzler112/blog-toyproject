@@ -37,7 +37,7 @@ function moveCarousel() {
     currentPosition -= imageWidth; // 왼쪽으로 이동
 
     // 마지막 이미지에서 첫 번째 이미지로 바로 이동
-    const maxPosition = -(imageWidth * (images.length - 4)); // 마지막 이미지 위치
+    const maxPosition = -(imageWidth * (images.length - 3)); // 마지막 이미지 위치
     if (currentPosition < maxPosition) {
         currentPosition = 0; // 첫 번째 이미지로 복귀
     }

@@ -30,8 +30,8 @@
 }
 
 .carousel-track img {
-    width: 400px; /* 각 이미지의 너비 */
-    height: 300px; /* 각 이미지의 높이 */
+    width: 33vw; /* 각 이미지의 너비 */
+    height: 50vh; /* 각 이미지의 높이 */
     object-fit: cover;
     margin: 0 5px; /* 이미지 간격 */
 }
