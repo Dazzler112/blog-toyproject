@@ -16,7 +16,20 @@
 	</head>
 	<body>
 	<my:navigation></my:navigation>
-	<my:search></my:search>
+	
+	<div class="view_about-container">
+	  <div class="view_main-about-img-container">
+	    <div class="main-about-img">
+	      <img src="/img/signature.jpg" alt="Image 1" class="full-width-img">
+	      <div class="view_about-text">
+	        <h1>Soo's Best</h1>
+	        <span>The Best Game I've Ever Had</span>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<my:search></my:search>	
 		<div class="main-container">
 			
 		<c:forEach items="${boardList}" var="board">
