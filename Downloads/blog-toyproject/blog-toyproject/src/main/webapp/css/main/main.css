@@ -50,3 +50,62 @@
     height: 100%; /* 높이를 부모에 맞춤 */
     object-fit: cover;
 }  
+
+
+/*===================*/
+
+
+/* 전체 컨테이너 */
+.view_about-container {
+  position: relative;
+  text-align: center;
+  background-color: black;
+}
+
+/* 이미지 컨테이너 */
+.view_main-about-img-container {
+  position: relative;
+}
+
+/* 이미지 컨테이너 스타일 */
+.main-about-img {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 텍스트 수직 정렬을 위해 추가 */
+  position: relative;
+}
+
+/* 전체 이미지 스타일 */
+.full-width-img {
+  width: 90vw; /* 가로 전체 화면 */
+  max-height: 70%; /* 최대 높이 70% */
+  object-fit: cover; /* 비율 유지하며 이미지 채우기 */
+  display: block; /* 아래 여백 제거 */
+  padding-bottom: 85px;
+}
+
+/* 이미지 위 텍스트 컨테이너 */
+.view_about-text {
+  position: absolute; /* 텍스트를 이미지 위에 배치 */
+  top: 50%; /* 이미지 세로 중앙 */
+  left: 50%; /* 이미지 가로 중앙 */
+  transform: translate(-50%, -50%); /* 완벽한 중앙 정렬 */
+  color: white; /* 텍스트 색상 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+  padding: 20px; /* 텍스트 여백 */
+  border-radius: 10px; /* 모서리 둥글게 */
+  width: 80%; /* 텍스트 컨테이너의 너비 */
+}
+
+/* About 제목 스타일 */
+.view_about-text h1 {
+  font-size: 2.5rem; /* 제목 크기 */
+  margin: 0 0 35px; /* 텍스트 간격 */
+  font-weight: bold; /* 강조 */
+}
+
+/* 본문 텍스트 스타일 */
+.view_about-text span {
+  font-size: 1.2rem; /* 본문 텍스트 크기 */
+  line-height: 1.5; /* 가독성을 위한 줄 간격 */
+}

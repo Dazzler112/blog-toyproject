@@ -13,8 +13,11 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
+	
+	</body>
+	<body>
 	<my:navigation></my:navigation>
-		<div class="main-container">
+		<div class="about-container">
 			<div class="about-title">
 				<H1>About The Blog</H1>
 			</div>
@@ -30,18 +33,20 @@
 				<a href="/about/post/-1"><button>수정</button></a>
 			</div>
 			
-	</div>
+			
 	    <div class="carousel_container"> <!-- 페이지 전체를 중앙 정렬하는 컨테이너 -->
 	        <div class="carousel">
 	            <div class="carousel-track">
-	                <img src="your-image1.jpg" alt="Image 1">
-	                <img src="your-image2.jpg" alt="Image 2">
-	                <img src="your-image3.jpg" alt="Image 3">
-	                <img src="your-image4.jpg" alt="Image 4">
-	                <img src="your-image5.jpg" alt="Image 5">
+	                <img src="/img/signature.jpg" alt="Image 1">
+	                <img src="/img/signature.jpg" alt="Image 2">
+	                <img src="/img/signature.jpg" alt="Image 3">
+	                <img src="/img/signature.jpg" alt="Image 4">
+	                <img src="/img/signature.jpg" alt="Image 5">
 	            </div>
 	        </div>
 	    </div>	
+			
+		</div>
 	
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		
 		<script src="/js/about/aboutget.js"></script>

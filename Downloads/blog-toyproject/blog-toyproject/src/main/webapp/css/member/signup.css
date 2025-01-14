@@ -2,7 +2,54 @@
     margin: 0px 0px 15px 0px;
 }
 
+.log_in-title {
+	display: flex;
+	justify-content: center;
+}
 .member-sign-column{
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.member-sign-column > p {
+	margin-right: 10px;
+}
+.member-sign-column > a {
+	color: black;
+	color: rgb(223,173,105);
+}
+	
+.member_sign-column-link{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member_sign-column-link > p {
+	margin-right: 10px;
+}
+
+.member_sign-column-link > a {
+	color: black;
+	color: rgb(223,173,105);
+	text-decoration: none;
+}
+
+#id-spc {
+	border: none;
+	border-bottom: 1.5px solid rgba(0,0,0,0.5);
+	outline: none;
+}
+#password-spc {
+	border: none;
+	border-bottom: 1.5px solid rgba(0,0,0,0.5);	
+	outline: none;
+}
+#login-btn {
+	background-color: rgb(211,151,115);
+	border: none;
+	padding: 15px 80px;
+	cursor: pointer;
+	color: rgb(154,110,110);
 }

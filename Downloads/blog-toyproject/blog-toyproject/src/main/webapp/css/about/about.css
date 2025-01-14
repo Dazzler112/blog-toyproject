@@ -1,12 +1,18 @@
+.about-container {
+	background-color: black;
+}
+
 .about-title{
 	display: flex;
 	justify-content: center;
+	color: white;
 }
 #about-body{
 	display: flex;
 	justify-content: center;
 	padding: 0px 200px;
 	margin: 0px 80px;
+	color: white;
 }
 
 .carousel_container {
@@ -30,8 +36,6 @@
 }
 
 .carousel-track img {
-    width: 33vw; /* 각 이미지의 너비 */
-    height: 50vh; /* 각 이미지의 높이 */
+    width: 33.4vw; /* 각 이미지의 너비 */
     object-fit: cover;
-    margin: 0 5px; /* 이미지 간격 */
 }
