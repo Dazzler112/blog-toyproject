@@ -13,10 +13,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-	<div class="main-container">
+	<div class="login_main-container">
 		<div style="display: flex; justify-content: center;">
-			<div>
-				<a style="text-decoration: none; " href="/main">X</a>
+			<div class="member_login-cancel">
+				<a style="text-decoration: none; " href="/main">⨉</a>
 			</div>
 			<form method="post">
 				<div class="log_in-title">
@@ -27,14 +27,14 @@
 				</div>
 				<div>
 					<!--아이디-->
-					<div class="sign-column">
+					<div class="login-column">
 						<div>
 							<span style="margin-right: 50px;">ID</span>
 						</div>
 						<input type="text" id="id-spc" name="username" maxlength="20">
 					</div>
 					<!--패스워드-->
-					<div class="sign-column">
+					<div class="login-column">
 						<div>
 							<span>Password</span>
 						</div>
@@ -51,15 +51,15 @@
 
 				</div>
 				
-		<div class="member-sign-column-id">
-			<a href="/5" style="color: rgba(0, 0, 0, 0.4);">Forgot ID?</a>
+		<div class="member_login-column-forgotid">
+			<a href="/5">Forgot ID?</a>
 		</div>
 
-		<div class="member-sign-column-password">
-			<a href="/6" style="color: rgba(0, 0, 0, 0.4);">Forgot password?</a>
+		<div class="member_login-column-password">
+			<a href="/6">Forgot password?</a>
 		</div>
 		<br>
-		<div class="member-sign-column">
+		<div class="member_login-column">
 			<input type="submit" id="login-btn" value="Log In">
 		</div>
 				

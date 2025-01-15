@@ -1,8 +1,96 @@
-.sign-column{
+.login_main-container {
+	margin: 0px 250px 90px 250px;
+	position: fixed; 
+	top: 50%; 
+	left: 35%;
+	transform: translate(-50%, -50%);
+}
+
+/* X 아이콘 위치 */
+.member_login-cancel a {
+  position: absolute;
+  top: -15vh; /* 상단 여백 */
+  right: -35vw; /* 우측 여백 */
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.login-column{
     margin: 0px 0px 15px 0px;
 }
 
 .member-sign-column{
     display: flex;
     justify-content: center;
+}
+
+
+.log_in-title {
+	display: flex;
+	justify-content: center;
+}
+
+	
+.member_sign-column-link{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.member_sign-column-link > p {
+	margin-right: 10px;
+}
+
+.member_sign-column-link > a {
+	color: black;
+	color: rgb(223,173,105);
+	text-decoration: none;
+}
+
+.member_login-column-forgotid {
+	margin-bottom: 10px;
+}
+	
+.member_login-column-forgotid > a {
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.member_login-column-password > a {
+	color: rgba(0, 0, 0, 0.4);
+}
+
+#id-spc {
+	border: none;
+	border-bottom: 1.5px solid rgba(0,0,0,0.5);
+	outline: none;
+	padding: 10px 0px;
+	width: 282px;
+}
+#password-spc {
+	border: none;
+	border-bottom: 1.5px solid rgba(0,0,0,0.5);	
+	outline: none;
+	padding: 10px 0px;
+	width: 282px;
+	margin-bottom: 20px;
+}
+#login-btn {
+	background-color: rgb(211,151,115);
+	border: none;
+	padding: 15px 120px;
+	cursor: pointer;
+	color: rgb(154,110,110);
+	font-size: 17px;
+	transition: 0.1s color ease-in-out;
+}
+
+#login-btn:hover {
+	color: white;
+}
+
+.member_login-column {
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }

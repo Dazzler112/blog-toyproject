@@ -29,9 +29,6 @@ public class MailSendResource {
 		email = URLDecoder.decode(email, "UTF-8");
 		
 		String memberId = blogMemberService.findMemberId(member);
-		if(memberId == null) {
-			throw new RuntimeException("No member found with email: " + email);
-		}
 		
 		mailSendService.SendMail(email, http);
 		

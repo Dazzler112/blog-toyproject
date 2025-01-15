@@ -7,8 +7,13 @@ let checkphoneNumber = false
 
 function enableSubmit() {
     if (checkId && password_check && name && searchEmail && checkEmail && checkphoneNumber) {
-        $("#signup-submit").removeAttr("disabled").css("cursor", "pointer");
+        $("#signup-submit").removeAttr("disabled").css({
+                "cursor": "pointer",
+                "background-color": "rgb(211,151,115)",
+                "color": "rgb(154,110,110)"
+            });
         $("#need-sign").hide();
+        
     } else {
         $("#signup-submit").attr("disabled", "");
         $("#need-sign").show();
@@ -242,7 +247,7 @@ $("#checkEmailBtn").click(function() {
             },
             error: function(request, status, error) {
                 // 에러 처리 로직 추가
-                console.log(error);
+                console.log(error + email);
             }
         });
     }
