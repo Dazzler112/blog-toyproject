@@ -13,23 +13,29 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-	<my:navigation></my:navigation>
-	<div class="main-container">
+	<div class="signup_main-container">
+			<div class="member_signup-cancel">
+				<a style="text-decoration: none; " href="/main">⨉</a>
+			</div>
+			<div class="sign_up-title">
+				<h1>Sign Up</h1>
+			</div>
 		<div style="display: flex; justify-content: center;">
 			<div>
 				<input id="authority-space" type="text" name="authority" value="user" style="display: none;"> <input id="membertype-space" type="text" name="member_type" value="user" style="display: none;">
 				<!--아이디-->
 				<div class="sign-column">
 					<div>
-						<span style="margin-right: 50px;">아이디 *</span>
+						<span style="margin-right: 50px;">ID</span>
 					</div>
-					<input type="text" class="sign-input" id="input-id" name="member_id" maxlength="20" placeholder="영문 또는 영문 숫자 조합으로 6~20자"> <input class="check-button" type="button" id="id-Confirm" value="중복확인">
+					<input type="text" class="sign-input" id="input-id" name="member_id" maxlength="20" placeholder="영문 또는 영문 숫자 조합으로 6~20자"> 
+					<input class="check-button" type="button" id="id-Confirm" value="check">
 					<div id="idcheck-blank" style="margin-left: 10px;"></div>
 				</div>
 				<!--패스워드-->
 				<div class="sign-column">
 					<div>
-						<span style="margin-right: 35px;">비밀번호 * </span>
+						<span style="margin-right: 35px;">Password</span>
 					</div>
 					<input type="password" class="sign-input" id="input-password" name="password" placeholder="영문,숫자,특수문자 조합하여 8~20자리" maxlength="20">
 					<div style="margin-left: 10px;" id="pwdcheck-blank1"></div>
@@ -37,7 +43,7 @@
 				<!--패스워드 확인-->
 				<div class="sign-column">
 					<div>
-						<span>비밀번호 확인 * </span>
+						<span>Password Check</span>
 					</div>
 					<input type="password" class="sign-input" id="password-check" name="password-check" placeholder="위와 동일하게 입력해주세요" maxlength="20">
 					<div style="margin-left: 10px;" id="pwdcheck-blank2"></div>
@@ -45,7 +51,7 @@
 				<!--이름-->
 				<div class="sign-column">
 					<div>
-						<span style="margin-right: 65px;">이 름 * </span>
+						<span style="margin-right: 65px;">Name</span>
 					</div>
 					<input type="text" class="sign-input" id="input-name" name="name" placeholder="한글 또는 영어로 입력해주세요" maxlength="20">
 					<div style="margin-left: 10px;" id="namecheck-blank"></div>
@@ -53,19 +59,19 @@
 				<!--폰번호-->
 				<div class="sign-column">
 					<div>
-						<span style="margin-right: 35px;">휴대폰번호</span>
+						<span style="margin-right: 35px;">Phone Number</span>
 					</div>
 					<input type="number" id="phone-num" name="phone_number">
-					<button class="check-button" type="button" id="checkPhoneNumBtn">중복확인</button>
+					<button class="check-button" type="button" id="checkPhoneNumBtn">check</button>
 					<div style="margin-left: 10px;" id="phonecheck-blank"></div>
 				</div>
 				<!--이메일-->
 				<div class="sign-column">
 					<div>
-						<span style="margin-right: 35px;">이메일</span>
+						<span style="margin-right: 35px;">Email</span>
 					</div>
 					<input type="text" id="mail-sign" name="email">
-					<button class="check-button" type="button" id="checkmailBtn">중복확인</button>
+					<button class="check-button" type="button" id="checkmailBtn">check</button>
 					<input style="display: none;" type="button" class="check-button" id="checkEmailBtn" value="인증하기">
 					<div style="margin-left: 10px;" id="mailcheck-blank"></div>
 				</div>
@@ -91,11 +97,10 @@
 			<span id="need-sign" style="color: rgba(252, 168, 149, 0.7); font-size: 9px; margin-bottom: 8px;">* 항목은 필수 사항입니다.</span>
 		</div>
 		<div class="member-sign-column">
-			<input disabled type="submit" id="signup-submit" value="회원가입">
+			<input disabled type="submit" id="signup-submit" value="Sign Up">
 		</div>
 	</div>
 
-	<my:bottom></my:bottom>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/members/signup.js"></script>

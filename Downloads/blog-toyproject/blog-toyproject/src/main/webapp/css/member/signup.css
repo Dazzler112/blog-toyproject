@@ -1,11 +1,42 @@
+.signup_main-container {
+	margin: 0px 250px 90px 250px;
+	position: fixed; 
+	top: 50%; 
+	left: 35%;
+	transform: translate(-50%, -50%);
+}
+
+.sign_up-title {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.member_signup-cancel a {
+  position: absolute;
+  top: -3.4vh; /* 상단 여백 */
+  right: -32.3vw; /* 우측 여백 */
+  text-decoration: none;
+  font-size: 25px;
+}
+
 .sign-column{
     margin: 0px 0px 15px 0px;
 }
 
-.log_in-title {
-	display: flex;
-	justify-content: center;
+.check-button {
+	border: none;	
+	padding: 10px 20px;
+	font-size: 15px;
+	background: rgb(211,151,115);
+	color: rgb(154,110,110);
+	transition: 0.1s color ease-in-out;
+	cursor: pointer;
 }
+.check-button:hover {
+	color: white;
+}
+
 .member-sign-column{
     display: flex;
     justify-content: center;
@@ -19,37 +50,45 @@
 	color: black;
 	color: rgb(223,173,105);
 }
-	
-.member_sign-column-link{
-	display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.member_sign-column-link > p {
-	margin-right: 10px;
-}
-
-.member_sign-column-link > a {
-	color: black;
-	color: rgb(223,173,105);
-	text-decoration: none;
-}
-
-#id-spc {
-	border: none;
-	border-bottom: 1.5px solid rgba(0,0,0,0.5);
-	outline: none;
-}
-#password-spc {
+.sign-input {
 	border: none;
 	border-bottom: 1.5px solid rgba(0,0,0,0.5);	
-	outline: none;
+	padding: 10px 0px;
+	width: 282px;
 }
-#login-btn {
-	background-color: rgb(211,151,115);
+
+#phone-num {
 	border: none;
-	padding: 15px 80px;
+	border-bottom: 1.5px solid rgba(0,0,0,0.5);	
+	padding: 10px 0px;
+	width: 282px;	
+}
+
+#mail-sign {
+	border: none;
+	border-bottom: 1.5px solid rgba(0,0,0,0.5);
+	padding: 10px 0px;
+	width: 282px;		
+}
+
+#signup-submit {
+	background-color: rgba(0,0,0,0.2);
+	border: none;
+	padding: 15px 155px;
 	cursor: pointer;
-	color: rgb(154,110,110);
+	color: white;
+	font-size: 17px;
+	transition: 0.1s color ease-in-out;
+}
+
+/* 활성화 상태 */
+#signup-submit.enabled {
+    background-color: rgb(211,151,115);
+    color: rgb(154,110,110);
+}
+
+/* 활성화된 버튼의 hover 상태 */
+#signup-submit.enabled:hover {
+    color: white;
 }
