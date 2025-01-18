@@ -19,7 +19,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 컨테이너 높이를 뷰포트 전체로 설정 */
 }
 
 .carousel {
