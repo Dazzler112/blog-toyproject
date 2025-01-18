@@ -30,26 +30,28 @@
 	</div>
 
 	<my:search></my:search>	
-		<div class="main-container">
+		<div class="main-container main_get-listview-container">
 			
 		<c:forEach items="${boardList}" var="board">
 			<div id="board-container" class="center-container">
 			<c:forEach items="${board.photo_name}" var="photo">
-				<div>
+				<div class="main_view-divcontainer">
 					<a class="get-view" href="/main/${board.board_id}"  data-board-id="${board.board_id}">
 						<img id="photo_img-id" src="${bucketUrl}/${board.board_id}/${photo}" />
 					</a>
 				</div>
 			</c:forEach>	
-				<div>
+				<div class="main_view-divcontainer main_view-divcontainer-b">
 					<div>
 						<input id="board_id-value" type="text" name="board_id" value="${board.board_id}"  hidden readonly />
 					</div>
-					<div class=""><a><span>⋮</span></a></div>
+					<div class="status_bar"><a><span>⋮</span></a></div>
 					<a class="get-view" href="/main/${board.board_id}" onclick="getBoard(${board.board_id})" data-board-id="${board.board_id}" >
-						<div class="">
-						<h3 id="board-title">${board.title}</h3>
-						<span id="board-body">${board.body}</span>
+						<div class="board_main-title">
+							<h3 id="board-title">${board.title}</h3>
+						</div>
+						<div class="board_main-body">
+							<span id="board-body">${board.body}</span>
 						</div>
 					</a>
 					<div class="active_container" data-board-id="${board.board_id}">
@@ -86,10 +88,10 @@
 		</div>
 		
 		
+	<my:bottom></my:bottom>	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/main/likepost.js"></script>	
 	<script src="/js/main/countview.js"></script>
 	
-	<my:bottom></my:bottom>	
 	</body>
 </html>
