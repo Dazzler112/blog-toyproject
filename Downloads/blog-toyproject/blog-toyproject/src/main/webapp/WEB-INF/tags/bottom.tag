@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
 }
 .bottom_tag-container {
-	padding: 30px 55px;
+	padding: 75px 23px 40px 23px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -18,7 +18,6 @@ body {
 	background-color: black;
 	color: white;
 	width: 100%;
-	position: fixed;
 	bottom: 0;
 	left: 0;
 }
