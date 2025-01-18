@@ -1,12 +1,84 @@
 .main-container {
-	margin: 0px 250px 90px 250px;
+    margin: 0px 250px 90px 250px;
 }
 
+.main_get-listview-container {
+    height: auto; /* 고정 높이 제거 */
+}
+
+/* board-container 내부 정렬 */
 #board-container {
-	border: 0.5px solid rgba(0,0,0,0.3);
-	display: flex;
-	justify-content: space-between;
-	text-align: center;
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    display: flex; /* 내부를 가로로 배치 */
+    justify-content: space-between; /* 양쪽 여백 확보 */
+    align-items: flex-start; /* 위쪽 정렬 */
+    margin-bottom: 20px; /* 리스트 간격 */
+}
+
+/* 이미지 영역 */
+.main_view-divcontainer {
+    width: 50%;
+    height: 350px; /* 고정 높이 */
+    overflow: hidden; /* 이미지 넘칠 시 숨김 */
+    margin-right: 10px; /* 텍스트와 간격 */
+}
+
+/* 텍스트 영역 */
+.main_view-divcontainer-b {
+    width: 50%;
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    justify-content: center;
+    padding: 0px 20px; /* 텍스트 내부 여백 */
+    gap: 10px; /* 요소 간 간격 */
+}
+
+/* 제목 */
+#board-title {
+    font-size: 22px;
+    font-weight: bold; /* 강조 */
+    margin: 10px 20px 0px 20px;
+    align-items:flex-start;
+    display: -webkit-box; /* Flex 기반 레이아웃 */
+    -webkit-line-clamp: 2; /* 최대 2줄까지 표시 */
+    -webkit-box-orient: vertical; /* 수직 방향 박스 */
+    overflow: hidden; /* 넘치는 텍스트 숨김 */
+    text-overflow: ellipsis; /* 생략(...) 표시 */
+}
+
+/* 본문 */
+#board-body {
+    font-size: 14px;
+    color: #555; /* 중간 회색 */
+    display: -webkit-box; /* Flex 기반 레이아웃 */
+    -webkit-line-clamp: 2; /* 최대 2줄까지 표시 */
+    -webkit-box-orient: vertical; /* 수직 방향 박스 */
+    overflow: hidden; /* 넘치는 텍스트 숨김 */
+    text-overflow: ellipsis; /* 생략(...) 표시 */
+    align-items:flex-start;
+}
+
+.board_main-body {
+    margin: 20px 20px 20px 20px;
+}
+
+/* 조회수 및 댓글 */
+.active_container {
+    display: flex;
+    justify-content: space-between; /* 왼쪽과 오른쪽으로 정렬 */
+    align-items: center;
+    margin: 0px 20px 0px 20px;
+    font-size: 12px;
+    color: #888;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+.status_bar {
+	text-align: right;	
+	margin: 0px 20px 40px 0px;
+	margin-right: 20px;
+	font-size: 20px;
 }
 
 /* 글쓰기버튼 css */
@@ -39,10 +111,20 @@
 .get-view{
 	text-decoration: none;
 	color: black;
-	z-index: -1;
+	text-align: left;
+	margin-bottom: 30px;
 }
+
+/* 좋아요 영역 */
 .board_likeheart {
-	cursor: pointer;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.like-number {
+    font-size: 12px;
+    margin-left: 5px;
+    color: #888;
 }
 
 #photo_img-id {
