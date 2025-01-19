@@ -13,6 +13,10 @@
 	align-items: center;
 }
 
+.getpage_center-container {
+	padding: 60px 100px;
+}
+
 /* 여기부터 삭제모달 */
 .modal {
     position: fixed;
@@ -53,6 +57,38 @@
 }
 /* 여기까지 삭제 모달 */
 
+.writer_container {
+	margin: 0px 0px 20px 0px;
+}
+
+.title-info {
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgba(0,0,0,0.2);	
+	text-align: left;
+}
+
+.board_get-img-container {
+	margin-bottom: 20px;
+}
+
+.board_get-body-container {
+	margin-bottom: 20px;	
+	padding-bottom: 60px;
+	border-bottom: 1px solid rgba(0,0,0,0.2);	
+	text-align: left;
+}
+
+.get_page-link {
+	cursor: pointer;	
+}
+
+.share_link-container {
+	text-align: left;
+	padding : 0px 0px 20px 10px;
+	border-bottom: 2px solid rgba(0,0,0,0.2);	
+	margin-bottom: 30px;
+}
+
 .view-list-all {
     display: flex;
     justify-content: space-between;
@@ -61,7 +97,7 @@
 
 .list_view-container {
 	width: 30vw;
-	height: 30vh;
+	height: 42vh;
 	margin-bottom: 20px;
 	border: 0.5px solid rgba(0,0,0,0.3);
 	text-align: center;
@@ -69,18 +105,43 @@
 	align-items: center;
 }
 
-.list_view-img {
-	width: 50%;
-	height: 50%;
+/* 최신글 컨테이너 이미지 스타일 */
+.list_view-container .list_view-img {
+    width: 100%; /* 가로 크기를 부모 요소에 맞춤 */
+    height: 60%; /* 세로 비율 유지 */
+    object-fit: cover; /* 이미지를 컨테이너에 꽉 차게 조정 (잘림 있을 수 있음) */
+    display: block; /* 블록으로 배치 */
 }
+
 .list_view-status {
 	display: flex; 
 	justify-content: space-between;
+	padding: 0px 25px;
+}
+
+.extra_img-list-container {
+	margin-bottom: 30px;
+}
+
+.extra_title-list-container {
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	padding: 0px 10px;
+	margin-bottom: 20px; 
+	text-align: left;
+}
+
+.extra_title-list-container > a {
+	text-decoration: none;
 }
 
 .list_view-title {
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-	padding: 0px 10px;
+	font-size: 15px;
+    display: -webkit-box; /* Flex 기반 레이아웃 */
+    -webkit-line-clamp: 1; /* 최대 1줄까지 표시 */
+    -webkit-box-orient: vertical; /* 수직 방향 박스 */
+    overflow: hidden; /* 넘치는 텍스트 숨김 */
+    text-overflow: ellipsis; /* 생략(...) 표시 */	
+    color: black;
 }
 .comment-container {
 	margin-top: 10px;
@@ -91,20 +152,26 @@
 }
 
 #comment_write-box {
-	resize: none;
+    resize: none;
+    width: 80%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 auto;
 }
 
 .comment_count-container {
 	display: flex;
 	margin-bottom: 20px;
-	padding: 0px 20px;
-}
-.comment_count-container-sub {
+	padding-bottom : 20px;
 	border-bottom: 0.5px solid rgba(0,0,0,0.3);
 }
 
 .comment_write-container {
 	margin-bottom: 20px;
+	width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .comment_write-container-btn {
 	display: flex;
@@ -112,7 +179,16 @@
 .count_container {
 	display: flex;
 	justify-content: space-between;
-	margin: 20px;
+	margin: 20px 0px;
+}
+
+#get_count-views {
+	margin-right: 3px;
+}
+
+#get_count-comment {
+	margin-right: 3px;	
+	margin-left: 20px;
 }
 
 .see_all-button {
@@ -137,4 +213,12 @@
 
 .list_view-likeheart {
 	cursor: pointer;
+}
+
+#getboard_likeheart {
+	cursor: pointer;
+}
+
+.list_view-comment {
+	margin-left: 20px;
 }

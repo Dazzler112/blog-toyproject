@@ -1,4 +1,4 @@
-$("#getboard_list-likecount").click(function(){
+$("#getboard_likeheart").click(function(){
 	
 	const board_id = $("#board_get-id").val();
 	const data = {board_id};
