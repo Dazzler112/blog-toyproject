@@ -14,9 +14,16 @@ body {
     margin: 0px 0px 45px 0px;
 }
 .search_all-post {
-	color: black;
+	font-size: 13px;
+	color: rgba(0,0,0,0.5);
 	text-decoration: none;
+	transition: 0.1s color ease-in-out;
 }
+
+.search_all-post:hover {
+	color: rgb(223,173,105);
+} 
+
 .search_select {
 	border: none;
 }
