@@ -15,28 +15,30 @@
 </head>
 <body>
 	<my:navigation></my:navigation>
-	<div class="main-container">
+	<div class="user_main-container">
 		<div style="display: flex; justify-content: center;">
 			<div>
 
-				<div class="sign-column">
+				<div class="user-column">
 					<sec:authorize access="isAuthenticated()">
-						<li><a href="/3?member_id=<sec:authentication property="name" />">Member Modify</a></li>
+						<li><a href="/3?member_id=<sec:authentication property="name" />" class="user_href">Member Modify</a></li>
 					</sec:authorize>
 				</div>
 
-				<div class="sign-column">
+				<div class="user-column">
 					<sec:authorize access="isAuthenticated()">
-						<li><a href="/4?member_id=<sec:authentication property="name" />">Member Delete</a></li>
+						<li><a href="/4?member_id=<sec:authentication property="name" />" class="user_href">Member Delete</a></li>
 					</sec:authorize>
 				</div>
 
 			</div>
 		</div>
 	</div>
-	<my:bottom></my:bottom>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/members/findid.js"></script>
+	
+<my:bottom></my:bottom>
 </body>
+
 </html>

@@ -12,9 +12,7 @@ import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.service.*;
 
 import jakarta.servlet.http.*;
-import lombok.extern.slf4j.*;
 
-@Slf4j
 @RestController
 public class MemberResource {
 	

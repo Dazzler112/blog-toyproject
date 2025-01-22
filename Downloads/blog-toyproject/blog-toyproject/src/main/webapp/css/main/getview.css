@@ -47,13 +47,20 @@
 }
 
 .confirm-btn {
+	margin-right: 10px;
+	border-radius: 5px;
+	border: none;
     background-color: #4CAF50;
     color: white;
+    cursor: pointer;
 }
 
 .cancel-btn {
+	border-radius: 5px;
+	border: none;
     background-color: #f44336;
     color: white;
+    cursor: pointer;
 }
 /* 여기까지 삭제 모달 */
 
@@ -76,6 +83,7 @@
 	padding-bottom: 60px;
 	border-bottom: 1px solid rgba(0,0,0,0.2);	
 	text-align: left;
+	white-space: pre-line;
 }
 
 .get_page-link {

@@ -6,3 +6,11 @@
     display: flex;
     justify-content: center;
 }
+
+.member_modify-container {
+	margin: 0px 250px 90px 250px;
+	position: fixed; 
+	top: 50%; 
+	left: 35%;
+	transform: translate(-50%, -50%);
+}

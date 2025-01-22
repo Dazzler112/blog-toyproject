@@ -191,3 +191,20 @@
   font-size: 1.2rem; /* 본문 텍스트 크기 */
   line-height: 1.5; /* 가독성을 위한 줄 간격 */
 }
+
+.comment-cancel-btn {
+	border: none;
+	background-color: rgba(0,0,0,0.1);
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+.comment-publish-btn {
+	border: none;
+	background-color: rgba(0,0,0,0.1);	
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;	
+}
