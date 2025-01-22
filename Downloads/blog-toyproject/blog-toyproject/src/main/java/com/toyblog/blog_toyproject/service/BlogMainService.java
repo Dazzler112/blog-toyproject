@@ -35,7 +35,9 @@ public class BlogMainService {
 	private BlogCommentMapper blogCommentMapper;
 	
 	@Transactional(rollbackFor = Exception.class)
-	public boolean addboard(Board board, MultipartFile[] files) throws IOException {
+	public Map<String, Object> addboard(Board board, MultipartFile[] files) throws IOException {
+		
+		Map<String, Object> result = new HashMap<>();
 		
 		int cnt = blogMainMapper.insertBoard(board);
 		if (files != null && files.length > 0) { //사진파일이 null값이 아닐경우만 사진 삽입 실행
@@ -55,7 +57,9 @@ public class BlogMainService {
 			}
 		}
 		}
-		return cnt == 1;
+		result.put("selectPaginBoard", cnt);
+		
+		return result;
 	}
 
 	// 검색서치를 위해 메소드 바꿔야함
@@ -112,8 +116,10 @@ public class BlogMainService {
 	}
 	
 	@Transactional(rollbackFor = Exception.class)
-	public boolean removeMainPost(Integer board_id) {
+	public Map<String, Object> removeMainPost(Integer board_id) {
 
+		Map<String, Object> result = new HashMap<>();
+		
 		blogMainLikeMapper.deleteByBoardId(board_id);
 		
 		blogCommentMapper.deleteByBoardId(board_id);
@@ -134,10 +140,14 @@ public class BlogMainService {
 		
 		int cnt = blogMainMapper.deletePost(board_id);
 		
-		return cnt == 1;
+		result.put("deleteMain", cnt);
+		
+		return result;
 	}
 
-	public boolean updatePost(Board board, List<String> removeFiles, MultipartFile[] addFile) throws IOException {
+	public Map<String, Object> updatePost(Board board, List<String> removeFiles, MultipartFile[] addFile) throws IOException {
+		
+		Map<String, Object> result = new HashMap<>();
 		
 		if(removeFiles != null && !removeFiles.isEmpty()) {
 			for(String fileName : removeFiles) {
@@ -172,7 +182,9 @@ public class BlogMainService {
 		
 		int cnt = blogMainMapper.updateBoard(board);
 		
-		return cnt == 1;
+		result.put("modifyMain", cnt);
+		
+		return result;
 	}
 
 	public Map<String, Object> postCountLike(BoardLike boardLike, Authentication authentication) {
@@ -260,11 +272,15 @@ public class BlogMainService {
 		return result;
 	}
 
-	public boolean postingView(Integer board_id) {
+	public Map<String, Object> postingView(Integer board_id) {
+		
+		Map<String, Object> result = new HashMap<>();
 		
 		int cnt = blogMainMapper.blogPostingViews(board_id);
 		
-		return cnt > 0;
+		result.put("postingView", cnt);
+		
+		return result;
 	}
 
 	public Map<String, Object> getPostContainer(Integer board_id, Authentication authentication) {

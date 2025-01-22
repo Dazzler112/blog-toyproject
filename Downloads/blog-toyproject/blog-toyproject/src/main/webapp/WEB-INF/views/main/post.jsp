@@ -11,11 +11,11 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-	<my:navigation></my:navigation>
-	<div class="main-container">
+
+	<div class="main_post-container">
 		<div>
 
-         <div class="col-10 col-md-12 col-lg-14">
+         <div class="main_posting-container">
             <form action="" method="post" enctype="multipart/form-data">
                <div id="category_div-div" >
 	               <span class="category_title" style="font-weight: 600;">카테고리</span>
@@ -29,22 +29,22 @@
 		               <option value="모바일"> 모바일
 	               </select>
                </div>
-               <div class="mb-3">
+               <div class="main_post-div-container">
 	               <label for="add-title" class="form-label"></label><span style="font-weight: 600;">제목</span>
 	               <input id="add-title" type="text"  class="form-control" name="title" />
                </div>
-               <div class="mb-3">
+               <div class="main_post-div-container">
 	               <label for="add-body" class="form-label"></label><span style="font-weight: 600;">본문</span>
 	               <textarea rows="10" id="add-body" class="form-control" name="body" ></textarea>
                </div>
-               <div class="mb-3">
+               <div class="main_post-div-container">
                   <label for="add-file" class="form-label"></label>
                   <span style="font-weight: 600;">사진</span>
                   <input id="add-file" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
                </div>    
                		<input id="add-date" type="text"  class="form-control" name="write_date" style="display:none;" readonly/>
                <br>
-	            <div class="member-sign-column">
+	            <div class="main_post-btn-container">
 	               <button id="add-writer-botton">글쓰기</button>
 	               <a href="/main" id="cancle-writer-botton" style="margin: 0px 0px 0px 10px; text-decoration: none;">취소</a>
 				</div>               
@@ -58,6 +58,5 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/main/post.js"></script>
 	
-	<my:bottom></my:bottom>	
 </body>
 </html>

@@ -159,7 +159,7 @@
 
 /* 전체 이미지 스타일 */
 .full-width-img {
-  width: 90vw; /* 가로 전체 화면 */
+  width: 90%; /* 가로 전체 화면 */
   max-height: 70%; /* 최대 높이 70% */
   object-fit: cover; /* 비율 유지하며 이미지 채우기 */
   display: block; /* 아래 여백 제거 */
