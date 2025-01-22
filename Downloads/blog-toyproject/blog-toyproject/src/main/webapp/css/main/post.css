@@ -1,109 +1,131 @@
 .main_post-container {
-	margin: 0px 250px 90px 250px;
 	position: fixed; 
-	top: 50%; 
-	left: 35%;
-	transform: translate(-50%, -50%);
+	top: 15%; 
+	left: 29%;
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-.sign-column {
-	margin: 0px 0px 15px 0px;
-}
-
-.member-sign-column {
-	display: flex;
-	justify-content: center;
-}
-
-
-
-
-
-
-
-.sign_up-title {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 20px;
-}
-
-.member_signup-cancel a {
-  position: absolute;
-  top: -3.4vh; /* 상단 여백 */
-  right: -32.3vw; /* 우측 여백 */
-  text-decoration: none;
-  font-size: 25px;
-}
-
-.sign-column{
-    margin: 0px 0px 15px 0px;
-}
-
-.check-button {
-	border: none;	
-	padding: 10px 20px;
-	font-size: 15px;
-	background: rgb(211,151,115);
-	color: rgb(154,110,110);
-	transition: 0.1s color ease-in-out;
-	cursor: pointer;
-}
-.check-button:hover {
-	color: white;
-}
-
-.member-sign-column{
+.main_posting-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.category_div-div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#game-category {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+#game-category:focus {
+    border-color: #4a90e2;
+    background-color: #fff;
+}
+
+/* 폼 스타일 */
+.main_post-div-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.main_post-div-container input[type="text"],
+.main_post-div-container textarea,
+.main_post-div-container input[type="file"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.main_post-div-container input[type="text"]:focus,
+.main_post-div-container textarea:focus,
+.main_post-div-container input[type="file"]:focus {
+    border-color: #4a90e2;
+    background-color: #fff;
+}
+
+.main_post-div-container textarea {
+    resize: none;
+    height: 120px;
+}
+
+.main_post-div-container input[type="file"] {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 버튼 스타일 */
+.main_post-btn-container {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-.member-sign-column > p {
-	margin-right: 10px;
-}
-.member-sign-column > a {
-	color: black;
-	color: rgb(223,173,105);
-}
-
-.sign-input {
-	border: none;
-	border-bottom: 1.5px solid rgba(0,0,0,0.5);	
-	padding: 10px 0px;
-	width: 282px;
-}
-
-#phone-num {
-	border: none;
-	border-bottom: 1.5px solid rgba(0,0,0,0.5);	
-	padding: 10px 0px;
-	width: 282px;	
-}
-
-#mail-sign {
-	border: none;
-	border-bottom: 1.5px solid rgba(0,0,0,0.5);
-	padding: 10px 0px;
-	width: 282px;		
-}
-
-#signup-submit {
-	background-color: rgba(0,0,0,0.2);
-	border: none;
-	padding: 15px 155px;
-	cursor: pointer;
-	color: white;
-	font-size: 17px;
-	transition: 0.1s color ease-in-out;
-}
-
-/* 활성화 상태 */
-#signup-submit.enabled {
-    background-color: rgb(211,151,115);
-    color: rgb(154,110,110);
-}
-
-/* 활성화된 버튼의 hover 상태 */
-#signup-submit.enabled:hover {
+#add-writer-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #4a90e2;
     color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#add-writer-button:hover {
+    background-color: #357abd;
+}
+
+#cancle-writer-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#cancle-writer-button:hover {
+    background-color: #c8372b;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .main_post-container {
+        margin: 20px;
+        width: 90%;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+
+    .main_post-btn-container {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

@@ -1,8 +1,77 @@
-.sign-column {
-	margin: 0px 0px 15px 0px;
+.main_post-modify-container {
+	position: fixed; 
+	top: 9%; 
+	left: 29%;
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-.member-sign-column {
-	display: flex;
-	justify-content: center;
+.modi_game-category {
+	padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 버튼 스타일 */
+.main_post-btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#modify-writer-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#modify-writer-button:hover {
+    background-color: #357abd;
+}
+
+#modify_cancle {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#modify_cancle:hover {
+    background-color: #c8372b;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .main_post-modify-container {
+        margin: 20px;
+        width: 90%;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+
+    .main_post-btn-container {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

@@ -1,4 +1,4 @@
-$("#add-writer-botton").click(function(){
+$("#add-writer-button").click(function(){
 
 	event.preventDefault();
 	

@@ -7,7 +7,6 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 .bottom_tag-container {
 	padding: 75px 23px 40px 23px;
@@ -20,6 +19,8 @@ body {
 	width: 100%;
 	bottom: 0;
 	left: 0;
+	position: relative; /* 기본적으로 페이지에 포함 */
+    margin-top: auto; /* 컨텐츠 아래에 항상 위치 */
 }
 
 </style>

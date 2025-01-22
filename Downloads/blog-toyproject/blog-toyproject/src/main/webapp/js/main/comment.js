@@ -4,8 +4,10 @@ commentlist();
 $("#comment_write-box").click(function () {
     if ($(".comment-cancel-btn").length === 0) {
         $(".comment_write-container-btn").html(`
-            <button class="comment-cancel-btn">Cancel</button>
-            <button id="comment_publish-btn" class="comment-publish-btn">Publish</button>
+        	<div style="padding:10px;">
+	            <button class="comment-cancel-btn">Cancel</button>
+	            <button id="comment_publish-btn" class="comment-publish-btn">Publish</button>
+	        </div>    
         `);
     }
 });

@@ -37,11 +37,11 @@
 	    <div class="carousel_container"> <!-- 페이지 전체를 중앙 정렬하는 컨테이너 -->
 	        <div class="carousel">
 	            <div class="carousel-track">
-	                <img src="/img/signature.jpg" alt="Image 1">
-	                <img src="/img/signature.jpg" alt="Image 2">
-	                <img src="/img/signature.jpg" alt="Image 3">
-	                <img src="/img/signature.jpg" alt="Image 4">
-	                <img src="/img/signature.jpg" alt="Image 5">
+	                <img src="/img/bg3.jpg" alt="Image 1">
+	                <img src="/img/exilium2.jpg" alt="Image 2">
+	                <img src="/img/helldivers2.jpg" alt="Image 3">
+	                <img src="/img/stalker2.jpg" alt="Image 4">
+	                <img src="/img/zelda.jpg" alt="Image 5">
 	            </div>
 	        </div>
 	    </div>	

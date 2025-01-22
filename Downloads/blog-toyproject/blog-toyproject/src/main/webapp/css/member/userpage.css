@@ -1,5 +1,24 @@
-.sign-column{
+.user_main-container {
+	margin: 0px 250px 90px 250px;
+	position: fixed; 
+	top: 50%; 
+	left: 35%;
+	transform: translate(-50%, -50%);
+	
+}
+
+.user-column{
     margin: 0px 0px 15px 0px;
+}
+
+.user-column > li{
+	list-style: none;
+	text-decoration: none;	
+}
+
+.user_href {
+	text-decoration: none;
+	color: rgba(0,0,0,0.5);	
 }
 
 .member-sign-column{

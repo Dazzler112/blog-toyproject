@@ -45,8 +45,8 @@
                		<input id="add-date" type="text"  class="form-control" name="write_date" style="display:none;" readonly/>
                <br>
 	            <div class="main_post-btn-container">
-	               <button id="add-writer-botton">글쓰기</button>
-	               <a href="/main" id="cancle-writer-botton" style="margin: 0px 0px 0px 10px; text-decoration: none;">취소</a>
+	               <button id="add-writer-button">글쓰기</button>
+	               <a href="/main" id="cancle-writer-button" style="margin: 0px 0px 0px 10px; text-decoration: none;">취소</a>
 				</div>               
             </form>
          </div>
