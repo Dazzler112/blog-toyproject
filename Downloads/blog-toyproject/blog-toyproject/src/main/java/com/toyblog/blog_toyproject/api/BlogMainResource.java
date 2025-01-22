@@ -7,6 +7,7 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.format.annotation.*;
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.*;
 import org.springframework.security.core.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
@@ -30,7 +31,8 @@ public class BlogMainResource {
 	}
 
 	@PostMapping(value = "/post/addpost", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public void addMain(@RequestPart(value = "photoFile", required = false) MultipartFile[] files, 
+	@PreAuthorize("hasAuthority('admin')")
+	public ResponseEntity<Map<String, Object>> addMain(@RequestPart(value = "photoFile", required = false) MultipartFile[] files, 
 						@RequestParam("title") String title,
 				        @RequestParam("body") String body,
 				        @RequestParam("category") String category, 
@@ -49,21 +51,37 @@ public class BlogMainResource {
 		board.setWrite_date(write_date);
 		board.setWriter(authentication.getName());
 		
-		boolean add = blogMainService.addboard(board, files);
+		Map<String, Object> add = blogMainService.addboard(board, files);
 		
-		if(!add) {
-			throw new RuntimeException("게시글 등록 실패");
-		}
+	    if (add != null && !add.isEmpty()) {
+	        // 성공 시
+	        return ResponseEntity.ok(add);
+	    } else {
+	        // 실패 시
+	        Map<String, Object> errorResponse = new HashMap<>();
+	        errorResponse.put("message", "게시물 추가에 실패했습니다.");
+	        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+	    }
 	}
 	
 	@PostMapping("/post/remove")
-	public void deletePost(@RequestBody Integer board_id) {
+	@PreAuthorize("hasAuthority('admin')")
+	public ResponseEntity<Map<String, Object>> deletePost(@RequestBody Integer board_id) {
 		
-		boolean ok = blogMainService.removeMainPost(board_id);
+		Map<String, Object> ok = blogMainService.removeMainPost(board_id);
+		
+		if(ok != null && !ok.isEmpty()) {
+			return ResponseEntity.ok(ok);			
+		} else {
+			Map<String, Object> errorResponse = new HashMap<>();
+			errorResponse.put("message", "fail Delete Post");
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+		}
 	}	
 	
 	@PostMapping(value = "/post/modify/{board_id}" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public void modifyPost(@PathVariable Integer board_id,
+	@PreAuthorize("hasAuthority('admin')")
+	public ResponseEntity<Map<String, Object>> modifyPost(@PathVariable Integer board_id,
 						   @RequestParam(value = "deletePhotoFile", required = false) List<String> removeFiles, 
 						   @RequestPart(value = "photoFile", required = false) MultipartFile[] addFile, 
 						   @RequestParam("title") String title,
@@ -84,7 +102,15 @@ public class BlogMainResource {
 		board.setWrite_date(write_date);
 		board.setWriter(authentication.getName());
 		
-		boolean ok = blogMainService.updatePost(board, removeFiles, addFile);
+		Map<String, Object> ok = blogMainService.updatePost(board, removeFiles, addFile);
+		
+		if(ok != null && !ok.isEmpty()) {
+			return ResponseEntity.ok(ok);			
+		} else {
+			Map<String, Object> errorResponse = new HashMap<>();
+			errorResponse.put("message", "Fail Modify Post");
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+		}
 	}
 	
 	@PostMapping("/post/like")
@@ -152,8 +178,17 @@ public class BlogMainResource {
 	}
 	
 	@PostMapping("/post/views/{board_id}")
-	public void postViews(@PathVariable Integer board_id) {
-		boolean viewOk = blogMainService.postingView(board_id);
+	public ResponseEntity<Map<String, Object>> postViews(@PathVariable Integer board_id) {
+		
+		Map<String, Object> viewOk = blogMainService.postingView(board_id);
+		
+		if(viewOk != null && !viewOk.isEmpty()) {
+			return ResponseEntity.ok(viewOk);			
+		} else {
+			Map<String, Object> errorResponse = new HashMap<>();
+			errorResponse.put("message", "Fail Main View Post");
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+		}
 	}
 	
 	@GetMapping("/post/views/containerview/{board_id}")
