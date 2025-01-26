@@ -97,12 +97,15 @@ $(document).ready(function () {
             contentType: false, // FormData 처리
             success: function (result) {
                 console.log(result + " 성공");
-                alert("수정이 완료되었습니다.");
+                showAlert("게시물 수정이 성공적으로 되었습니다.", "success");
+                setTimeout(() => {
                 window.location.href = `/main/${board_id}`;
+            }, 2000); // 2초 후 이동
+               
             },
             error: function (request, status, error) {
                 console.error(error, "수정 실패");
-                alert("수정 중 문제가 발생하였습니다.");
+                showAlert("수정 중 문제가 발생하였습니다.", "error");
             },
         });
     });

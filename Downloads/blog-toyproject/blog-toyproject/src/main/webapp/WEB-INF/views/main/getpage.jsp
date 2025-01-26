@@ -16,6 +16,7 @@
 	<body>
 	<my:navigation></my:navigation>
 	<my:search></my:search>
+	<my:message></my:message>
 		<div class="main-container">
 			
 			<div id="board_get-container" class="getpage_center-container">

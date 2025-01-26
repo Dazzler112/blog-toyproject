@@ -16,7 +16,7 @@ $("#getboard_likeheart").click(function(){
 			}
 		},
 		error: function(request, status, error) { // 결과 에러 콜백함수
-			alert("로그인을 해주세요!");
+			showAlert("로그인을 해주세요!.", "error");
 			console.log(error + "잘못된 방식");
 		},
 	});
@@ -45,7 +45,7 @@ $(".active_container").on("click", ".board_likeheart", function(){
 			boardItem.find(".like-number").text(data.like_count);//<= 이부분 동적으로 바뀌게 해야함
 		},
 		error: function(request, status, error) { // 결과 에러 콜백함수
-			alert("로그인을 해주세요!");
+			showAlert("로그인을 해주세요!.", "error");
 			console.log(error + "잘못된 방식");
 		},
 	});
@@ -80,7 +80,7 @@ $(document).on("click", ".list_view-likeheart", function () {
             }
         },
         error: function (request, status, error) {
-            alert("로그인을 해주세요!");
+            showAlert("로그인을 해주세요!.", "error");
             console.error("Error:", error);
         },
     });

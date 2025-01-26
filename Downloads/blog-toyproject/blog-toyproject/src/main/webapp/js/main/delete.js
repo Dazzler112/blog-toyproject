@@ -15,12 +15,16 @@ $(document).ready(function() {
                     data: JSON.stringify(selectBoardId),
                     success: function(result) {
                         console.log(result + "성공");
-                        window.location.href = "/main";
-                        alert("삭제에 성공하였습니다.");
+                        
+                        showAlert("삭제가 성공적으로 완료되었습니다.", "success");
+						// 페이지 이동을 잠시 딜레이하여 메시지를 확인할 시간 제공
+			            setTimeout(() => {
+			                window.location.href = "/main";
+			            }, 2000); // 2초 후 이동                        
                     },
                     error: function(request, status, error) {
                         console.log(error + "잘못된 방식");
-                        alert("삭제에 실패하였습니다.");
+                        showAlert("삭제에 실패하였습니다.", "error");
                     },
                 });
             }
