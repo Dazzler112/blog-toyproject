@@ -53,14 +53,15 @@ public class BlogMainResource {
 		
 		Map<String, Object> add = blogMainService.addboard(board, files);
 		
+		Map<String, Object> response = new HashMap<>();
 	    if (add != null && !add.isEmpty()) {
-	        // 성공 시
-	        return ResponseEntity.ok(add);
+	        response.put("status", "success");
+	        response.put("message", "게시물이 성공적으로 추가되었습니다!");
+	        return ResponseEntity.ok(response);
 	    } else {
-	        // 실패 시
-	        Map<String, Object> errorResponse = new HashMap<>();
-	        errorResponse.put("message", "게시물 추가에 실패했습니다.");
-	        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+	        response.put("status", "error");
+	        response.put("message", "게시물 추가에 실패했습니다.");
+	        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(response);
 	    }
 	}
 	

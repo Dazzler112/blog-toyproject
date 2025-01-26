@@ -16,6 +16,7 @@
 	</head>
 	<body>
 	<my:navigation></my:navigation>
+	<my:message></my:message>
 	
 	<div class="view_about-container">
 	  <div class="view_main-about-img-container">

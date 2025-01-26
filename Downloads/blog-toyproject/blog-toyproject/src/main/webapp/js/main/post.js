@@ -26,10 +26,16 @@ $("#add-writer-button").click(function(){
         contentType: false, // FormData 처리 설정
 		success: function(result) { // 결과 성공 콜백함수
 			/*console.log(result);*/
+			showAlert("게시물이 성공적으로 등록되었습니다.", "success");
+			// 페이지 이동을 잠시 딜레이하여 메시지를 확인할 시간 제공
+            setTimeout(() => {
+                window.location.href = "/main";
+            }, 2000); // 2초 후 이동
+            
 			console.log(result + "성공");
-			window.location.href = "/main";
 		},
 		error: function(request, status, error) { // 결과 에러 콜백함수
+			showAlert("게시물 등록에 실패했습니다.", "error");
 			console.log(error + "잘못된 방식");
 		},
 	});
