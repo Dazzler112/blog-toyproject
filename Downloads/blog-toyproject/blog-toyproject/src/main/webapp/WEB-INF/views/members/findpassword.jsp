@@ -14,21 +14,21 @@
 </head>
 <body>
 	<my:navigation></my:navigation>
-	<div class="main-container">
+	<div class="find_password-main-container">
 		<div style="display: flex; justify-content: center;">
 			<div>
 				<input id="authority-space" type="text" name="authority" value="user" style="display: none;"> <input id="membertype-space" type="text" name="member_type" value="user" style="display: none;">
-				<div id="memid"></div>
+				<div id="memid" hidden></div>
 				<!--이메일-->
 				<div class="sign-column">
-					<div>
+					<div style="margin-bottom: 10px;">
 						<span style="margin-right: 35px;">이메일</span>
 					</div>
 					<input type="text" id="mail-sign" name="email"> <input type="button" class="check-button" id="pw-checkEmailBtn" value="인증하기">
 					<div style="margin-left: 10px;" id="pw-mailcheck-blank"></div>
 				</div>
 				<!-- 인증번호 입력 칸 -->
-				<div style="display: none;" id="inputVerificationCode">
+				<div style="display: none;" class="sign-column" id="inputVerificationCode">
 					<div class="input-group">
 						<input type="text" class="form-control" id="verifycode" placeholder="인증번호를 입력하세요" />
 						<button type="button" id="codeemail_Btn" style="display: none;">확인</button>
@@ -39,7 +39,7 @@
 				<!--패스워드-->
 				<div style="display: none;" id="pwmodify-div">
 					<div class="sign-column">
-						<div>
+						<div style="margin-bottom: 10px;">
 							<span style="margin-right: 35px;">비밀번호 * </span>
 						</div>
 						<input type="password" class="sign-input" id="input-password" name="password" placeholder="영문,숫자,특수문자 조합하여 8~20자리" maxlength="20">
@@ -47,7 +47,7 @@
 					</div>
 					<!--패스워드 확인-->
 					<div class="sign-column">
-						<div>
+						<div style="margin-bottom: 10px;">
 							<span>비밀번호 확인 * </span>
 						</div>
 						<input type="password" class="sign-input" id="passwordfind-check" name="password-check" placeholder="위와 동일하게 입력해주세요" maxlength="20">
@@ -58,9 +58,6 @@
 			</div>
 		</div>
 		<br>
-		<div style="display: flex; justify-content: center;">
-			<span id="need-sign" style="color: rgba(252, 168, 149, 0.7); font-size: 9px; margin-bottom: 8px;">* 항목은 필수 사항입니다.</span>
-		</div>
 		<div class="member-sign-column">
 			<input disabled type="submit" id="pwfind-submit" value="변경">
 		</div>
