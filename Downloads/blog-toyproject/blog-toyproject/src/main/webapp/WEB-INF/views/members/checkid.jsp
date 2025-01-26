@@ -15,13 +15,13 @@
 	</head>
 	<body>
 	<my:navigation></my:navigation>
-	<div class="main-container">
+	<div class="find_id-main-container">
 		<div style="display: flex; justify-content: center;">
       		<div>		
 				<!--메일-->
 				 <div class="sign-column">
-	              <div>
-	              	<span style="margin-right: 50px;">email</span>
+	              <div style="margin-bottom: 10px;">
+	              	<span>email</span>
 	              </div>
 	              <input type="text" id="find-email" name="email" maxlength="20">
 	            </div>

@@ -1,3 +1,11 @@
+.find_id-main-container {
+	margin: 0px 250px 90px 250px;
+	position: fixed; 
+	top: 50%; 
+	left: 35%;
+	transform: translate(-50%, -50%);
+}
+
 .sign-column{
     margin: 0px 0px 15px 0px;
 }
@@ -5,4 +13,30 @@
 .member-sign-column{
     display: flex;
     justify-content: center;
+}
+
+#find-email {
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	width: 260px;
+}
+
+#email-btn {
+	border: none;
+	padding: 10px 15px;
+	background: rgb(211,151,115);
+	color: rgb(154,110,110);
+	cursor: pointer;
+	border-radius: 5px;
+	transition: 0.1s color ease-in-out;
+}
+
+#email-btn:hover {
+	color: white;
+}
+
+#findid_div {
+	display: flex;
+	margin-top: 20px;
+	justify-content: center;
 }
