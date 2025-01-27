@@ -13,10 +13,16 @@ $("#delete-submit").click(function(){
 			/*console.log(result);*/
 			console.log(result);
 			
-			window.location.href = "/0/0";
+			showAlert("계정 삭제 완료.", "success");
+			// 페이지 이동을 잠시 딜레이하여 메시지를 확인할 시간 제공
+            setTimeout(() => {
+                window.location.href = "/0/0";
+            }, 2000); // 2초 후 이동
+			
 		},
 		error: function(request, status, error) { // 결과 에러 콜백함수
 			console.log(error + "잘못된 방식");
+			showAlert("삭제중 이상이 발생하였습니다.", "error");
 		},
 	});
 });
