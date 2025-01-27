@@ -24,10 +24,16 @@ $("#signup-submit").click(function(){
 			/*console.log(result);*/
 			console.log(authority);
 			
-			window.location.href = result;
+			showAlert("회원가입 완료.", "success");
+			// 페이지 이동을 잠시 딜레이하여 메시지를 확인할 시간 제공
+            setTimeout(() => {
+                window.location.href = result;
+            }, 2000); // 2초 후 이동			
+			
 		},
 		error: function(request, status, error) { // 결과 에러 콜백함수
 			console.log(error + "잘못된 방식");
+			showAlert("가입 중 이상이 발생하였습니다.", "error");
 		},
 	});
 });

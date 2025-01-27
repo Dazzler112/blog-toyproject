@@ -217,7 +217,11 @@ $("#checkmailBtn").click(function() {
                 searchEmail = false;
             }
         },
-        /*complete: enableSubmit*/ /*<= validation완성되면 해제*/
+        error: function(request, status, error) {
+                // 에러 처리 로직 추가
+                console.log(error + email);
+                showAlert("메일 인증 중 이상이 발생하였습니다.", "error");
+        }
     })
 });
 
@@ -248,6 +252,7 @@ $("#checkEmailBtn").click(function() {
             error: function(request, status, error) {
                 // 에러 처리 로직 추가
                 console.log(error + email);
+                showAlert("메일 인증 중 이상이 발생하였습니다.", "error");
             }
         });
     }
@@ -283,6 +288,11 @@ $("#verifyEmailBtn").click(function() {
                     $("#validEmailMessage").css("color" , "red");
                     $("#validEmailMessage").text("코드가 일치하지 않습니다");
                 }
+            },
+            error: function(request, status, error) {
+                // 에러 처리 로직 추가
+                console.log(error + email);
+                showAlert("메일 인증 중 이상이 발생하였습니다.", "error");
             }
 
         });

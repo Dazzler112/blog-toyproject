@@ -28,7 +28,7 @@
 						<span id="board_get-writedate">date</span>					
 					</div>
 					<div>
-						<a><span>⋮</span></a>
+						<a><span class="triple_link-share">⋮</span></a>
 					</div>					
 				</div>
 				<div class="title-info">
@@ -47,6 +47,15 @@
 			<div class="share_link-container">
 				<span class="get_page-link">🔗</span>
 			</div>
+				
+			<!-- 링크 복사 컨테이너 -->
+			<div id="link-container" style="display: none; position: absolute;">
+			    <div class="link-box">
+			        <input type="text" id="link-input" readonly>
+			        <button id="copy-button">복사</button>
+			        <span id="close-button">X</span>
+			    </div>
+			</div>				
 				
 				<div class="count_container">
 					<div class="">

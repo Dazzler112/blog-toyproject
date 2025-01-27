@@ -22,6 +22,7 @@ $("#email-btn").click(function(){
 			},
 			error: function(request, status, error) { // 결과 에러 콜백함수
 				console.log(error + "잘못된 방식");
+				showAlert("실행 중 이상이 발생하였습니다.", "error");
 			},
 		});
 

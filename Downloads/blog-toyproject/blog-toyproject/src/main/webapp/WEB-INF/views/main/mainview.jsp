@@ -46,7 +46,7 @@
 					<div>
 						<input id="board_id-value" type="text" name="board_id" value="${board.board_id}"  hidden readonly />
 					</div>
-					<div class="status_bar"><a><span>⋮</span></a></div>
+					<div class="status_bar"><a><span class="triple_link-share">⋮</span></a></div>			
 					<a class="get-view" href="/main/${board.board_id}" onclick="getBoard(${board.board_id})" data-board-id="${board.board_id}" >
 						<div class="board_main-title">
 							<h3 id="board-title">${board.title}</h3>
@@ -86,6 +86,16 @@
       </a>
    </div>
    			
+   			
+					<!-- 링크 복사 컨테이너 -->
+			<div id="link-container" style="display: none; position: absolute;">
+				<div class="link-box">
+					<input type="text" id="link-input" readonly>
+					<button id="copy-button">복사</button>
+					<span id="close-button">X</span>
+				</div>
+			</div>	
+					   			
 		</div>
 		
 		
@@ -93,6 +103,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/js/main/likepost.js"></script>	
 	<script src="/js/main/countview.js"></script>
+	<script src="/js/main/linkshare.js"></script>
 	
 	</body>
 </html>

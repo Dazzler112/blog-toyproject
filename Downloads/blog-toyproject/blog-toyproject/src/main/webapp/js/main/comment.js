@@ -40,7 +40,7 @@ $(".comment-container").on("click", "#comment_publish-btn", function () {
         },
         error: function (request, status, error) {
             console.log("Error adding comment:", error);
-            alert("Please SignUp.");
+            showAlert("로그인해 주세요", "error");
         },
     });
 });
@@ -86,7 +86,8 @@ $(".comment-container").on("click", ".update_comment-button", function () {
             commentlist();
         },
         error: function (request, status, error) {
-            console.error("Error fetching comments:", error);
+            console.error("Error comments:", error);
+            showAlert("로그인해 주세요", "error");
         }
     });
 });
@@ -158,7 +159,7 @@ $(".comment-container").on("click", ".commentDeleteButton", function () {
         },
         error: function (request, status, error) {
             console.error("Error deleting comment:", error);
-            alert("댓글 삭제에 실패하였습니다.");
+            showAlert("로그인해 주세요", "error");
         }
     });
 });
