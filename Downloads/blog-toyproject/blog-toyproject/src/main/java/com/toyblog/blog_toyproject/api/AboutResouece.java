@@ -17,19 +17,6 @@ public class AboutResouece {
 	public AboutResouece(BlogAboutService blogAboutService) {
 		this.blogAboutService = blogAboutService;
 	}
-
-// 나중에 Board의 Post에 사용		
-//	@GetMapping("/about/{member_id}/post")
-//	public ResponseEntity<About> retrieveAboutPosts(@PathVariable String member_id) {
-//
-//		About about = blogAboutService.findByMemberId(member_id);
-//		
-//		if(about != null) {
-//			return ResponseEntity.ok(about);
-//		} else {
-//			return ResponseEntity.notFound().build();
-//		}
-//	}
 	
 	@GetMapping("/about/post/{about_id}")
 	public About retrieveAboutPost(@PathVariable Integer about_id) {
@@ -63,6 +50,7 @@ public class AboutResouece {
 	}
 	
 	@PutMapping("/about/{member_id}/post/{about_id}")
+	@PreAuthorize("hasAuthority('admin')")
 	public About updateAboutBody(@PathVariable String member_id,
 							@PathVariable Integer about_id, @RequestBody About about) {
 		

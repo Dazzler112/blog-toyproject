@@ -7,6 +7,11 @@
 	justify-content: center;
 	color: white;
 }
+
+.about_body-container {
+	margin-bottom: 40px;
+}
+
 #about-body{
 	display: flex;
 	justify-content: center;

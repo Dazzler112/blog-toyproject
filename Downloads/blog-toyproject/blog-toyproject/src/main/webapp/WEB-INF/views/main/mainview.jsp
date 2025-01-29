@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <style>
   
 </style>
@@ -77,15 +78,15 @@
 			<br>
 		   </c:forEach>	
 			
-						
-   <div class="div_writer">
-      <a href="/main/post" class="writer_link-color">
-         <div class="board_writer-icon">
-            <span>🖍</span>
-         </div>
-      </a>
-   </div>
-   			
+	<sec:authorize access="hasAuthority('admin')">					
+	   <div class="div_writer">
+	      <a href="/main/post" class="writer_link-color">
+	         <div class="board_writer-icon">
+	            <span>🖍</span>
+	         </div>
+	      </a>
+	   </div>
+   	</sec:authorize>		
    			
 					<!-- 링크 복사 컨테이너 -->
 			<div id="link-container" style="display: none; position: absolute;">

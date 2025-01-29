@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <style>
 </style>
 <html>
@@ -22,16 +23,18 @@
 				<H1>About The Blog</H1>
 			</div>
 			<br>
-			<div>
+			<div class="about_body-container">
 				<div style="display:none;"><span id="about-id_text"></span></div>
 				<div id="about-body">
 					<!-- <span id="about-body_text"></span> -->
 				</div>
 			</div>
-			<div style="display:flex; justify-content: right;">
-				<a href="/about/post"><button id="post-button" style="display:none; margin-right: 10px;">게시</button></a>
-				<a href="/about/post/-1"><button>수정</button></a>
-			</div>
+			<sec:authorize access="hasAuthority('admin')">
+				<div style="display:flex; justify-content: right;">
+					<a href="/about/post"><button id="post-button" style="display:none; margin-right: 10px;">게시</button></a>
+					<a href="/about/post/-1"><button>수정</button></a>
+				</div>
+			</sec:authorize>
 			
 			
 	    <div class="carousel_container"> <!-- 페이지 전체를 중앙 정렬하는 컨테이너 -->
