@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <style>
 </style>
 
@@ -69,16 +70,17 @@
 				
 			</div>
 
-			
-		   <div style="display: flex; margin: 20px 0px;">			
-			   <div class="div_modify">
-			      <button class="button-style" id="modify-link">수정</button>
-			   </div>
-
-				<div class="div_removee">
-				  <button class="button-style" id="remove_post-btn">삭제</button>
-			   </div>
-   		   </div>
+		   <sec:authorize access="hasAuthority('admin')">	
+			   <div style="display: flex; margin: 20px 0px;">			
+				   <div class="div_modify">
+				      <button class="button-style" id="modify-link">수정</button>
+				   </div>
+	
+					<div class="div_removee">
+					  <button class="button-style" id="remove_post-btn">삭제</button>
+				   </div>
+	   		   </div>
+   		   </sec:authorize>
    		   
    		   		<div id="deleteModal" class="modal" style="display:none;">
 				    <div class="modal-content">
