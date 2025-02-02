@@ -1,5 +1,6 @@
 package com.toyblog.blog_toyproject.api;
 
+import java.io.*;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
@@ -69,7 +70,7 @@ public class AboutResouece {
 	@PostMapping(value = "/about/imgpost", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<Map<String, Object>> postImgCreate(
 									@RequestParam(value = "aphotoFile", required = false) MultipartFile[] files,
-									Authentication authentication) {
+									Authentication authentication) throws IOException {
 		
 		AboutImg aboutImg = new AboutImg();
 		aboutImg.setMember_id(authentication.getName());
@@ -77,6 +78,11 @@ public class AboutResouece {
 		Map<String, Object> addImg = blogAboutService.newPostImg(aboutImg, files);
 		
 		Map<String, Object> result = new HashMap<>();
+		if(addImg != null && !addImg.isEmpty()) {
+			return ResponseEntity.ok(result);
+		} else {
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(result);
+		}
 	}
 	
 }
