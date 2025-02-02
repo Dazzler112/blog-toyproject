@@ -5,13 +5,23 @@ import java.util.function.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
+import org.springframework.transaction.annotation.*;
+import org.springframework.web.multipart.*;
 
 import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.mapper.*;
 
+import software.amazon.awssdk.services.s3.*;
+
 @Service
 public class BlogAboutService {
 
+	@Autowired
+	private S3Client s3;
+	
+	@Value("${aws.s3.bucketName}")
+	private String bucketName;	
+	
 	@Autowired
 	private BlogAboutMapper blogAboutMapper;
 	
@@ -21,12 +31,7 @@ public class BlogAboutService {
 		this.blogAboutMapper = blogAboutMapper;
 	}
 	
-// 나중에 Board의 Post에 사용	
-//	public About findByMemberId(String member_id) {
-//		
-//		return blogAboutMapper.findByMemberId(member_id);
-//	}
-	
+
 	
 	public About viewAboutPost(Integer about_id) {
 		
@@ -58,6 +63,25 @@ public class BlogAboutService {
 		blogAboutMapper.insertAboutBody(about);
 
 		aboutit.add(about);
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	public Map<String, Object> newPostImg(AboutImg aboutImg, MultipartFile[] files) {
+		Map<String, Object> result = new HashMap<>();
+		
+		int cnt = blogAboutMapper.insertPhoto(aboutImg);
+		if(files != null && files.length > 0) {
+			for(MultipartFile file : files) {
+				if(file.getSize() > 0) {
+					blogAboutMapper.insertFileName(aboutImg.getAphoto_id(), file.getOriginalFilename());
+					String ObjectKey = "review_blog_project/" + "About" + "/" + aboutImg.getAphoto_id() + "/" + file.getOriginalFilename();
+					
+					
+				}
+			}
+		}
+		
+		return null;
 	}
 
 }

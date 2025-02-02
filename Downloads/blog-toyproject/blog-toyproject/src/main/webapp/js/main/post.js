@@ -2,6 +2,11 @@ $("#add-writer-button").click(function(){
 
 	event.preventDefault();
 	
+	// 버튼 여러 번 클릭 방지
+    const $button = $(this);
+    if ($button.prop("disabled")) return; // 이미 비활성화된 경우 중복 실행 방지
+    $button.prop("disabled", true); // 버튼 비활성화
+	
 	const now = new Date();
 	const koreaTime = new Date(now.getTime() + (9* 60 * 60 * 1000)); // UTC+9
 	const formattedDate = koreaTime.toISOString().slice(0, 16).replace("T", " "); // "YYYY-MM-DD HH:mm"
@@ -37,6 +42,8 @@ $("#add-writer-button").click(function(){
 		error: function(request, status, error) { // 결과 에러 콜백함수
 			showAlert("게시물 등록에 실패했습니다.", "error");
 			console.log(error + "잘못된 방식");
+			
+			$button.prop("disabled", false);
 		},
 	});
 });
