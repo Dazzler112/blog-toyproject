@@ -1,9 +1,13 @@
 package com.toyblog.blog_toyproject.api;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.*;
+import org.springframework.security.core.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.*;
 
 import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.service.*;
@@ -60,6 +64,19 @@ public class AboutResouece {
 		about.getMember_id();
 		
 		return about;
+	}
+	
+	@PostMapping(value = "/about/imgpost", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<Map<String, Object>> postImgCreate(
+									@RequestParam(value = "aphotoFile", required = false) MultipartFile[] files,
+									Authentication authentication) {
+		
+		AboutImg aboutImg = new AboutImg();
+		aboutImg.setMember_id(authentication.getName());
+		
+		Map<String, Object> addImg = blogAboutService.newPostImg(aboutImg, files);
+		
+		Map<String, Object> result = new HashMap<>();
 	}
 	
 }
