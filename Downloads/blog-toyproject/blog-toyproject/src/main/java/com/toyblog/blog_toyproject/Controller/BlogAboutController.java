@@ -24,4 +24,9 @@ public class BlogAboutController {
 		
 		return "about/update";
 	}
+	
+	@GetMapping("/about/img")
+	public String aboutImgPost() {
+		return "about/postimg";
+	}
 }

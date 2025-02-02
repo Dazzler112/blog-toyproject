@@ -1,5 +1,6 @@
 package com.toyblog.blog_toyproject.service;
 
+import java.io.*;
 import java.util.*;
 import java.util.function.*;
 
@@ -11,7 +12,9 @@ import org.springframework.web.multipart.*;
 import com.toyblog.blog_toyproject.dto.*;
 import com.toyblog.blog_toyproject.mapper.*;
 
+import software.amazon.awssdk.core.sync.*;
 import software.amazon.awssdk.services.s3.*;
+import software.amazon.awssdk.services.s3.model.*;
 
 @Service
 public class BlogAboutService {
@@ -66,7 +69,7 @@ public class BlogAboutService {
 	}
 
 	@Transactional(rollbackFor = Exception.class)
-	public Map<String, Object> newPostImg(AboutImg aboutImg, MultipartFile[] files) {
+	public Map<String, Object> newPostImg(AboutImg aboutImg, MultipartFile[] files) throws IOException {
 		Map<String, Object> result = new HashMap<>();
 		
 		int cnt = blogAboutMapper.insertPhoto(aboutImg);
@@ -76,12 +79,20 @@ public class BlogAboutService {
 					blogAboutMapper.insertFileName(aboutImg.getAphoto_id(), file.getOriginalFilename());
 					String ObjectKey = "review_blog_project/" + "About" + "/" + aboutImg.getAphoto_id() + "/" + file.getOriginalFilename();
 					
+					PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+							.bucket(bucketName)
+							.key(ObjectKey)
+							.acl(ObjectCannedACL.PUBLIC_READ)
+							.build();
+					RequestBody requestBody = RequestBody.fromInputStream(file.getInputStream(), file.getSize());
 					
+					s3.putObject(putObjectRequest, requestBody);
 				}
 			}
 		}
+		result.put("aboutImg", cnt);
 		
-		return null;
+		return result;
 	}
 
 }

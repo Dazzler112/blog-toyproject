@@ -100,4 +100,21 @@ public interface BlogAboutMapper {
 			""")
 	void insertAboutBody(About about);
 
+	@Insert("""
+				INSERT 
+				INTO
+				ABOUTIMG(member_id)
+				VALUES(#{member_id})
+			""")
+	@Options(useGeneratedKeys = true, keyProperty = "aphoto_id", keyColumn = "aphoto_id")
+	Integer insertPhoto(AboutImg aboutImg);
+
+	@Insert("""
+				INSERT 
+				INTO
+				ABOUTPHOTO(aphoto_id, photo_name)
+				VALUES(#{aphoto_id}, #{photo_name})			
+			""")
+	Integer insertFileName(Integer aphoto_id, String photo_name);
+
 }
