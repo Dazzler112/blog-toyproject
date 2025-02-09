@@ -39,17 +39,18 @@
 			
 	    <div class="carousel_container"> <!-- 페이지 전체를 중앙 정렬하는 컨테이너 -->
 	        <div class="carousel">
+	                <input name="aphoto_id" value="${aboutImg.aphoto_id}" hidden readonly>
 	            <div class="carousel-track">
-	                <img src="/img/bg3.jpg" alt="Image 1">
-	                <img src="/img/exilium2.jpg" alt="Image 2">
-	                <img src="/img/helldivers2.jpg" alt="Image 3">
-	                <img src="/img/stalker2.jpg" alt="Image 4">
-	                <img src="/img/zelda.jpg" alt="Image 5">
+	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[0]}" alt="Image 1">
+	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[1]}" alt="Image 2">
+	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[2]}" alt="Image 3">
+	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[3]}" alt="Image 4">
+	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[4]}" alt="Image 5">
 	            </div>
 	        </div>
 	    </div>	
 			
-		<div><a href="/about/img">게시</a></div>	
+		<div class="about_img-create-div"><a class="about_img-create-btn" href="/about/img">게시</a></div>	
 			
 		</div>
 	

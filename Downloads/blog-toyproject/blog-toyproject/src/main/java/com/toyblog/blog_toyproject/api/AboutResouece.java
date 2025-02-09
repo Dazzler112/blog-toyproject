@@ -66,7 +66,7 @@ public class AboutResouece {
 		
 		return about;
 	}
-	
+		
 	@PostMapping(value = "/about/imgpost", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<Map<String, Object>> postImgCreate(
 									@RequestParam(value = "aphotoFile", required = false) MultipartFile[] files,

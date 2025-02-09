@@ -6,6 +6,7 @@ public class AboutImg {
 
 	public AboutImg() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	public AboutImg(Integer aphoto_id, String member_id, List<String> photo_name, Integer file_count) {
@@ -47,4 +48,10 @@ public class AboutImg {
 		this.file_count = file_count;
 	}
 	
+	@Override
+	public String toString() {
+		return "AboutImg [aphoto_id=" + aphoto_id + ", member_id=" + member_id + ", photo_name=" + photo_name
+				+ ", file_count=" + file_count + "]";
+	}
+		
 }

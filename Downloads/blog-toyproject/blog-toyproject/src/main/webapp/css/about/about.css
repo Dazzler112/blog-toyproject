@@ -43,3 +43,16 @@
     width: 33.4vw; /* 각 이미지의 너비 */
     object-fit: cover;
 }
+
+
+.about_img-create-div{
+	margin: 20px;
+}
+
+.about_img-create-btn{
+	padding: 10px;
+	background-color: rgb(211,151,115);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+}
