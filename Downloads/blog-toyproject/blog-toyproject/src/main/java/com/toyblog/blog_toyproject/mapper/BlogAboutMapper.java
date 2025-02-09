@@ -1,5 +1,7 @@
 package com.toyblog.blog_toyproject.mapper;
 
+import java.util.*;
+
 import org.apache.ibatis.annotations.*;
 
 import com.toyblog.blog_toyproject.dto.*;
@@ -116,5 +118,20 @@ public interface BlogAboutMapper {
 				VALUES(#{aphoto_id}, #{photo_name})			
 			""")
 	Integer insertFileName(Integer aphoto_id, String photo_name);
+
+	
+	@Select("""
+			SELECT
+			  a.aphoto_id
+			, b.photo_name 
+			FROM
+			ABOUTIMG a
+			LEFT JOIN
+			ABOUTPHOTO b
+			ON
+			a.aphoto_id = b.aphoto_id
+			""")
+	@ResultMap("aboutImgMap")
+	List<AboutImg> getAboutImgPost();
 
 }

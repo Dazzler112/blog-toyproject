@@ -95,4 +95,11 @@ public class BlogAboutService {
 		return result;
 	}
 
+	public List<AboutImg> getAboutImg() {
+		
+		List<AboutImg> aboutImg = blogAboutMapper.getAboutImgPost();
+		
+		return aboutImg;
+	}
+
 }
