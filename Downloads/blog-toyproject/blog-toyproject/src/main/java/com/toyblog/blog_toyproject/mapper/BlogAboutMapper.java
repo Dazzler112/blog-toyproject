@@ -134,4 +134,31 @@ public interface BlogAboutMapper {
 	@ResultMap("aboutImgMap")
 	List<AboutImg> getAboutImgPost();
 
+	@Delete("""
+			DELETE
+			FROM
+			ABOUTPHOTO
+			WHERE
+			aphoto_id = #{aphoto_id}
+			AND
+			photo_name = #{photo_name}
+			""")
+	void deleteAboutPhotoName(Integer aphoto_id, String photo_name);
+
+	@Insert("""
+			INSERT
+			INTO
+			ABOUTPHOTO
+				  (
+				     aphoto_id
+				   , photo_name
+				  )
+			VALUES
+				  (
+				    #{aphoto_id}
+				  , #{photo_name}
+				  )
+			""")
+	void updateAboutPhotoName(Integer aphoto_id, String photo_name);
+
 }

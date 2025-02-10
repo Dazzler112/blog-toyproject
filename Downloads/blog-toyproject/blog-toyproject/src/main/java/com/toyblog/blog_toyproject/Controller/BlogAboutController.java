@@ -40,6 +40,13 @@ public class BlogAboutController {
 	
 	@GetMapping("/about/img")
 	public String aboutImgPost() {
+		
 		return "about/postimg";
+	}
+	
+	@GetMapping("/about/updateimg")
+	public String updateImgPost() {
+		
+		return "about/updateimg";
 	}
 }
