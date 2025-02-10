@@ -21,7 +21,6 @@ $("#add_about-Img-button").click(function(){
 	    }
 	});
 	
-	
 	$.ajax(`/about/imgpost`, {
 		method: "post",
         data: formData,		

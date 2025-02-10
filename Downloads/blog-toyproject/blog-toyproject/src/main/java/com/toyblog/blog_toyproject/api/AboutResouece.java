@@ -85,4 +85,22 @@ public class AboutResouece {
 		}
 	}
 	
+	@PostMapping(value="/about/imgpost/{aphoto_id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<Map<String, Object>>aboutImgModify(@PathVariable Integer aphoto_id,
+															 @RequestParam(value="deleteAboutPhoto", required = false) List<String> removeFiles,
+															 @RequestParam(value = "AboutPhoto",required = false) MultipartFile[] addFile,
+															 Authentication authentication) throws IOException {
+		AboutImg aboutImg = new AboutImg();
+		aboutImg.setMember_id(authentication.getName());
+		
+		Map<String, Object> img = blogAboutService.modifyImg(aboutImg, removeFiles, addFile);
+		
+		Map<String, Object> result = new HashMap<>();
+		if(img != null && !img.isEmpty()) {
+			return ResponseEntity.ok(result);
+		} else {
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(result);
+		}
+	}
+	
 }

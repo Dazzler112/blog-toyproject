@@ -102,4 +102,43 @@ public class BlogAboutService {
 		return aboutImg;
 	}
 
+
+
+	public Map<String, Object> modifyImg(AboutImg aboutImg, List<String> removeFiles, MultipartFile[] addFile) throws IOException {
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		if(removeFiles != null && !removeFiles.isEmpty()) {
+			for(String fileName : removeFiles) {
+				String fileKey = "review_blog_project/" + "About" + "/" + aboutImg.getAphoto_id() + "/" + fileName;
+				DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
+						.bucket(bucketName)
+						.key(fileKey)
+						.build();
+				
+				s3.deleteObject(deleteObjectRequest);
+				
+				blogAboutMapper.deleteAboutPhotoName(aboutImg.getAphoto_id(), fileName);
+			}
+		}
+		
+		if(addFile != null && addFile.length > 0) {
+			for(MultipartFile file : addFile) {
+				blogAboutMapper.updateAboutPhotoName(aboutImg.getAphoto_id(), file.getOriginalFilename());
+				
+				String fileKey = "review_blog_project/" + "About" + "/" + aboutImg.getAphoto_id() + "/" + file.getOriginalFilename();
+				PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+						.acl(ObjectCannedACL.PUBLIC_READ)
+						.bucket(bucketName)
+						.key(fileKey)
+						.build();
+				
+				RequestBody request = RequestBody.fromInputStream(file.getInputStream(), file.getSize());
+				s3.putObject(putObjectRequest, request);
+			}
+		}
+		
+		return result;
+	}
+
 }
