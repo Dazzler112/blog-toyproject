@@ -161,4 +161,19 @@ public interface BlogAboutMapper {
 			""")
 	void updateAboutPhotoName(Integer aphoto_id, String photo_name);
 
+	@Select("""
+			SELECT
+			  a.aphoto_id
+			, a.member_id
+			, b.photo_name 
+			FROM
+			ABOUTIMG a
+			LEFT JOIN
+			ABOUTPHOTO b
+			ON
+			a.aphoto_id = b.aphoto_id
+			""")
+	@ResultMap("aboutImgMap")
+	AboutImg selectImgInfo(Integer aphoto_id);
+
 }
