@@ -20,8 +20,8 @@
             <form action="" method="post" enctype="multipart/form-data">
 
                <div class="main_post-div-container">
-	               <input id="about-writer" type="text"  class="form-control" name="member_id" hidden/>
-	               <input id="about_modi-aphotid" type="text"  class="form-control" name="aphoto_id" />
+	               <input id="about_modi-writer" type="text"  class="form-control" name="member_id"  readonly/>
+	               <input id="about_modi-aphotid" type="text"  class="form-control" name="aphoto_id" readonly/>
                </div>
                
                <div class="main_post-div-container">
@@ -33,6 +33,9 @@
                   <input id="modify_about-file4" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
                   <input id="modify_about-file5" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
                </div>    
+               <br>
+               <span style="font-weight: 600;">기존</span>
+               <div id="about_img-list-container"></div>
                <br>
 	            <div class="main_post-btn-container">
 	               <button id="modify_about-Img-button">게시</button>

@@ -85,21 +85,47 @@ public class AboutResouece {
 		}
 	}
 	
+	@GetMapping("/about/imgpost/{aphoto_id}")
+	public ResponseEntity<Map<String, Object>>getImginfo(@PathVariable Integer aphoto_id) {
+		
+		AboutImg aboutImg = blogAboutService.getImgBoardInfo(aphoto_id);
+		
+		
+	    if (aboutImg == null) {
+	        System.out.println("DB에서 aphoto_id " + aphoto_id + " 의 데이터를 찾을 수 없음."); // 🔥 디버깅 로그
+	    } else {
+	        System.out.println("가져온 데이터: " + aboutImg); // 🔥 디버깅 로그
+	    }
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		if(aboutImg != null) {
+	        result.put("aphoto_id", aboutImg.getAphoto_id());
+	        result.put("member_id", aboutImg.getMember_id());
+	        result.put("photo_name", aboutImg.getPhoto_name());
+			return ResponseEntity.ok(result);
+		} else {
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(result);
+		}
+	}
+	
 	@PostMapping(value="/about/imgpost/{aphoto_id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<Map<String, Object>>aboutImgModify(@PathVariable Integer aphoto_id,
 															 @RequestParam(value="deleteAboutPhoto", required = false) List<String> removeFiles,
 															 @RequestParam(value = "AboutPhoto",required = false) MultipartFile[] addFile,
 															 Authentication authentication) throws IOException {
 		AboutImg aboutImg = new AboutImg();
+		aboutImg.setAphoto_id(aphoto_id);
 		aboutImg.setMember_id(authentication.getName());
 		
 		Map<String, Object> img = blogAboutService.modifyImg(aboutImg, removeFiles, addFile);
-		
-		Map<String, Object> result = new HashMap<>();
+		System.out.println("🚀 modifyImg 결과: " + img);
 		if(img != null && !img.isEmpty()) {
-			return ResponseEntity.ok(result);
+			System.out.println("success" + img);
+			return ResponseEntity.ok(img);
 		} else {
-			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(result);
+			System.out.println("fail" + img);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(img);
 		}
 	}
 	

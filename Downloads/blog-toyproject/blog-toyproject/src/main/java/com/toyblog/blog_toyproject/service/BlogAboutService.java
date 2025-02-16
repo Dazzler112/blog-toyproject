@@ -108,8 +108,12 @@ public class BlogAboutService {
 		
 		Map<String, Object> result = new HashMap<>();
 		
+		System.out.println("🚀 수정 요청 시작: " + aboutImg);
+		
 		if(removeFiles != null && !removeFiles.isEmpty()) {
 			for(String fileName : removeFiles) {
+				System.out.println("❌ 삭제할 파일: " + fileName);
+				
 				String fileKey = "review_blog_project/" + "About" + "/" + aboutImg.getAphoto_id() + "/" + fileName;
 				DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
 						.bucket(bucketName)
@@ -118,12 +122,16 @@ public class BlogAboutService {
 				
 				s3.deleteObject(deleteObjectRequest);
 				
+				 System.out.println("📌 삭제 결과: " + deleteObjectRequest);
+				
 				blogAboutMapper.deleteAboutPhotoName(aboutImg.getAphoto_id(), fileName);
 			}
 		}
 		
 		if(addFile != null && addFile.length > 0) {
 			for(MultipartFile file : addFile) {
+				System.out.println("📂 추가할 파일: " + file.getOriginalFilename());
+				
 				blogAboutMapper.updateAboutPhotoName(aboutImg.getAphoto_id(), file.getOriginalFilename());
 				
 				String fileKey = "review_blog_project/" + "About" + "/" + aboutImg.getAphoto_id() + "/" + file.getOriginalFilename();
@@ -135,10 +143,21 @@ public class BlogAboutService {
 				
 				RequestBody request = RequestBody.fromInputStream(file.getInputStream(), file.getSize());
 				s3.putObject(putObjectRequest, request);
+				
+				System.out.println("📌 추가 결과: " + putObjectRequest);
 			}
 		}
-		
+		System.out.println("🚀 최종 결과: " + result);
 		return result;
+	}
+
+
+
+	public AboutImg getImgBoardInfo(Integer aphoto_id) {
+		
+		AboutImg aboutImg = blogAboutMapper.selectImgInfo(aphoto_id);
+		
+		return aboutImg;
 	}
 
 }
