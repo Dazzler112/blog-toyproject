@@ -21,20 +21,21 @@
 
                <div class="main_post-div-container">
 	               <input id="about-writer" type="text"  class="form-control" name="member_id" hidden/>
+	               <input id="about_modi-aphotid" type="text"  class="form-control" name="aphoto_id" />
                </div>
                
                <div class="main_post-div-container">
                   <label for="add-file" class="form-label"></label>
                   <span style="font-weight: 600;">사진</span>
-                  <input id="add_about-file1" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
-                  <input id="add_about-file2" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
-                  <input id="add_about-file3" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
-                  <input id="add_about-file4" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
-                  <input id="add_about-file5" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
+                  <input id="modify_about-file1" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
+                  <input id="modify_about-file2" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
+                  <input id="modify_about-file3" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
+                  <input id="modify_about-file4" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
+                  <input id="modify_about-file5" class="form-control" type="file"  name="photoFile" accept="image/*" multiple/>
                </div>    
                <br>
 	            <div class="main_post-btn-container">
-	               <button id="add_about-Img-button">게시</button>
+	               <button id="modify_about-Img-button">게시</button>
 	               <a href="/about" id="cancle_about-img-button" style="margin: 0px 0px 0px 10px; text-decoration: none;">취소</a>
 				</div>               
             </form>
