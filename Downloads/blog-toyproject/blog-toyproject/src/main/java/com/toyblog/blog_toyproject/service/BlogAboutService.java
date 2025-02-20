@@ -107,6 +107,7 @@ public class BlogAboutService {
 	public Map<String, Object> modifyImg(AboutImg aboutImg, List<String> removeFiles, MultipartFile[] addFile) throws IOException {
 		
 		Map<String, Object> result = new HashMap<>();
+		boolean isModified = false;
 		
 		System.out.println("🚀 수정 요청 시작: " + aboutImg);
 		
@@ -124,7 +125,8 @@ public class BlogAboutService {
 				
 				 System.out.println("📌 삭제 결과: " + deleteObjectRequest);
 				
-				blogAboutMapper.deleteAboutPhotoName(aboutImg.getAphoto_id(), fileName);
+				int deleteResult = blogAboutMapper.deleteAboutPhotoName(aboutImg.getAphoto_id(), fileName);
+				if (deleteResult > 0) isModified = true; // ✅ 변경 발생
 			}
 		}
 		
@@ -132,7 +134,7 @@ public class BlogAboutService {
 			for(MultipartFile file : addFile) {
 				System.out.println("📂 추가할 파일: " + file.getOriginalFilename());
 				
-				blogAboutMapper.updateAboutPhotoName(aboutImg.getAphoto_id(), file.getOriginalFilename());
+				int insertResult = blogAboutMapper.updateAboutPhotoName(aboutImg.getAphoto_id(), file.getOriginalFilename());
 				
 				String fileKey = "review_blog_project/" + "About" + "/" + aboutImg.getAphoto_id() + "/" + file.getOriginalFilename();
 				PutObjectRequest putObjectRequest = PutObjectRequest.builder()
@@ -145,9 +147,16 @@ public class BlogAboutService {
 				s3.putObject(putObjectRequest, request);
 				
 				System.out.println("📌 추가 결과: " + putObjectRequest);
+				if (insertResult > 0) isModified = true; // ✅ 변경 발생
 			}
 		}
-		System.out.println("🚀 최종 결과: " + result);
+		
+	    if (isModified) {
+	        result.put("status", "success");
+	    } else {
+	        result.put("status", "noChange"); // 변경 사항 없음
+	    }
+	    System.out.println("🚀 최종 결과: " + result);
 		return result;
 	}
 

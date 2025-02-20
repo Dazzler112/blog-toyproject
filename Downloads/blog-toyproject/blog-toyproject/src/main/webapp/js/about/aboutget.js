@@ -30,7 +30,7 @@ function listAbout() {
 
 const track = document.querySelector('.carousel-track'); // 슬라이드 전체 컨테이너
 const images = Array.from(track.children); // 모든 이미지
-const imageWidth = images[0].getBoundingClientRect().width + 10; // 이미지 + 마진 너비
+const imageWidth = images[0].getBoundingClientRect().width + 11; // 이미지 + 마진 너비
 let currentPosition = 0; // 현재 슬라이더 위치
 
 function moveCarousel() {
