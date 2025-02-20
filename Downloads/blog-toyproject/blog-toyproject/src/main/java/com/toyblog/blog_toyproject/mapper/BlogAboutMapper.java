@@ -143,7 +143,7 @@ public interface BlogAboutMapper {
 			AND
 			photo_name = #{photo_name}
 			""")
-	void deleteAboutPhotoName(Integer aphoto_id, String photo_name);
+	Integer deleteAboutPhotoName(Integer aphoto_id, String photo_name);
 
 	@Insert("""
 			INSERT
@@ -159,7 +159,7 @@ public interface BlogAboutMapper {
 				  , #{photo_name}
 				  )
 			""")
-	void updateAboutPhotoName(Integer aphoto_id, String photo_name);
+	Integer updateAboutPhotoName(Integer aphoto_id, String photo_name);
 
 	@Select("""
 			SELECT
