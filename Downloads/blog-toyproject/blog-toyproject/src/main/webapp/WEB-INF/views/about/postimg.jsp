@@ -3,6 +3,7 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+<sec:authorize access="hasAuthority('admin')">
 <html>
 <head>
 		<meta charset="UTF-8">
@@ -49,3 +50,7 @@
 	
 </body>
 </html>
+</sec:authorize>
+<c:if test="${member == null or member.member_type ne 'admin'}">
+	<h1>잘못된 경로입니다.</h1>
+</c:if>

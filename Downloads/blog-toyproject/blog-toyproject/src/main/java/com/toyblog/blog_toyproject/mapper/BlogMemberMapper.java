@@ -130,4 +130,14 @@ public interface BlogMemberMapper {
 			""")
 	String selectMemberEmail(String email);
 
+	@Select("""
+			SELECT
+			member_type
+			FROM
+			MEMBERS
+			WHERE 
+			member_id = #{member_id}
+			""")
+	Members getMemberInfo(String member_id);
+
 }

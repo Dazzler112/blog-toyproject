@@ -131,5 +131,12 @@ public class BlogMemberService {
 		cnt = blogMemberMapper.memberUpdate(member);
 		return cnt == 1;
 	}
+
+	public Members getMemberInfo(String member_id) {
+		
+		Members member = blogMemberMapper.getMemberInfo(member_id);
+		
+		return member;
+	}
 	
 }
