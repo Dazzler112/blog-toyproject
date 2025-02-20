@@ -3,6 +3,7 @@ package com.toyblog.blog_toyproject.Controller;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,9 @@ public class BlogAboutController {
 	@Autowired
 	private BlogAboutService blogAboutService;
 	
+	@Autowired
+	private BlogMemberService blogMemberService;
+	
 	@GetMapping("about")
 	public String aboutPage(Model model) {
 		
@@ -27,25 +31,61 @@ public class BlogAboutController {
 	}
 	
 	@GetMapping("about/post")
-	public String aboutBodyInputPage() {
+	public String aboutBodyInputPage(Authentication authentication, Model model) {
+		
+	    // 인증 정보가 없을 경우 null 체크
+	    if (authentication == null || authentication.getName() == null) {
+	        model.addAttribute("member", null); // 로그인 안 한 상태 전달
+	    } else {
+	        String member_id = authentication.getName();
+	        Members member = blogMemberService.getMemberInfo(member_id);
+	        model.addAttribute("member", member);
+	    }	
 		
 		return "about/post";
 	}
 	
 	@GetMapping("/about/post/-1")
-	public String aboutBodyUpdatePage() {
+	public String aboutBodyUpdatePage(Authentication authentication, Model model) {
+		
+	    // 인증 정보가 없을 경우 null 체크
+	    if (authentication == null || authentication.getName() == null) {
+	        model.addAttribute("member", null); // 로그인 안 한 상태 전달
+	    } else {
+	        String member_id = authentication.getName();
+	        Members member = blogMemberService.getMemberInfo(member_id);
+	        model.addAttribute("member", member);
+	    }	
 		
 		return "about/update";
 	}
 	
 	@GetMapping("/about/img")
-	public String aboutImgPost() {
+	public String aboutImgPost(Authentication authentication, Model model) {
+		
+	    // 인증 정보가 없을 경우 null 체크
+	    if (authentication == null || authentication.getName() == null) {
+	        model.addAttribute("member", null); // 로그인 안 한 상태 전달
+	    } else {
+	        String member_id = authentication.getName();
+	        Members member = blogMemberService.getMemberInfo(member_id);
+	        model.addAttribute("member", member);
+	    }		
 		
 		return "about/postimg";
 	}
 	
 	@GetMapping("/about/updateimg/{aphoto_id}")
-	public String updateImgPost() {
+	public String updateImgPost(Authentication authentication, Model model) {
+		
+	    // 인증 정보가 없을 경우 null 체크
+	    if (authentication == null || authentication.getName() == null) {
+	        model.addAttribute("member", null); // 로그인 안 한 상태 전달
+	    } else {
+	        String member_id = authentication.getName();
+	        Members member = blogMemberService.getMemberInfo(member_id);
+	        model.addAttribute("member", member);
+	    }
 		
 		return "about/updateimg";
 	}

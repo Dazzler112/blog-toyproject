@@ -54,8 +54,12 @@
 				#about_create_img-btn-div {display: none;}	
 			</style>
 		</c:if>	
-		<div class="about_img-create-div" id="about_create_img-btn-div"><a class="about_img-create-btn" href="/about/img">게시</a></div>	
-		<div class="about_img-update-div" id="about_update_img-btn-div"><a class="about_img-update-btn" href="/about/updateimg/${aboutImg.aphoto_id}">수정</a></div>	
+		
+		<sec:authorize access="hasAuthority('admin')">
+			<div class="about_img-create-div" id="about_create_img-btn-div"><a class="about_img-create-btn" href="/about/img">게시</a></div>	
+			<div class="about_img-update-div" id="about_update_img-btn-div"><a class="about_img-update-btn" href="/about/updateimg/${aboutImg.aphoto_id}">수정</a></div>	
+		</sec:authorize>
+		
 		</div>
 	
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		

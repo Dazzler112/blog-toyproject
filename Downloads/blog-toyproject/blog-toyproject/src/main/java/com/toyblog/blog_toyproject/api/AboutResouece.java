@@ -68,6 +68,7 @@ public class AboutResouece {
 	}
 		
 	@PostMapping(value = "/about/imgpost", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@PreAuthorize("hasAuthority('admin')")
 	public ResponseEntity<Map<String, Object>> postImgCreate(
 									@RequestParam(value = "aphotoFile", required = false) MultipartFile[] files,
 									Authentication authentication) throws IOException {
@@ -110,6 +111,7 @@ public class AboutResouece {
 	}
 	
 	@PostMapping(value="/about/imgpost/{aphoto_id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@PreAuthorize("hasAuthority('admin')")
 	public ResponseEntity<Map<String, Object>>aboutImgModify(@PathVariable Integer aphoto_id,
 															 @RequestParam(value="deleteAboutPhoto", required = false) List<String> removeFiles,
 															 @RequestParam(value = "AboutPhoto",required = false) MultipartFile[] addFile,

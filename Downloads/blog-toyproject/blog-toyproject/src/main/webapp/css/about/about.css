@@ -56,3 +56,15 @@
 	border-radius: 5px;
 	text-decoration: none;
 }
+
+.about_img-update-div {
+	margin: 20px;
+}
+
+.about_img-update-btn {
+	padding: 10px;
+	background-color: rgb(211,151,115);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+}

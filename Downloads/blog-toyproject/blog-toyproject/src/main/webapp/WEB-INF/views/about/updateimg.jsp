@@ -3,6 +3,7 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+<sec:authorize access="hasAuthority('admin')">
 <html>
 <head>
 		<meta charset="UTF-8">
@@ -20,8 +21,8 @@
             <form action="" method="post" enctype="multipart/form-data">
 
                <div class="main_post-div-container">
-	               <input id="about_modi-writer" type="text"  class="form-control" name="member_id"  readonly/>
-	               <input id="about_modi-aphotid" type="text"  class="form-control" name="aphoto_id" readonly/>
+	               <input id="about_modi-writer" type="text"  class="form-control" name="member_id"  hidden readonly/>
+	               <input id="about_modi-aphotid" type="text"  class="form-control" name="aphoto_id" hidden readonly/>
                </div>
                
                <div class="main_post-div-container">
@@ -53,3 +54,7 @@
 	
 </body>
 </html>
+</sec:authorize>
+<c:if test="${member == null or member.member_type ne 'admin'}">
+	<h1>잘못된 경로입니다.</h1>
+</c:if>
