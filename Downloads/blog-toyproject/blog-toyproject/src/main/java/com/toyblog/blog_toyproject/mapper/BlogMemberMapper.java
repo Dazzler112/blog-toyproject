@@ -1,5 +1,7 @@
 package com.toyblog.blog_toyproject.mapper;
 
+import java.util.*;
+
 import org.apache.ibatis.annotations.*;
 
 import com.toyblog.blog_toyproject.dto.*;
@@ -139,5 +141,13 @@ public interface BlogMemberMapper {
 			member_id = #{member_id}
 			""")
 	Members getMemberInfo(String member_id);
+
+	@Select("""
+			SELECT
+			*
+			FROM
+			MEMBERS
+			""")
+	List<Members> getMemberListInfo();
 
 }

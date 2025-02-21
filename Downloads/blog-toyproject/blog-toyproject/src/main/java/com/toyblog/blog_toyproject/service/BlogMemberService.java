@@ -138,5 +138,12 @@ public class BlogMemberService {
 		
 		return member;
 	}
+
+	public List<Members> getMemberListInfo() {
+
+		List<Members> member = blogMemberMapper.getMemberListInfo();
+		
+		return member;
+	}
 	
 }
