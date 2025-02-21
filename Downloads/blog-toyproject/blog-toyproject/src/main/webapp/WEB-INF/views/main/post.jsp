@@ -63,3 +63,6 @@
 </body>
 </html>
 </sec:authorize>
+<c:if test="${member == null or member.member_type ne 'admin'}">
+	<h1>잘못된 경로입니다.</h1>
+</c:if>
