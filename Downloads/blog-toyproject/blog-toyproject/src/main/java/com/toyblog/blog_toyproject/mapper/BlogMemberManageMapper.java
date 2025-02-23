@@ -17,4 +17,14 @@ public interface BlogMemberManageMapper {
 			""")
 	Integer setUserBlock(Members members);
 
+	@Update("""
+			UPDATE
+			MEMBERS
+			SET
+			 member_type = #{member_type}
+			WHERE
+			 member_id = #{member_id}			
+			""")
+	Integer setUserRemove(Members member);
+
 }

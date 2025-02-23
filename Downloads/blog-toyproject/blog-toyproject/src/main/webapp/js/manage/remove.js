@@ -1,14 +1,14 @@
-$(".user_block-button").click(function(){
+$(".user_remove-button").click(function(){
 	
 	const row = $(this).closest("tr");
     // 해당 행에서 값 가져오기
     const member_id = row.find(".manage_user-list").text().trim();  
-    const member_type = "user0"; 
+    const member_type = "user"; 
     
     console.log("🚀 선택된 member_id:", member_id);
-    console.log("🚀 member_type을 강제로 'user0'으로 설정"); 
+    console.log("🚀 member_type을 강제로 'user'으로 설정"); 
 	
-	$.ajax(`/manage/block/${member_id}`, {
+	$.ajax(`/manage/remove/${member_id}`, {
 		method: "post",
 		contentType: "application/json",
         data: JSON.stringify({
@@ -18,6 +18,9 @@ $(".user_block-button").click(function(){
 		success: function(result) { // 결과 성공 콜백함수  
 		
 			showAlert("변경 완료.", "success");
+			setTimeout(() => {
+                window.location.href = "/manage";
+            }, 0)
 			console.log(result + "성공");
 		},
 		error: function(request, status, error) { // 결과 에러 콜백함수

@@ -30,6 +30,12 @@
 						<li><a href="/4?member_id=<sec:authentication property="name" />" class="user_href">Member Delete</a></li>
 					</sec:authorize>
 				</div>
+				
+				<div class="user-column">
+					<sec:authorize access="hasAuthority('admin')">	
+						<li><a href="/manage" class="user_href">User Manage</a></li>
+					</sec:authorize>
+				</div>
 
 			</div>
 		</div>

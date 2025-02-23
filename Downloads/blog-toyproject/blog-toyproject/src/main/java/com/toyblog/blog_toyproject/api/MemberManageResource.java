@@ -36,4 +36,26 @@ public class MemberManageResource {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
 		}
 	}
+	
+	@PostMapping("/manage/remove/{member_id}")
+	public ResponseEntity<Map<String, Object>> userRemove(@PathVariable String member_id
+														  ,@RequestBody Map<String, String> requestBody
+														  ,Authentication authentication) {
+		
+		String member_type = requestBody.get("member_type");
+		
+		Members member = new Members();
+		member.setMember_type(member_type);
+		member.setMember_id(member_id);
+		
+		Map<String, Object> result = blogMemberManageService.setUserRemove(member);
+		
+		if(result != null) {
+			System.out.println("성공" + result);
+			return ResponseEntity.ok(result);
+		} else {
+			System.out.println(result);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
+		}
+	}
 }
