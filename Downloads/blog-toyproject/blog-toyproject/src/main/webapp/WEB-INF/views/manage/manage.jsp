@@ -38,8 +38,12 @@
 	</div>	
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="/js/manage/manage.js"></script>
+	<script src="/js/manage/block.js"></script>
+	<script src="/js/manage/remove.js"></script>	
 	
 	</body>
 </html>
 </sec:authorize>
+<c:if test="${member == null or member.member_type ne 'admin'}">
+	<h1>잘못된 경로입니다.</h1>
+</c:if>

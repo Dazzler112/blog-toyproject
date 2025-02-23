@@ -24,4 +24,15 @@ public class BlogMemberManageService {
 		
 		return result;
 	}
+
+	public Map<String, Object> setUserRemove(Members member) {
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		int cnt = blogMemberManageMapper.setUserRemove(member);
+		
+		result.put("removeUser", cnt);
+		
+		return result;
+	}
 }
