@@ -3,6 +3,8 @@ package com.toyblog.blog_toyproject.service;
 import java.io.*;
 import java.util.*;
 
+import org.jsoup.*;
+import org.jsoup.safety.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
@@ -227,7 +229,12 @@ public class BlogMainService {
 
 	public Map<String, Object> addComment(BoardReply boardReply, Authentication authentication) {
 		
+		// 🚨 HTML 태그 제거
+		String cleanComment = Jsoup.clean(boardReply.getComment_body(), Safelist.none());
+		
 		boardReply.setMember_id(authentication.getName());
+		boardReply.setComment_body(cleanComment);		
+
 		
 		Map<String, Object> result = new HashMap<>();
 		
@@ -259,7 +266,12 @@ public class BlogMainService {
 
 	public Map<String, Object> commentUpdate(BoardReply boardReply) {
 		
+		// 🚨 HTML 태그 제거
+		String cleanComment = Jsoup.clean(boardReply.getComment_body(), Safelist.none());
+		boardReply.setComment_body(cleanComment);		
+		
 		int cnt = blogCommentMapper.updateComment(boardReply);
+
 		
 		Map<String, Object> result = new HashMap<>();
 		

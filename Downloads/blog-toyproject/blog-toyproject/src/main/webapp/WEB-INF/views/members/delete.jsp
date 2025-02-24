@@ -14,6 +14,7 @@
 	</head>
 	<body>
 	<my:navigation></my:navigation>
+	<my:message></my:message>
 	<div class="delete_user-main-container">
 		<input type="text" id="delete-member_id" name="member_id" value="${member.member_id}" style="display: none;" readonly>
 		<input type="text" id="delete-authmember_id" name="member_id" value="${memberAuth.member_id}" style="display: none;" readonly>	

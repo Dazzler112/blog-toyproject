@@ -14,6 +14,7 @@
 </head>
 <body>
 	<my:navigation></my:navigation>
+	<my:message></my:message>
 	<div class="member_modify-container">
 		<div style="display: flex; justify-content: center;">
 			<div>

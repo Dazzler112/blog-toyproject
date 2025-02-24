@@ -58,8 +58,7 @@ public class SpringSecurityBasicAuthConfiguration {
 				.authorizeHttpRequests(
 						auth -> 
 							auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-//							.anyRequest().authenticated()
-							.requestMatchers("/manage/**").hasAuthority("admin") 
+//							.anyRequest().authenticated()						
 							.anyRequest().permitAll()
 							)
 				.httpBasic(Customizer.withDefaults())
@@ -67,7 +66,7 @@ public class SpringSecurityBasicAuthConfiguration {
 						session -> session.sessionCreationPolicy
 									(SessionCreationPolicy.IF_REQUIRED)
 						)
-				.csrf(csrf -> csrf.disable()) // CSRF 비활성화 (필요 시 활성화)
+				.csrf().disable()
 				
 				.formLogin((formLogin) ->
 				formLogin
