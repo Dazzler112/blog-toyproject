@@ -25,7 +25,14 @@ $(".comment-container").on("click", "#comment_publish-btn", function () {
     const comment_date = koreaDate.toISOString().split("T")[0]; // YYYY-MM-DD 형식 추출
 
     const board_id = $("#board_get-id").val();
-    const comment_body = $("#comment_write-box").val();
+    let comment_body = $("#comment_write-box").val().trim();
+    
+    // 🚨 HTML 태그가 포함되어 있으면 alert 후 return
+    if (/<[a-z][\s\S]*>/i.test(comment_body)) {
+        alert("HTML 태그는 사용할 수 없습니다.");
+        return;
+    }
+    
     const data = { board_id, comment_body, comment_date };
 
     $.ajax(`/post/comment`, {
@@ -71,6 +78,13 @@ $(".comment-container").on("click", ".update_comment-button", function () {
 	
     const reply_id = $("#comment_replyid").val();
     const comment_body = $("#commentUpdateTextArea").val();
+    
+    // 🚨 HTML 태그가 포함되어 있으면 alert 후 return
+    if (/<[a-z][\s\S]*>/i.test(comment_body)) {
+        alert("HTML 태그는 사용할 수 없습니다.");
+        return;
+    }
+    
     const data = {
         reply_id: reply_id,
         comment_body: comment_body,

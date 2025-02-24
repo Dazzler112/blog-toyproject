@@ -17,7 +17,7 @@ $("#delete-submit").click(function(){
 			// 페이지 이동을 잠시 딜레이하여 메시지를 확인할 시간 제공
             setTimeout(() => {
                 window.location.href = "/0/0";
-            }, 2000); // 2초 후 이동
+            }, 1000); // 1초 후 이동
 			
 		},
 		error: function(request, status, error) { // 결과 에러 콜백함수
