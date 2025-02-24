@@ -1,8 +1,9 @@
-<a href="https://github.com/Dazzler112/blog-toyproject/pulls?q=is%3Apr+is%3Aclosed">김명수 커밋 이력</a>
+🔗 <a href="https://github.com/Dazzler112/blog-toyproject/pulls?q=is%3Apr+is%3Aclosed">김명수 커밋 이력</a>
+<br>
+<br>
 
 
-
-<img src="![about사진](https://github.com/user-attachments/assets/fdc97fc3-b7b7-44d3-b58d-31fde397ab24)"/>
+<img src="https://github.com/user-attachments/assets/fdc97fc3-b7b7-44d3-b58d-31fde397ab24"/>
 
 
 
@@ -16,7 +17,7 @@
 
 
 
-<h2>개발자</h2>
+<h2>프로젝트 명단</h2>
 김명수
 
 
@@ -48,14 +49,14 @@
 
 
 <h2>Skills</h2>
-Java 17
-JavaScript ES6
-JQuery
-JSP, JSTL
-SpringBoot 3.3.4
-Mybatis
-MariaDB
-AWS EC2, S3, IAM
+Java 17, 
+JavaScript ES6, 
+JQuery, 
+JSP, JSTL, 
+SpringBoot 3.3.4, 
+Mybatis, 
+MariaDB, 
+AWS EC2, S3, IAM, 
 Git
 
 
