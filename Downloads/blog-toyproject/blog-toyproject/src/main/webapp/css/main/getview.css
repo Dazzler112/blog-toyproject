@@ -86,9 +86,14 @@
 	white-space: pre-line;
 }
 
+.get_triple_link-share {
+	cursor: pointer;
+}
+
 .triple_link-share {
 	cursor: pointer;
 }
+
 
 .get_page-link {
 	cursor: pointer;	
@@ -156,6 +161,60 @@
 }
 
 #close-button:hover {
+    color: #333;
+}
+
+/*여기까지*/
+
+/*링크복사페이지*/
+
+#get_link-container {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    width: 300px;
+    text-align: center;
+}
+
+#get_link-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#get_copy-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#get_copy-button:hover {
+    background-color: #0056b3;
+}
+
+#get_close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #999;
+}
+
+#get_close-button:hover {
     color: #333;
 }
 
