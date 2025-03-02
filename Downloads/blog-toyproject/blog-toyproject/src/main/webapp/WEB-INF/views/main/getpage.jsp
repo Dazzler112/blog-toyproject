@@ -29,8 +29,19 @@
 						<span id="board_get-writedate">date</span>					
 					</div>
 					<div>
-						<a><span class="triple_link-share">⋮</span></a>
-					</div>					
+						<a><span class="get_triple_link-share">⋮</span></a>
+					</div>	
+					
+								<!-- 링크 복사 컨테이너 -->
+								<div id="get_link-container" style="display: none; position: absolute;">
+								    <div class="link-box">
+								        <input type="text" id="get_link-input" readonly>
+								        <button id="get_copy-button">복사</button>
+								        <span id="get_close-button">X</span>
+								    </div>
+								</div>	
+					
+									
 				</div>
 				<div class="title-info">
 					<h3 id="board_get-title">title</h3>
@@ -205,7 +216,8 @@
 	<script src="/js/main/likepost.js"></script>
 	<script src="/js/main/comment.js"></script>
 	<script src="/js/main/viewcontainer.js"></script>
-	
+	<script src="/js/main/linkshare.js"></script>
+	<script src="/js/main/sharelink.js"></script>
 	<my:bottom></my:bottom>	
 	</body>
 </html>
