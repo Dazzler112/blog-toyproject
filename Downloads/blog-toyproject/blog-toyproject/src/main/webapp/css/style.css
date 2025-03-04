@@ -16,3 +16,5 @@
 @import "member/modify.css";
 @import "member/userpage.css";
 @import "member/signup.css";
+
+@import "manage/manage.css";

@@ -16,7 +16,7 @@
 	</head>
 	<body>	
 	<my:message></my:message>	
-	<div>
+	<div class="manage_main-container">
 		<table>
 			<thead>
 				<tr>
@@ -26,12 +26,21 @@
 			</thead>
 			<tbody>
 					<c:forEach items="${memberList}" var="member">
-						<tr>
-							<td class="manage_user-list">${member.member_id}</td>
-							<td class="manage_user-type">${member.member_type}</td>
-							<td><button class="user_block-button">block</button></td>
-							<td><button class="user_remove-button">remove</button></td>
-						</tr>
+							<tr>
+								<!--어드민은 안보이게 설정-->
+								<c:if test="${member.member_type ne 'admin'}">
+								
+									<td class="manage_user-list">${member.member_id}</td>
+									<td class="manage_user-type">${member.member_type}</td>
+									<c:if test="${member.member_type eq 'user'}">
+										<td><button class="user_block-button">block</button></td>
+									</c:if>
+									<c:if test="${member.member_type eq 'user0' }">
+										<td><button class="user_remove-button">remove</button></td>
+									</c:if>
+									
+								</c:if>
+							</tr>
 					</c:forEach>
 			</tbody>
 		</table>
