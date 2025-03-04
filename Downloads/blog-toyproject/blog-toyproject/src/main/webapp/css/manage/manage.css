@@ -1,0 +1,38 @@
+.manage_main-container {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin-top: 50px;
+}
+
+table>thead>tr>th {
+   padding: 10px;
+   border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+table>tbody>tr>.manage_user-list,
+table>tbody>tr>.manage_user-type {
+   padding: 10px;
+   border-bottom: 1px solid rgba(0,0,0,0.2);
+   text-align: center;
+}
+
+.user_block-button {
+	border: none;
+	background-color: #f4511e;
+	padding: 10px;
+	border-radius: 6px;
+	color: white;
+	cursor: pointer;
+	margin-left: 20px;
+}
+
+.user_remove-button {
+	border: none;
+	background-color: rgb(223,173,105);
+	padding: 10px;
+	border-radius: 6px;
+	color: white;
+	cursor: pointer;
+	margin-left: 10px;
+}
