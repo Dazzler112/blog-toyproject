@@ -186,24 +186,24 @@
    							
 			</div>	
    			
-   			<div class="comment-container">
-   				<div style="padding: 20px 100px;">
-   				<div class="comment_count-container">
-	   				<div class="comment_count-container-sub">
-	   					<span id="comment_count-id"></span> <span>Comment</span>
+	   			<div class="comment-container">
+	   				<div style="padding: 20px 100px;">
+	   				<div class="comment_count-container">
+		   				<div class="comment_count-container-sub">
+		   					<span id="comment_count-id"></span> <span>Comment</span>
+		   				</div>
 	   				</div>
-   				</div>
-   				</div>
-   				<div class="comment_write-container">
-   					<textarea placeholder="Write a comment..." rows="6" cols="120" id="comment_write-box"></textarea>
-   				</div>
-   				<div class="comment_write-container-btn">
-   				</div>
-   				<div id="comment_reply-container"></div>
-   				<div class="update_comment-container">
-
-				</div>
-   			</div>
+	   				</div>
+	   				<div class="comment_write-container">
+	   					<textarea placeholder="Write a comment..." rows="6" cols="120" id="comment_write-box"></textarea>
+	   				</div>
+	   				<div class="comment_write-container-btn">
+	   				</div>
+	   				<div id="comment_reply-container"></div>
+	   				<div class="update_comment-container">
+	
+					</div>
+	   			</div>
    			
 		</div>
 		

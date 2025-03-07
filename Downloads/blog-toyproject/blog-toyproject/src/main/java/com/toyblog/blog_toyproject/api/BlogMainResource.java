@@ -20,6 +20,8 @@ public class BlogMainResource {
 
 	@Autowired
 	private BlogMainService blogMainService;
+	@Autowired
+	private BlogMemberService blogMemberService;
 	
 	@GetMapping("/post/{board_id}")
 	public ResponseEntity<Board> getPostBoard(@PathVariable Integer board_id, 
@@ -143,8 +145,20 @@ public class BlogMainResource {
 	}
 	
 	@PostMapping("/post/comment")
+	@PreAuthorize("hasAuthority('admin') or hasAuthority('user')")
 	public ResponseEntity<Map<String, Object>> addComment(@RequestBody BoardReply boardReply,
 														  Authentication authentication) {
+		
+		String member_id = authentication.getName();
+		Members member = blogMemberService.getMemberInfo(member_id);
+		
+		if(member == null) {
+			return ResponseEntity.status(403).body(Map.of("message", "Invalid user."));
+		}
+		
+		if("user0".equals(member.getMember_type())) {
+			return ResponseEntity.status(403).body(Map.of("message", "Your account is suspended."));
+		}
 		
 		if(authentication == null) {
 			return ResponseEntity

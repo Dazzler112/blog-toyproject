@@ -6,7 +6,7 @@ $("#comment_write-box").click(function () {
         $(".comment_write-container-btn").html(`
         	<div style="padding:10px;">
 	            <button class="comment-cancel-btn">Cancel</button>
-	            <button id="comment_publish-btn" class="comment-publish-btn">Publish</button>
+	            	<button id="comment_publish-btn" class="comment-publish-btn">Publish</button>
 	        </div>    
         `);
     }
@@ -33,6 +33,7 @@ $(".comment-container").on("click", "#comment_publish-btn", function () {
         return;
     }
     
+    
     const data = { board_id, comment_body, comment_date };
 
     $.ajax(`/post/comment`, {
@@ -46,6 +47,11 @@ $(".comment-container").on("click", "#comment_publish-btn", function () {
             commentlist(); // 댓글 목록 갱신
         },
         error: function (request, status, error) {
+            // 🚨 서버에서 403 Forbidden 반환 시
+            if (request.status === 403) {
+				showAlert("해당 계정은 활동이 정지되었습니다. 문의는 메일로 주세요.", "error");
+                return;
+            }					
             console.log("Error adding comment:", error);
             showAlert("로그인해 주세요", "error");
         },
