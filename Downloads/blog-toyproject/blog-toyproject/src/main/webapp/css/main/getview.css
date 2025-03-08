@@ -306,6 +306,7 @@
 }
 .comment_write-container-btn {
 	display: flex;
+	justify-content: flex-end;
 }
 .count_container {
 	display: flex;

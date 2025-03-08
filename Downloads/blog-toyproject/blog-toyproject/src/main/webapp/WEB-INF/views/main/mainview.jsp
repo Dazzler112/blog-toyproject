@@ -58,8 +58,8 @@
 					</a>
 					<div class="active_container" data-board-id="${board.board_id}">
 						<div>
-						<span>${board.views}</span><span>views</span>
-						<span>comment ${board.reply_count}</span>
+						<span class="view_count-text">${board.views}</span><span>views</span>
+						<span class="comment_count-text">${board.reply_count}</span><span>comment</span>
 						</div>
 						<div>
 				            <span class="board_likeheart">

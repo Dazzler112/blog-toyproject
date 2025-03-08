@@ -32,6 +32,18 @@ body {
 	border: none;
 	cursor: pointer;
 }
+
+.search_bar {
+border: none;
+outline: none;
+border-bottom: 2px solid rgba(0,0,0,0.2);
+transition: 0.2s border-bottom ease-in-out;
+}
+
+.search_bar:focus {
+border-bottom: 2px solid rgb(223,173,105);
+}
+
 </style>
 <body>
 	<div class="mcontainer">
