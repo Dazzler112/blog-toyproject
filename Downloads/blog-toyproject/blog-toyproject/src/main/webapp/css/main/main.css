@@ -194,17 +194,32 @@
 
 .comment-cancel-btn {
 	border: none;
-	background-color: rgba(0,0,0,0.1);
-	padding: 10px;
-	border-radius: 5px;
 	cursor: pointer;
 	margin-right: 5px;
+	background-color: white;
+	color: rgb(223,173,105);
+	transition: 0.1s color ease-in-out;
+}
+
+.comment-cancel-btn:hover {
+	color: rgba(223,173,105,0.4);
 }
 
 .comment-publish-btn {
 	border: none;
-	background-color: rgba(0,0,0,0.1);	
+	background-color: rgb(223,173,105);
+	color: white;
 	padding: 10px;
 	border-radius: 5px;
 	cursor: pointer;	
+	transition: 0.1s background-color ease-in-out;
+}
+
+.comment-publish-btn:hover {
+	background-color: rgb(223,173,105,0.4);
+}
+
+.comment_count-text,
+.view_count-text {
+	margin: 2px;
 }
