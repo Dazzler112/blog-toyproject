@@ -20,7 +20,7 @@ public class BlogAboutController {
 	@Autowired
 	private BlogMemberService blogMemberService;
 	
-	@GetMapping("about")
+	@RequestMapping(value = {"about", "/"}, method = RequestMethod.GET)
 	public String aboutPage(Model model) {
 		
 		List<AboutImg> result = blogAboutService.getAboutImg();
@@ -88,5 +88,10 @@ public class BlogAboutController {
 	    }
 		
 		return "about/updateimg";
+	}
+	
+	@GetMapping("/test")
+	public String elasticBeansTalkTest() {
+		return"about/test";
 	}
 }
