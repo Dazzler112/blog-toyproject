@@ -12,7 +12,7 @@
 	margin-bottom: 40px;
 }
 
-#about-body{
+#about-body {
 	display: flex;
 	justify-content: center;
 	padding: 0px 200px;
@@ -24,26 +24,50 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 400px;  /* 고정 높이 */
+    overflow: hidden; /* 중요: 넘치는 내용 숨김 */
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .carousel {
-    width: 100%; /* 보이는 슬라이더 영역 */
+    width: 100%;
+    max-width: 1500px;  /* carousel의 최대 너비, 필요에 따라 조정 */
+    height: 100%;
     overflow: hidden;
+    position: relative;
     border: 2px solid #ccc;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
 }
 
 .carousel-track {
     display: flex;
     transition: transform 1s ease;
+    width: fit-content;  /* Track 너비를 내용물에 맞게 설정 */
+    height: 100%;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-track > div {
+    flex: 0 0 auto;
+    width: 34%;  /* 이미지 3개 */
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-track img {
-    width: 33.4vw; /* 각 이미지의 너비 */
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    display: block;
 }
-
 
 .about_img-create-div{
 	margin: 20px;

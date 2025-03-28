@@ -13,6 +13,7 @@
     justify-content: space-between; /* 양쪽 여백 확보 */
     align-items: flex-start; /* 위쪽 정렬 */
     margin-bottom: 20px; /* 리스트 간격 */
+    zoom-width: 0.5;
 }
 
 /* 이미지 영역 */
@@ -222,4 +223,23 @@
 .comment_count-text,
 .view_count-text {
 	margin: 2px;
+}
+
+/* 미디어 쿼리 (화면 너비에 따라 배치 변경) */
+@media (max-width: 768px) {
+    .main_get-listview-container {
+        flex-direction: column;
+    }
+    #board-container {
+        flex-direction: column;
+    }
+    .main_view-divcontainer {
+        width: 100%;
+    }
+    .main_view-divcontainer-b {
+        width: 100%;
+    }
+    .main-container {
+        margin: 0px 10px 90px 10px;
+    }
 }

@@ -3,6 +3,10 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <style>
+body {
+    min-width: 1500px;  /* Set a minimum width for the entire page */
+    background-color: black;
+}
 </style>
 <html>
 	<head>
@@ -41,11 +45,21 @@
 	        <div class="carousel">
 	                <input name="aphoto_id" value="${aboutImg.aphoto_id}" hidden readonly>
 	            <div class="carousel-track">
+	            <div>
 	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[0]}" alt="Image 1">
+	            </div>
+	            <div>    
 	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[1]}" alt="Image 2">
+	            </div>
+	            <div>    
 	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[2]}" alt="Image 3">
+	            </div>
+	            <div>    
 	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[3]}" alt="Image 4">
+	            </div>
+	            <div>    
 	                <img src="${bucketUrl}/About/${aboutImg.aphoto_id}/${aboutImg.photo_name[4]}" alt="Image 5">
+	            </div>
 	            </div>
 	        </div>
 	    </div>	
